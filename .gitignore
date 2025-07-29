@@ -32,6 +32,13 @@
 *.a
 *.lib
 
+# cmake files
+.cache
+compile_commands.json
+
+#git
+.git
+
 # Executables and output
 build
 *.exe

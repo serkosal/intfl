@@ -15,13 +15,25 @@ class Directory : public File
 {
 private:
     std::map<fs::path, FilePtr> children;
+
+    void print(
+        std::vector<bool> nesting_map, 
+        size_t max_depth, 
+        size_t max_listing_n
+    ) override;
+
 public:
     Directory(const fs::path& path);
 
     bool exists() const 
     { return _m_type == fs::file_type::directory; }
 
-    void print(std::vector<bool> nesting_map = {}) override;
+    void print(size_t max_depth = 5, size_t max_listing_n = 15) 
+    { 
+        Directory::print(
+            {}, max_depth, max_listing_n
+        ); 
+    }
     // std::string to_json();
 
     ~Directory();
@@ -46,18 +58,31 @@ Directory::Directory(const fs::path& path)
     }
 }
 
-void Directory::print(std::vector<bool> nesting_map)
+void Directory::print(std::vector<bool> nesting_map, size_t max_depth, size_t max_listing_n)
 {
-    File::print(nesting_map);
+    if (nesting_map.size() > max_depth) return;
 
+    File::print(nesting_map, 0, 0);
+
+    size_t counter = 0;
     for (auto it = children.begin(); it != children.end(); ++it)
     {
         auto new_nesting_map = nesting_map;
+
+        if (++counter > max_listing_n)
+        {
+            std::string files_skipped = "files skipped: "; 
+            files_skipped += std::to_string(children.size() - max_listing_n);
+
+            new_nesting_map.push_back(false);
+            std::cout << nesting_repr(new_nesting_map, files_skipped) << "\n";
+            
+            return;
+        }
+
         new_nesting_map.push_back(std::next(it) != children.end());
-
-        it->second->print(new_nesting_map);
+        it->second->print(new_nesting_map, max_depth, max_listing_n);
     }
-
 }
 
 Directory::~Directory()

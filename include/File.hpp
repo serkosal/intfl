@@ -11,34 +11,35 @@ class File
 protected:
     fs::path _m_path;
     fs::file_type _m_type;
-
-    size_t   _m_depth;
 public:
-    size_t get_depth() const { return _m_depth; }
+    virtual void print(std::vector<bool> nesting_map);
 
-    virtual void print(bool is_last = false);
-
-    File(const fs::path& path, fs::file_type type, size_t depth = 0);
+    File(const fs::path& path, fs::file_type type);
     ~File();
 };
 
-void File::print(bool is_last)
+void File::print(std::vector<bool> nesting_map)
 {
-    for (int i = 1; i < _m_depth; ++i)
-        std::cout << "│  ";
-
-    if (_m_depth)
+    int sz = nesting_map.size();
+    for (int lvl = 0; lvl < sz - 1; ++lvl)
     {
-        if (is_last) std::cout << "└──";
+        if (nesting_map[lvl])
+            std::cout << "│  ";
+        else
+            std::cout << "   "; 
+    }
+    
+    if (sz)
+    {
+        if (!nesting_map[sz - 1]) std::cout << "└──";
         else std::cout << "├──";
     }
-
-
+    
     std::cout << _m_path.filename().generic_string() << "\n";
 }
 
-File::File(const fs::path& path, fs::file_type type, size_t depth)
-: _m_path{path}, _m_type{type}, _m_depth{depth}
+File::File(const fs::path& path, fs::file_type type)
+: _m_path{path}, _m_type{type}
 {
 }
 

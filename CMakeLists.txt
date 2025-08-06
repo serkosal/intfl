@@ -5,3 +5,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 project(intfl)
 
 add_executable(intfl src/main.cpp)
+target_include_directories(
+    intfl PRIVATE "include"
+)

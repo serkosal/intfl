@@ -47,3 +47,6 @@ build
 
 # debug information files
 *.dwo
+
+# IDE
+.vscode

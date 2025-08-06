@@ -1,20 +1,18 @@
 #include <iostream>
-#include <filesystem>
 
-int main() {
-  std::filesystem::path dirpath = ".";
+#include "Directory.hpp"
 
-  if (std::filesystem::exists(dirpath)
-      && std::filesystem::is_directory(dirpath))
-    for (const auto& entry : std::filesystem::directory_iterator(dirpath))
-    {        
-      std::cout << "File: " << entry.path() << "\n";
-      
+int main()
+{
+    Directory dir(".");
+
+    if (!dir.exists())
+    {
+        std::cerr << "Directory not found!\n";
+        return 1;
     }
+    
+    dir.print();
 
-  else
-    std::cerr << "Directory not found!\n";
-  
-  std::cout << "Initial commit\n";
-  return 0;
+    return 0;
 }

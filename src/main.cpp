@@ -49,7 +49,15 @@ int main()
         char str[80];
         getstr(str);
         while (strcmp(str, "quit") != 0)
-                getstr(str);
+        {
+            getstr(str);
+            if (strcmp(str, "redraw") == 0)
+            {
+                clear();
+                dir.print();
+                refresh();
+            }
+        }
         endwin();
     #endif
 

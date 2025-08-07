@@ -1,5 +1,11 @@
 #pragma once
 
+#ifdef USE_N_CURSES
+    #include <ncurses.h>
+#else
+    #include <iostream>
+#endif
+
 #include <filesystem>
 #include <map>
 #include <memory>
@@ -75,7 +81,14 @@ void Directory::print(std::vector<bool> nesting_map, size_t max_depth, size_t ma
             files_skipped += std::to_string(children.size() - max_listing_n);
 
             new_nesting_map.push_back(false);
-            std::cout << nesting_repr(new_nesting_map, files_skipped) << "\n";
+            files_skipped = nesting_repr(new_nesting_map, files_skipped);
+
+            #ifdef USE_N_CURSES
+                printw("%s\n", files_skipped.c_str());
+                refresh();
+            #else
+                std::cout << files_skipped << "\n";
+            #endif
             
             return;
         }

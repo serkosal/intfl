@@ -1,5 +1,5 @@
 # intfs
-Interactive file listing
+Interactive file listing.
 
 # Planed feautures
 

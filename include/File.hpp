@@ -1,7 +1,12 @@
 #pragma once
 
+#ifdef USE_N_CURSES
+    #include <ncurses.h>
+#else
+    #include <iostream>
+#endif
+
 #include <filesystem>
-// #include <iostream>
 #include <vector>
 #include <string>
 
@@ -55,7 +60,14 @@ public:
         size_t max_listing_n = 0
     )
     {
-        std::cout << nesting_repr(nesting_map, _m_path.filename().string()) << "\n";
+        auto fileStr = nesting_repr(nesting_map, _m_path.filename().string());
+        #ifdef USE_N_CURSES
+            printw("%s\n", fileStr.c_str());
+            refresh();
+        #else
+            std::cout << fileStr << "\n";
+        #endif
+            
     }
 
     File(const fs::path& path, fs::file_type type);

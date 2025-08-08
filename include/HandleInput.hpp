@@ -15,11 +15,20 @@
 
 struct InputHandler
 {
-    std::wstring command;
+public:
+
+    // std::wstring consume_command()
+    // {
+    //     auto res = command;
+    //     command = L"";
+
+    //     return res;
+    // }
 
     // returns zero on success
-    bool get_command()
+    bool get_command(std::wstring& command)
     {
+        command = L"";
         #ifdef USE_N_CURSES
 
             wint_t wch;
@@ -49,7 +58,6 @@ struct InputHandler
 
                 res = wget_wch(stdscr, &wch);
             }
-
             return 0;
 
         #else

@@ -17,10 +17,11 @@ void mainLoop(const Directory &dir)
 {
     InputHandler mainInputHandler;
 
-    auto res = mainInputHandler.get_command();
-    while (mainInputHandler.command != L"quit")
+    std::wstring cmd = L"";
+    auto cmd_read_status = mainInputHandler.get_command(cmd);
+    while (cmd != L"quit")
     {
-        if (res)
+        if (cmd_read_status)
         {
             #ifdef USE_N_CURSES
                 NcursesColors::ERROR.on();
@@ -33,7 +34,7 @@ void mainLoop(const Directory &dir)
             continue;
         }
 
-        if (mainInputHandler.command == L"redraw")
+        if (cmd == L"redraw")
         {
             #ifdef USE_N_CURSES
                 clear();
@@ -43,15 +44,15 @@ void mainLoop(const Directory &dir)
                 dir.print();
             #endif
         }
-        else if (mainInputHandler.command == L"help")
+        else if (cmd == L"help")
         {
             #ifdef USE_N_CURSES
                 NcursesColors::NOTICE.on();
-                    addwstr(L"\nquit\nredraw\n");
+                    addwstr(L"\nUse commands:\n\nquit\nredraw\n");
                 NcursesColors::NOTICE.off();
                 refresh();
             #else
-                dir.print();
+                std::wcout << "Use commands:\nquit\nredraw\n";
             #endif
         }
         else
@@ -66,6 +67,6 @@ void mainLoop(const Directory &dir)
             #endif
         }
 
-        res = mainInputHandler.get_command();
+        cmd_read_status = mainInputHandler.get_command(cmd);
     }
 }

@@ -32,15 +32,41 @@ std::wstring nesting_repr(
     for (int lvl = 0; lvl < sz - 1; ++lvl)
     {
         if (nesting_map[lvl])
-            res += L"│   ";
+        {
+            #ifdef USE_N_CURSES
+                res += L"│   ";
+            #else
+                res += L"|   ";
+            #endif
+        }
         else
-            res += L"    "; 
+        {
+            #ifdef USE_N_CURSES
+                res += L"    "; 
+            #else
+                res += L"    ";
+            #endif
+        }   
     }
     
     if (sz)
     {
-        if (!nesting_map[sz - 1]) res += L"└── ";
-        else res += L"├── ";
+        if (!nesting_map[sz - 1])
+        {
+            #ifdef USE_N_CURSES
+                res += L"└── ";
+            #else
+                res += L"|__ ";
+            #endif
+        }
+        else
+        {
+            #ifdef USE_N_CURSES
+                res += L"├── ";
+            #else
+                res += L"|-- ";
+            #endif
+        }
     }
 
     res += filename;

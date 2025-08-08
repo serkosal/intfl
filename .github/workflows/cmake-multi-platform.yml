@@ -43,6 +43,8 @@ jobs:
             c_compiler: gcc
           - os: windows-latest
             c_compiler: clang
+          - os: windows-latest
+            use_n_curses: ON
           - os: ubuntu-latest
             c_compiler: cl
 

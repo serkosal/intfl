@@ -1,7 +1,10 @@
-// #include <iostream>
+// to tell idiot IntelleSense stop ignoring ncurses block codes
+// #define USE_N_CURSES 
+
 #ifdef USE_N_CURSES
     #include <ncurses.h>
     #include <cstring>
+    #include "Colors.hpp"
 #else
     #include <iostream>
 #endif
@@ -14,13 +17,15 @@ int main()
     #ifdef USE_N_CURSES
         setlocale(LC_ALL, "");
         initscr();
-        cbreak();
-        noecho();
-        keypad(stdscr, TRUE); // enables f1, f2, ... ; and also arrows keys
+        // cbreak();
+        // noecho();
+        //keypad(stdscr, TRUE); // enables f1, f2, ... ; and also arrows keys
 
-        printw("Using NCURSES!\n");
-    #else 
-        std::cout << "using standard library!'n"; 
+        NcursesColors::init();
+        if (!NcursesColors::isColors())
+            printw("Colors are unsupported. Running without them!\n");
+    #else
+        std::cout << "Running without NCurses, colors are unsupported!\n";
     #endif
     
 
@@ -29,18 +34,13 @@ int main()
     if (!dir.exists())
     {
         #ifdef USE_N_CURSES
-            printw("Directory not found!\n");
+            NcursesColors::ERROR.on();
+                printw("Directory not found!\n");
+            NcursesColors::ERROR.off();
             refresh();
-            char str[80];
-            getstr(str);
-            while (strcmp(str, "quit") != 0)
-                getstr(str);
-            endwin();
         #else
             std::cerr << "Directory not found!\n";
         #endif
-        
-        return 1;
     }
     
     dir.print();
@@ -50,13 +50,28 @@ int main()
         getstr(str);
         while (strcmp(str, "quit") != 0)
         {
-            getstr(str);
             if (strcmp(str, "redraw") == 0)
             {
                 clear();
                 dir.print();
                 refresh();
             }
+            else if (strcmp(str, "help") == 0)
+            {
+                NcursesColors::NOTICE.on();
+                    printw("quit\n");
+                    printw("redraw\n");
+                NcursesColors::NOTICE.off();
+                refresh();
+            }
+            else
+            {
+                NcursesColors::ERROR.on();
+                    printw("Unrecognized command!\nType help to see commands list\n");
+                NcursesColors::ERROR.off();
+                refresh();
+            }
+            getstr(str);
         }
         endwin();
     #endif

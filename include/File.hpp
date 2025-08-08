@@ -1,7 +1,12 @@
 #pragma once
 
+// to tell idiot IntelleSense stop ignoring ncurses block codes
+// #define USE_N_CURSES 
+
+
 #ifdef USE_N_CURSES
     #include <ncurses.h>
+    #include "Colors.hpp"
 #else
     #include <iostream>
 #endif
@@ -60,12 +65,22 @@ public:
         size_t max_listing_n = 0
     )
     {
-        auto fileStr = nesting_repr(nesting_map, _m_path.filename().string());
+        auto nesting_str = nesting_repr(nesting_map);
+        auto filename_str = _m_path.filename().string();
         #ifdef USE_N_CURSES
-            printw("%s\n", fileStr.c_str());
+
+            printw(nesting_str.c_str());
+
+            bool is_dir = (_m_type == fs::file_type::directory);
+            if (is_dir)
+                NcursesColors::FS_Directory.on();
+                    printw("%s\n", filename_str.c_str());
+            if (is_dir)
+                NcursesColors::FS_Directory.off();
+
             refresh();
         #else
-            std::cout << fileStr << "\n";
+            std::cout << nesting_str << filename_str << "\n";
         #endif
             
     }

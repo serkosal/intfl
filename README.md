@@ -14,14 +14,16 @@ Interactive file listing
 
  - [x] basic file listing
  - [x] limit shown quantity of files and depth of directories 
- - [i] colorization
+ - [x] colorization
+ - [ ] better input handling
+ - [ ] command line arguments
  - [ ] get rid of recursion
  - [ ] usage of colors from LS_COLORS     
- - [ ] command line arguments
+
  - [ ] ignore to parse/show/auto update specified files/patterns/directories' content
  - [ ] config files
  - [ ] expand/collapse, recursive expand/collapse
- - [ ] mouse & keyboard support
+ - [ ] mouse support
  - [ ] command line
  - [ ] fuzzy search 
  - [ ] caching parsed directories based on date of modification

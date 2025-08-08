@@ -13,18 +13,24 @@ Interactive file listing.
 # TODO
 
  - [x] basic file listing
- - [x] limit shown quantity of files and depth of directories 
- - [i] colorization
- - [ ] get rid of recursion
- - [ ] usage of colors from LS_COLORS     
+ - [x] limit quantity of shown files and depth of directories 
+ - [x] colorization
+ - [x] basic keyboard support
+ - [x] basic commands support 
+ - [ ] better input handling
  - [ ] command line arguments
+ - [ ] add color support of executables files
+ - [ ] get rid of recursion
+ - [ ] usage of colors from LS_COLORS
+
  - [ ] ignore to parse/show/auto update specified files/patterns/directories' content
- - [ ] config files
+ - [ ] mouse support
+ - [ ] better commands, availability to launch shell commands
  - [ ] expand/collapse, recursive expand/collapse
- - [ ] mouse & keyboard support
+ - [ ] config files
  - [ ] command line
  - [ ] fuzzy search 
- - [ ] caching parsed directories based on date of modification
+ - [ ] caching parsed directories based on last modification date
  - [ ] memozition of directories layouts
  - [ ] watch for files updates
  - [ ] doxygen documentation

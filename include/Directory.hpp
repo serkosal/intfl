@@ -2,6 +2,7 @@
 
 #ifdef USE_N_CURSES
     #include <ncurses.h>
+    #include "Colors.hpp"
 #else
     #include <iostream>
 #endif
@@ -81,10 +82,14 @@ void Directory::print(std::vector<bool> nesting_map, size_t max_depth, size_t ma
             files_skipped += std::to_string(children.size() - max_listing_n);
 
             new_nesting_map.push_back(false);
-            files_skipped = nesting_repr(new_nesting_map, files_skipped);
 
             #ifdef USE_N_CURSES
-                printw("%s\n", files_skipped.c_str());
+                printw("%s", nesting_repr(new_nesting_map).c_str());
+                
+                NcursesColors::NOTICE.on();
+                    printw("%s\n", files_skipped.c_str());
+                NcursesColors::NOTICE.off();
+
                 refresh();
             #else
                 std::cout << files_skipped << "\n";

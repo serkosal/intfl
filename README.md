@@ -1,6 +1,16 @@
 # intfs
 Interactive file listing
 
+
+# Dependencies
+ncurses**W** - for unicode support.
+ncurses      - for colors and mouse support on many of the UNIX systems. 
+
+- for usage libncurses6 
+- for unicode symbols usage support libncursesw6 
+- for compiling libncurses-dev 
+- for man-pages ncurses-doc
+
 # Planed feautures
 
 - 1. limit displayed files, to avoid visual cluttering.
@@ -16,10 +26,11 @@ Interactive file listing
  - [x] limit quantity of shown files and depth of directories 
  - [x] colorization
  - [x] basic keyboard support
- - [x] basic commands support 
- - [ ] better input handling
- - [ ] command line arguments
- - [ ] add color support of executables files
+ - [x] basic commands support
+ - [x] unicode support
+ - [x] better input handling
+ - [ ] support command line arguments
+ - [ ] add color support of executables files & different file extensions
  - [ ] get rid of recursion
  - [ ] usage of colors from LS_COLORS
 

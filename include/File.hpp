@@ -5,7 +5,7 @@
 
 
 #ifdef USE_N_CURSES
-    #include <ncurses.h>
+    #include <ncursesw/curses.h>
     #include "Colors.hpp"
 #else
     #include <iostream>
@@ -18,29 +18,29 @@
 namespace fs = std::filesystem;
 
 // helper printer function
-std::string nesting_repr(
+std::wstring nesting_repr(
     const std::vector<bool>& nesting_map, 
-    const std::string& filename = ""
+    const std::wstring& filename = L""
 )
 {
     int sz = nesting_map.size();
 
 
-    std::string res;
+    std::wstring res;
     res.reserve(sz * 3);
 
     for (int lvl = 0; lvl < sz - 1; ++lvl)
     {
         if (nesting_map[lvl])
-            res += "│   ";
+            res += L"│   ";
         else
-            res += "    "; 
+            res += L"    "; 
     }
     
     if (sz)
     {
-        if (!nesting_map[sz - 1]) res += "└── ";
-        else res += "├── ";
+        if (!nesting_map[sz - 1]) res += L"└── ";
+        else res += L"├── ";
     }
 
     res += filename;
@@ -63,24 +63,24 @@ public:
         // Directory::print
         size_t max_depth = 0, 
         size_t max_listing_n = 0
-    )
+    ) const
     {
         auto nesting_str = nesting_repr(nesting_map);
-        auto filename_str = _m_path.filename().string();
+        auto filename_str = _m_path.filename().wstring() + L'\n';
         #ifdef USE_N_CURSES
 
-            printw(nesting_str.c_str());
+            addwstr(nesting_str.c_str());
 
             bool is_dir = (_m_type == fs::file_type::directory);
             if (is_dir)
                 NcursesColors::FS_Directory.on();
-                    printw("%s\n", filename_str.c_str());
+                    addwstr(filename_str.c_str());
             if (is_dir)
                 NcursesColors::FS_Directory.off();
 
             refresh();
         #else
-            std::cout << nesting_str << filename_str << "\n";
+            std::wcout << nesting_str << filename_str;
         #endif
             
     }

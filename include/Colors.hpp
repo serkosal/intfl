@@ -6,7 +6,7 @@
 // #define USE_N_CURSES 
 
 #ifdef USE_N_CURSES
-    #include <ncurses.h>
+    #include <ncursesw/curses.h>
     #include <cstring>
 #else
     #include <iostream>

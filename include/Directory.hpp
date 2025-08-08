@@ -1,7 +1,7 @@
 #pragma once
 
 #ifdef USE_N_CURSES
-    #include <ncurses.h>
+    #include <ncursesw/curses.h>
     #include "Colors.hpp"
 #else
     #include <iostream>
@@ -27,7 +27,7 @@ private:
         std::vector<bool> nesting_map, 
         size_t max_depth, 
         size_t max_listing_n
-    ) override;
+    ) const override;
 
 public:
     Directory(const fs::path& path);
@@ -35,13 +35,13 @@ public:
     bool exists() const 
     { return _m_type == fs::file_type::directory; }
 
-    void print(size_t max_depth = 5, size_t max_listing_n = 15) 
+    void print(size_t max_depth = 5, size_t max_listing_n = 15) const
     { 
         Directory::print(
             {}, max_depth, max_listing_n
         ); 
     }
-    // std::string to_json();
+    // std::wstring to_json();
 
     ~Directory();
 };
@@ -65,7 +65,11 @@ Directory::Directory(const fs::path& path)
     }
 }
 
-void Directory::print(std::vector<bool> nesting_map, size_t max_depth, size_t max_listing_n)
+void Directory::print(
+    std::vector<bool> nesting_map, 
+    size_t max_depth, 
+    size_t max_listing_n
+) const
 {
     if (nesting_map.size() > max_depth) return;
 
@@ -78,21 +82,22 @@ void Directory::print(std::vector<bool> nesting_map, size_t max_depth, size_t ma
 
         if (++counter > max_listing_n)
         {
-            std::string files_skipped = "files skipped: "; 
-            files_skipped += std::to_string(children.size() - max_listing_n);
+            std::wstring files_skipped = L"files skipped: "; 
+            files_skipped += std::to_wstring(children.size() - max_listing_n) + L'\n';
 
             new_nesting_map.push_back(false);
+            std::wstring nesting_str = nesting_repr(new_nesting_map);
 
             #ifdef USE_N_CURSES
-                printw("%s", nesting_repr(new_nesting_map).c_str());
+                addwstr(nesting_str.c_str());
                 
                 NcursesColors::NOTICE.on();
-                    printw("%s\n", files_skipped.c_str());
+                    addwstr(files_skipped.c_str());
                 NcursesColors::NOTICE.off();
 
                 refresh();
             #else
-                std::cout << files_skipped << "\n";
+                std::wcout << files_skipped;
             #endif
             
             return;

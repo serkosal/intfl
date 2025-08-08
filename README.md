@@ -16,8 +16,9 @@ Interactive file listing.
  - [x] limit quantity of shown files and depth of directories 
  - [x] colorization
  - [x] basic keyboard support
- - [x] basic commands support 
+ - [x] basic commands support
  - [ ] better input handling
+ - [ ] paging support
  - [ ] command line arguments
  - [ ] add color support of executables files
  - [ ] get rid of recursion

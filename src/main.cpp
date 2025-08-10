@@ -2,7 +2,7 @@
 // #define USE_N_CURSES 
 
 #ifdef USE_N_CURSES
-    #include <ncursesw/curses.h>
+    #include <ncursesw/ncurses.h>
     #include <cstring>
     #include "Colors.hpp"
 #else
@@ -31,7 +31,7 @@ int main()
     #endif
 
     Window mainWin(y - 10, x, 0, 0);
-    Window cmdsWin(10,     x, y - 9, 0);
+    Window cmdsWin(10, x, y - 10, 0, 100, x);
 
     NcursesColors::init();
     if (!NcursesColors::isColors())

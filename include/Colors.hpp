@@ -6,10 +6,20 @@
 // #define USE_N_CURSES 
 
 #ifdef USE_N_CURSES
-    #include <ncursesw/curses.h>
+    #include <ncursesw/ncurses.h>
     #include <cstring>
 #else
     #include <iostream>
+
+    enum {
+        COLOR_BLACK,
+        COLOR_YELLOW,
+        COLOR_RED,
+        COLOR_WHITE,
+        COLOR_BLUE,
+        COLOR_GREEN
+    };
+
 #endif
 
 
@@ -32,16 +42,20 @@ public:
             id = ++last_id;
         }
 
+
         COLOR_STRUCT(short fg)
         : COLOR_STRUCT(fg, COLOR_BLACK) 
         {}
 
     public:
 
+        #ifdef USE_N_CURSES
         void on(WINDOW* win) const
         { 
+           
             if (NcursesColors::isColors())
-                wattron(win, COLOR_PAIR(id)); 
+                wattron(win, COLOR_PAIR(id));
+            
         }
 
         void off(WINDOW* win) const
@@ -49,6 +63,12 @@ public:
             if (NcursesColors::isColors())
                 wattroff(win, COLOR_PAIR(id)); 
         }
+        #else
+        void on() const {}
+        void off() const {}
+        #endif
+
+
     };
 
     inline static const COLOR_STRUCT
@@ -80,13 +100,13 @@ public:
     {
         #ifdef USE_N_CURSES
             hasColors = has_colors();
+
+            if(hasColors)
+            {	
+                start_color();
+                for (short i = 0; i < colors.size(); ++i)
+                    init_pair(colors[i].id, colors[i].fg, colors[i].bg);
+            }
         #endif
-        
-        if(hasColors)
-        {	
-            start_color();
-            for (short i = 0; i < colors.size(); ++i)
-                init_pair(colors[i].id, colors[i].fg, colors[i].bg);
-        }
     }
 };

@@ -8,19 +8,19 @@
 #include "Window.hpp"
 
 #ifdef USE_N_CURSES
-    #include <ncursesw/curses.h>
+    #include <ncursesw/ncurses.h>
 #endif
 
 struct InputHandler
 {
 public:
     // returns zero on success
-    bool get_command(const Window& win, std::wstring& command)
+    bool get_command(const Window& cmdsWin, Window& mainWin, std::wstring& command)
     {
         command = L"";
         #ifdef USE_N_CURSES
             wint_t wch;
-            auto res = wget_wch(win.get_ptr(), &wch);
+            auto res = wget_wch(cmdsWin.get_ptr(), &wch);
 
             while (wch != WEOF && wch != L'\n' && wch != L'\r' )
             {
@@ -34,8 +34,19 @@ public:
                     else if (wch == KEY_BACKSPACE && command.size())
                     {
                         command.resize(command.size() - 1);
-                        win.printcr(command);
+                        cmdsWin.printcr(command);
                     }
+                    else if (wch == KEY_UP)
+                    {
+                        mainWin.scrollY(-1);
+                        mainWin.refresh();
+                    }
+                    else if (wch == KEY_DOWN)
+                    {
+                        mainWin.scrollY(1);
+                        mainWin.refresh();
+                    }
+                        
                 }
                 else if (res == ERR)
                 {
@@ -46,10 +57,10 @@ public:
                 {
                     command += static_cast<wchar_t>(wch);
                     wchar_t buf[2] = {static_cast<wchar_t>(wch), L'\0'};
-                    win.printr(std::wstring(buf));
+                    cmdsWin.printr(std::wstring(buf));
                 }
 
-                res = wget_wch(win.get_ptr(), &wch);
+                res = wget_wch(cmdsWin.get_ptr(), &wch);
             }
 
             return 0;

@@ -6,7 +6,7 @@
 #include "HandleInput.hpp"
 
 #ifdef USE_N_CURSES
-    #include <ncursesw/curses.h>
+    #include <ncursesw/ncurses.h>
     #include <cstring>
 #else
     #include <iostream>
@@ -18,14 +18,14 @@
 
 void mainLoop(
     const Directory &dir,
-    const Window& mainWin,
-    const Window& cmdsWin
+    Window& mainWin,
+    Window& cmdsWin
 )
 {
     InputHandler mainInputHandler;
 
     std::wstring cmd = L"";
-    auto cmd_read_status = mainInputHandler.get_command(cmdsWin, cmd);
+    auto cmd_read_status = mainInputHandler.get_command(cmdsWin, mainWin, cmd);
     while (cmd != L"quit")
     {
         if (cmd_read_status)
@@ -55,6 +55,6 @@ void mainLoop(
             );
         }
 
-        cmd_read_status = mainInputHandler.get_command(cmdsWin, cmd);
+        cmd_read_status = mainInputHandler.get_command(cmdsWin, mainWin, cmd);
     }
 }

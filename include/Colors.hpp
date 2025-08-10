@@ -33,16 +33,16 @@ class NcursesColors {
         : COLOR_STRUCT(fg, COLOR_BLACK) 
         {}
 
-        void on() const
+        void on(WINDOW* win) const
         { 
             if (NcursesColors::isColors())
-                attron(COLOR_PAIR(id)); 
+                wattron(win, COLOR_PAIR(id)); 
         }
 
-        void off() const
+        void off(WINDOW* win) const
         { 
             if (NcursesColors::isColors())
-                attroff(COLOR_PAIR(id)); 
+                wattroff(win, COLOR_PAIR(id)); 
         }
     };
 
@@ -77,7 +77,8 @@ public:
     {
         hasColors = has_colors();
         if(hasColors)
-        {	start_color();
+        {	
+            start_color();
             for (short i = 0; i < colors.size(); ++i)
                 init_pair(colors[i].id, colors[i].fg, colors[i].bg);
         }

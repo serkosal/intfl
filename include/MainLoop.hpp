@@ -13,20 +13,30 @@
     #include <iostream>
 #endif
 
-void mainLoop(const Directory &dir)
+#ifdef USE_N_CURSES
+    void mainLoop(const Directory &dir, WINDOW* mainwin, WINDOW* cmdswin)
+#else
+    void mainLoop(const Directory &dir)
+#endif
 {
     InputHandler mainInputHandler;
 
     std::wstring cmd = L"";
-    auto cmd_read_status = mainInputHandler.get_command(cmd);
+    #ifdef USE_N_CURSES
+        auto cmd_read_status = mainInputHandler.get_command(cmdswin, cmd);
+    #else
+        auto cmd_read_status = mainInputHandler.get_command(cmd);
+    #endif
     while (cmd != L"quit")
     {
         if (cmd_read_status)
         {
             #ifdef USE_N_CURSES
-                NcursesColors::ERROR.on();
-                    addwstr(L"\nAn error occured while handling command input!\n");
-                NcursesColors::ERROR.off();
+                wclear(cmdswin);
+                NcursesColors::ERROR.on(cmdswin);
+                    waddwstr(cmdswin, L"\nAn error occured while handling command input!\n");
+                NcursesColors::ERROR.off(cmdswin);
+                wrefresh(cmdswin);
             #else
                 std::wcerr << L"\nAn error occured while handling command input!\n";
             #endif
@@ -37,9 +47,9 @@ void mainLoop(const Directory &dir)
         if (cmd == L"redraw")
         {
             #ifdef USE_N_CURSES
-                clear();
-                dir.print();
-                refresh();
+                wclear(mainwin);
+                dir.print(mainwin);
+                wrefresh(mainwin);
             #else
                 dir.print();
             #endif
@@ -47,10 +57,10 @@ void mainLoop(const Directory &dir)
         else if (cmd == L"help")
         {
             #ifdef USE_N_CURSES
-                NcursesColors::NOTICE.on();
-                    addwstr(L"\nUse commands:\n\nquit\nredraw\n");
-                NcursesColors::NOTICE.off();
-                refresh();
+                NcursesColors::NOTICE.on(cmdswin);
+                    waddwstr(cmdswin, L"\nUse commands:\n\nquit\nredraw\n");
+                NcursesColors::NOTICE.off(cmdswin);
+                wrefresh(cmdswin);
             #else
                 std::wcout << "Use commands:\nquit\nredraw\n";
             #endif
@@ -58,15 +68,19 @@ void mainLoop(const Directory &dir)
         else
         {
             #ifdef USE_N_CURSES
-                NcursesColors::ERROR.on();
-                    addwstr(L"\nUnrecognized command!\nType help to see commands list\n");
-                NcursesColors::ERROR.off();
-                refresh();
+                NcursesColors::ERROR.on(cmdswin);
+                    waddwstr(cmdswin, L"\nUnrecognized command!\nType help to see commands list\n");
+                NcursesColors::ERROR.off(cmdswin);
+                wrefresh(cmdswin);
             #else
                 std::wcout << "Unrecognized command!\nType help to see commands list\n";
             #endif
         }
 
-        cmd_read_status = mainInputHandler.get_command(cmd);
+        #ifdef USE_N_CURSES
+            auto cmd_read_status = mainInputHandler.get_command(cmdswin, cmd);
+        #else
+            auto cmd_read_status = mainInputHandler.get_command(cmd);
+        #endif
     }
 }

@@ -27,7 +27,7 @@ ncurses      - for colors and mouse support on many of the UNIX systems.
  - [x] colorization
  - [x] basic keyboard support
  - [x] basic commands support
- - [x] unicode support
+ - [ ] unicode support
  - [x] better input handling
  - [ ] support command line arguments
  - [ ] add color support of executables files & different file extensions
@@ -36,7 +36,7 @@ ncurses      - for colors and mouse support on many of the UNIX systems.
 
  - [ ] ignore to parse/show/auto update specified files/patterns/directories' content
  - [ ] mouse support
- - [ ] better commands, availability to launch shell commands
+ - [ ] better commands, ability to launch shell commands
  - [ ] expand/collapse, recursive expand/collapse
  - [ ] config files
  - [ ] command line

@@ -26,37 +26,48 @@ public:
     // }
 
     // returns zero on success
+    #ifdef USE_N_CURSES
+    bool get_command(WINDOW* win, std::wstring& command)
+    #else
     bool get_command(std::wstring& command)
+    #endif
     {
         command = L"";
         #ifdef USE_N_CURSES
 
             wint_t wch;
-            auto res = wget_wch(stdscr, &wch);
+            auto res = wget_wch(win, &wch);
             while (wch != WEOF && wch != L'\n' && wch != L'\r' )
             {
-                if (res == OK)
-                {
-                    command += static_cast<wchar_t>(wch);
-                    addwstr(&command.back());
-                    refresh();
-                }
-                else if (res == KEY_CODE_YES)
+                if (res == KEY_CODE_YES)
                 {
                     if (wch == KEY_ENTER || wch == KEY_END)
                     {
                         command = L"";
                         break;
                     }
-                        
+                    else if (wch == KEY_BACKSPACE && command.size())
+                    {
+                        command.resize(command.size() - 1);
+                        wclear(win);
+                        waddwstr(win, command.c_str());
+                        wrefresh(win);
+                    }
                 }
                 else if (res == ERR)
                 {
-                    return 1;
                     command = L"";
+                    return 1;
+                }
+                else if (res == OK && !std::iswcntrl(wch))
+                {
+                    command += static_cast<wchar_t>(wch);
+                    wchar_t buf[2] = {static_cast<wchar_t>(wch), L'\0'};
+                    waddwstr(win, buf);
+                    wrefresh(win);
                 }
 
-                res = wget_wch(stdscr, &wch);
+                res = wget_wch(win, &wch);
             }
             return 0;
 

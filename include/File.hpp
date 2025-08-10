@@ -1,46 +1,64 @@
 #pragma once
 
-// to tell idiot IntelleSense stop ignoring ncurses block codes
-// #define USE_N_CURSES 
-
-
-#ifdef USE_N_CURSES
-    #include <ncurses.h>
-    #include "Colors.hpp"
-#else
-    #include <iostream>
-#endif
-
 #include <filesystem>
 #include <vector>
 #include <string>
 
+#include "Colors.hpp"
+#include "Window.hpp"
+
 namespace fs = std::filesystem;
 
 // helper printer function
-std::string nesting_repr(
+std::wstring nesting_repr(
     const std::vector<bool>& nesting_map, 
-    const std::string& filename = ""
+    const std::wstring& filename = L""
 )
 {
     int sz = nesting_map.size();
 
 
-    std::string res;
+    std::wstring res;
     res.reserve(sz * 3);
 
     for (int lvl = 0; lvl < sz - 1; ++lvl)
     {
         if (nesting_map[lvl])
-            res += "│   ";
+        {
+            #ifdef USE_N_CURSES
+                res += L"│   ";
+            #else
+                res += L"|   ";
+            #endif
+        }
         else
-            res += "    "; 
+        {
+            #ifdef USE_N_CURSES
+                res += L"    "; 
+            #else
+                res += L"    ";
+            #endif
+        }   
     }
     
     if (sz)
     {
-        if (!nesting_map[sz - 1]) res += "└── ";
-        else res += "├── ";
+        if (!nesting_map[sz - 1])
+        {
+            #ifdef USE_N_CURSES
+                res += L"└── ";
+            #else
+                res += L"|__ ";
+            #endif
+        }
+        else
+        {
+            #ifdef USE_N_CURSES
+                res += L"├── ";
+            #else
+                res += L"|-- ";
+            #endif
+        }
     }
 
     res += filename;
@@ -57,32 +75,28 @@ public:
     fs::file_type get_type() const { return _m_type; }
 
     virtual void print(
+        const Window& win,
         std::vector<bool> nesting_map,
 
         // these arguments needed for compatibility with
         // Directory::print
         size_t max_depth = 0, 
         size_t max_listing_n = 0
-    )
+    ) const
     {
-        auto nesting_str = nesting_repr(nesting_map);
-        auto filename_str = _m_path.filename().string();
-        #ifdef USE_N_CURSES
+        win.print(nesting_repr(nesting_map));
+        auto filename = _m_path.filename().wstring() + L'\n';
 
-            printw(nesting_str.c_str());
-
-            bool is_dir = (_m_type == fs::file_type::directory);
-            if (is_dir)
-                NcursesColors::FS_Directory.on();
-                    printw("%s\n", filename_str.c_str());
-            if (is_dir)
-                NcursesColors::FS_Directory.off();
-
-            refresh();
-        #else
-            std::cout << nesting_str << filename_str << "\n";
-        #endif
-            
+        if (_m_type == fs::file_type::directory)
+            win.print(
+                filename, 
+                NcursesColors::FS_Directory
+            );
+        else
+            win.printr(
+                filename,
+                NcursesColors::FS_Regular
+            );
     }
 
     File(const fs::path& path, fs::file_type type);

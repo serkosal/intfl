@@ -2,7 +2,7 @@
 // #define USE_N_CURSES 
 
 #ifdef USE_N_CURSES
-    #include <ncurses.h>
+    #include <ncursesw/ncurses.h>
     #include <cstring>
     #include "Colors.hpp"
 #else
@@ -10,71 +10,49 @@
 #endif
 
 #include "Directory.hpp"
+#include "MainLoop.hpp"
+#include "Window.hpp"
 
 int main()
 {
+    int y = 0 , x = 0;
+
     // ncurses.h init
     #ifdef USE_N_CURSES
-        setlocale(LC_ALL, "");
-        initscr();
-        // cbreak();
-        // noecho();
-        //keypad(stdscr, TRUE); // enables f1, f2, ... ; and also arrows keys
 
-        NcursesColors::init();
-        if (!NcursesColors::isColors())
-            printw("Colors are unsupported. Running without them!\n");
+        setlocale(LC_ALL, "en_US.UTF-8");
+        initscr();
+        // cbreak(); /* Line buffering disabled. pass on everything */
+        noecho();
+
+        getmaxyx(stdscr, y, x);
     #else
-        std::cout << "Running without NCurses, colors are unsupported!\n";
+        std::wcout << L"Running without NCurses, colors are unsupported!\n";
     #endif
+
+    Window mainWin(y - 10, x, 0, 0);
+    Window cmdsWin(10, x, y - 10, 0, 100, x);
+
+    NcursesColors::init();
+    if (!NcursesColors::isColors())
+        mainWin.printr(L"Colors are unsupported. Running without them!\n", NcursesColors::ERROR);
     
 
     Directory dir(".");
 
     if (!dir.exists())
-    {
-        #ifdef USE_N_CURSES
-            NcursesColors::ERROR.on();
-                printw("Directory not found!\n");
-            NcursesColors::ERROR.off();
-            refresh();
-        #else
-            std::cerr << "Directory not found!\n";
-        #endif
-    }
-    
-    dir.print();
+        mainWin.printr(L"Directory not found!\n", NcursesColors::ERROR);
+    else
+        dir.print(mainWin);
+        
+        
     #ifdef USE_N_CURSES
-        refresh();
-        char str[80];
-        getstr(str);
-        while (strcmp(str, "quit") != 0)
-        {
-            if (strcmp(str, "redraw") == 0)
-            {
-                clear();
-                dir.print();
-                refresh();
-            }
-            else if (strcmp(str, "help") == 0)
-            {
-                NcursesColors::NOTICE.on();
-                    printw("quit\n");
-                    printw("redraw\n");
-                NcursesColors::NOTICE.off();
-                refresh();
-            }
-            else
-            {
-                NcursesColors::ERROR.on();
-                    printw("Unrecognized command!\nType help to see commands list\n");
-                NcursesColors::ERROR.off();
-                refresh();
-            }
-            getstr(str);
-        }
-        endwin();
-    #endif
+        mainLoop(dir, mainWin, cmdsWin);
 
+        endwin();
+    #else
+        mainLoop(dir, mainWin, cmdsWin);
+    #endif
+    
     return 0;
 }

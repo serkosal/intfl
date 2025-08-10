@@ -1,7 +1,6 @@
 // to tell idiot IntelleSense stop ignoring ncurses block codes
 // #define USE_N_CURSES 
 
-#define USE_N_CURSES
 #ifdef USE_N_CURSES
     #include <ncursesw/curses.h>
     #include <cstring>
@@ -12,9 +11,12 @@
 
 #include "Directory.hpp"
 #include "MainLoop.hpp"
+#include "Window.hpp"
 
 int main()
 {
+    int y = 0 , x = 0;
+
     // ncurses.h init
     #ifdef USE_N_CURSES
 
@@ -23,54 +25,34 @@ int main()
         // cbreak(); /* Line buffering disabled. pass on everything */
         noecho();
 
-        int y, x;
         getmaxyx(stdscr, y, x);
-
-        WINDOW* mainWin = newwin(y - 10, x, 0,      0);
-        WINDOW* cmdsWin = newwin(10,     x, y - 9, 0);
-
-        keypad(mainWin, TRUE);
-        keypad(cmdsWin, TRUE);
-        // keypad(mainWin, TRUE); // enables f1, f2, ... ; and also arrows keys
-        // keypad(stdscr, TRUE); 
-        // WINDOW* mainPad = newpad(y - 10, x);
-        // WINDOW* commandsPad = newpad(10, x);
-
-
-        NcursesColors::init();
-        if (!NcursesColors::isColors())
-        {
-            waddwstr(mainWin, L"Colors are unsupported. Running without them!\n");
-            wrefresh(mainWin);
-        }
-            
     #else
         std::wcout << L"Running without NCurses, colors are unsupported!\n";
     #endif
+
+    Window mainWin(y - 10, x, 0, 0);
+    Window cmdsWin(10,     x, y - 9, 0);
+
+    NcursesColors::init();
+    if (!NcursesColors::isColors())
+        mainWin.printr(L"Colors are unsupported. Running without them!\n", NcursesColors::ERROR);
     
 
     Directory dir(".");
 
     if (!dir.exists())
-    {
-        #ifdef USE_N_CURSES
-            NcursesColors::ERROR.on(mainWin);
-                waddwstr(mainWin, L"Directory not found!\n");
-            NcursesColors::ERROR.off(mainWin);
-            wrefresh(mainWin);
-        #else
-            std::wcerr << L"Directory not found!\n";
-        #endif
-    }
+        mainWin.printr(L"Directory not found!\n", NcursesColors::ERROR);
     else
         dir.print(mainWin);
         
-
-    mainLoop(dir, mainWin, cmdsWin);
-
+        
     #ifdef USE_N_CURSES
-        endwin();
-    #endif
+        mainLoop(dir, mainWin, cmdsWin);
 
+        endwin();
+    #else
+        mainLoop(dir, mainWin, cmdsWin);
+    #endif
+    
     return 0;
 }

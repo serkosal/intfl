@@ -8,79 +8,53 @@
 #ifdef USE_N_CURSES
     #include <ncursesw/curses.h>
     #include <cstring>
-    #include "Colors.hpp"
 #else
     #include <iostream>
 #endif
 
-#ifdef USE_N_CURSES
-    void mainLoop(const Directory &dir, WINDOW* mainwin, WINDOW* cmdswin)
-#else
-    void mainLoop(const Directory &dir)
-#endif
+#include "Colors.hpp"
+#include "Window.hpp"
+
+
+void mainLoop(
+    const Directory &dir,
+    const Window& mainWin,
+    const Window& cmdsWin
+)
 {
     InputHandler mainInputHandler;
 
     std::wstring cmd = L"";
-    #ifdef USE_N_CURSES
-        auto cmd_read_status = mainInputHandler.get_command(cmdswin, cmd);
-    #else
-        auto cmd_read_status = mainInputHandler.get_command(cmd);
-    #endif
+    auto cmd_read_status = mainInputHandler.get_command(cmdsWin, cmd);
     while (cmd != L"quit")
     {
         if (cmd_read_status)
         {
-            #ifdef USE_N_CURSES
-                wclear(cmdswin);
-                NcursesColors::ERROR.on(cmdswin);
-                    waddwstr(cmdswin, L"\nAn error occured while handling command input!\n");
-                NcursesColors::ERROR.off(cmdswin);
-                wrefresh(cmdswin);
-            #else
-                std::wcerr << L"\nAn error occured while handling command input!\n";
-            #endif
+            cmdsWin.printcr(L"\nAn error occured while handling command input!\n", NcursesColors::ERROR);
             
             continue;
         }
 
         if (cmd == L"redraw")
         {
-            #ifdef USE_N_CURSES
-                wclear(mainwin);
-                dir.print(mainwin);
-                wrefresh(mainwin);
-            #else
-                dir.print();
-            #endif
+            mainWin.clear();
+            dir.print(mainWin);
         }
         else if (cmd == L"help")
         {
-            #ifdef USE_N_CURSES
-                NcursesColors::NOTICE.on(cmdswin);
-                    waddwstr(cmdswin, L"\nUse commands:\n\nquit\nredraw\n");
-                NcursesColors::NOTICE.off(cmdswin);
-                wrefresh(cmdswin);
-            #else
-                std::wcout << "Use commands:\nquit\nredraw\n";
-            #endif
+            cmdsWin.printr(
+                L"\nUse commands:\n\nquit\nredraw\n",
+                NcursesColors::NOTICE
+            );
         }
         else
         {
-            #ifdef USE_N_CURSES
-                NcursesColors::ERROR.on(cmdswin);
-                    waddwstr(cmdswin, L"\nUnrecognized command!\nType help to see commands list\n");
-                NcursesColors::ERROR.off(cmdswin);
-                wrefresh(cmdswin);
-            #else
-                std::wcout << "Unrecognized command!\nType help to see commands list\n";
-            #endif
+            cmdsWin.printr(
+                L"\nUnrecognized command!\nType help to see commands list\n",
+                NcursesColors::ERROR
+            );
         }
 
-        #ifdef USE_N_CURSES
-            auto cmd_read_status = mainInputHandler.get_command(cmdswin, cmd);
-        #else
-            auto cmd_read_status = mainInputHandler.get_command(cmd);
-        #endif
+        cmd_read_status = mainInputHandler.get_command(cmdsWin, cmd);
     }
 }

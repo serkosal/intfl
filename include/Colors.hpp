@@ -14,8 +14,11 @@
 
 
 class NcursesColors {
-// TYPES
-    struct COLOR_STRUCT {
+// STATIC-FIELDS
+public:
+    // TYPES
+    class COLOR_STRUCT {
+        friend class NcursesColors;
 
         inline static short last_id = 0;
 
@@ -33,6 +36,8 @@ class NcursesColors {
         : COLOR_STRUCT(fg, COLOR_BLACK) 
         {}
 
+    public:
+
         void on(WINDOW* win) const
         { 
             if (NcursesColors::isColors())
@@ -46,8 +51,6 @@ class NcursesColors {
         }
     };
 
-// STATIC-FIELDS
-public:
     inline static const COLOR_STRUCT
         NOTICE        = COLOR_STRUCT(COLOR_YELLOW),
         ERROR         = COLOR_STRUCT(COLOR_RED),
@@ -75,7 +78,10 @@ public:
 
     static void init()
     {
-        hasColors = has_colors();
+        #ifdef USE_N_CURSES
+            hasColors = has_colors();
+        #endif
+        
         if(hasColors)
         {	
             start_color();

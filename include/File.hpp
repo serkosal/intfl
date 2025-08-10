@@ -1,19 +1,11 @@
 #pragma once
 
-// to tell idiot IntelleSense stop ignoring ncurses block codes
-// #define USE_N_CURSES 
-
-
-#ifdef USE_N_CURSES
-    #include <ncursesw/curses.h>
-    #include "Colors.hpp"
-#else
-    #include <iostream>
-#endif
-
 #include <filesystem>
 #include <vector>
 #include <string>
+
+#include "Colors.hpp"
+#include "Window.hpp"
 
 namespace fs = std::filesystem;
 
@@ -83,9 +75,7 @@ public:
     fs::file_type get_type() const { return _m_type; }
 
     virtual void print(
-        #ifdef USE_N_CURSES
-        WINDOW* win,
-        #endif
+        const Window& win,
         std::vector<bool> nesting_map,
 
         // these arguments needed for compatibility with
@@ -94,24 +84,19 @@ public:
         size_t max_listing_n = 0
     ) const
     {
-        auto nesting_str = nesting_repr(nesting_map);
-        auto filename_str = _m_path.filename().wstring() + L'\n';
-        #ifdef USE_N_CURSES
+        win.print(nesting_repr(nesting_map));
+        auto filename = _m_path.filename().wstring() + L'\n';
 
-            waddwstr(win, nesting_str.c_str());
-
-            bool is_dir = (_m_type == fs::file_type::directory);
-            if (is_dir)
-                NcursesColors::FS_Directory.on(win);
-                    waddwstr(win, filename_str.c_str());
-            if (is_dir)
-                NcursesColors::FS_Directory.off(win);
-
-            wrefresh(win);
-        #else
-            std::wcout << nesting_str << filename_str;
-        #endif
-            
+        if (_m_type == fs::file_type::directory)
+            win.print(
+                filename, 
+                NcursesColors::FS_Directory
+            );
+        else
+            win.printr(
+                filename,
+                NcursesColors::FS_Regular
+            );
     }
 
     File(const fs::path& path, fs::file_type type);

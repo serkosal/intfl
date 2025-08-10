@@ -1,12 +1,5 @@
 #pragma once
 
-#ifdef USE_N_CURSES
-    #include <ncursesw/curses.h>
-    #include "Colors.hpp"
-#else
-    #include <iostream>
-#endif
-
 #include <filesystem>
 #include <map>
 #include <memory>
@@ -14,6 +7,7 @@
 #include <iterator>
 
 #include "File.hpp"
+#include "Window.hpp"
 
 namespace fs = std::filesystem;
 using FilePtr = std::unique_ptr<File>;
@@ -23,11 +17,8 @@ class Directory : public File
 private:
     std::map<fs::path, FilePtr> children;
 
-
     void print(
-        #ifdef USE_N_CURSES
-            WINDOW* win,
-        #endif
+        const Window& win,
         std::vector<bool> nesting_map, 
         size_t max_depth, 
         size_t max_listing_n
@@ -41,24 +32,16 @@ public:
 
     
     void print(
-        #ifdef USE_N_CURSES
-            WINDOW* win,
-        #endif
+        const Window& win,
         size_t max_depth = 5, 
         size_t max_listing_n = 15
     ) const
     { 
         Directory::print(
-        #ifdef USE_N_CURSES
             win,
-        #endif
             {}, max_depth, max_listing_n
         ); 
     }
-
-    // std::wstring to_json();
-
-    ~Directory();
 };
 
 Directory::Directory(const fs::path& path)
@@ -81,9 +64,7 @@ Directory::Directory(const fs::path& path)
 }
 
 void Directory::print(
-    #ifdef USE_N_CURSES
-    WINDOW* win,
-    #endif
+    const Window& win,
     std::vector<bool> nesting_map, 
     size_t max_depth, 
     size_t max_listing_n
@@ -92,9 +73,7 @@ void Directory::print(
     if (nesting_map.size() > max_depth) return;
 
     File::print(
-        #ifdef USE_N_CURSES
-            win,
-        #endif
+        win,
         nesting_map, 0, 0
     );
 
@@ -109,32 +88,16 @@ void Directory::print(
             files_skipped += std::to_wstring(children.size() - max_listing_n) + L'\n';
 
             new_nesting_map.push_back(false);
-            std::wstring nesting_str = nesting_repr(new_nesting_map);
 
-            #ifdef USE_N_CURSES
-                waddwstr(win, nesting_str.c_str());
-                
-                NcursesColors::NOTICE.on(win);
-                    waddwstr(win, files_skipped.c_str());
-                NcursesColors::NOTICE.off(win);
-
-                wrefresh(win);
-            #else
-                std::wcout << files_skipped;
-            #endif
+            win.print(nesting_repr(new_nesting_map));
+            win.printr(files_skipped, NcursesColors::NOTICE);
             
             return;
         }
 
         new_nesting_map.push_back(std::next(it) != children.end());
         it->second->print(
-        #ifdef USE_N_CURSES
-            win, 
-        #endif
+        win,
         new_nesting_map, max_depth, max_listing_n);
     }
-}
-
-Directory::~Directory()
-{
 }

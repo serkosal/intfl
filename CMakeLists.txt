@@ -5,6 +5,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 project(intfl)
 
 add_executable(intfl src/main.cpp)
+
+target_sources(intfl
+    PRIVATE
+    src/Directory.cpp
+    src/File.cpp
+    src/HandleInput.cpp
+    src/MainLoop.cpp
+)
+
 target_include_directories(
     intfl PRIVATE "include"
 )

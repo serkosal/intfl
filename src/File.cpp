@@ -2,7 +2,7 @@
 
 void File::print(
     const Window &win,
-    NestingMap nesting_map,
+    const NestingMap& nesting_map,
 
     // these arguments needed for compatibility with
     // Directory::print

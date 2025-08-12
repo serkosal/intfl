@@ -14,7 +14,7 @@ private:
 
     void print(
         const Window& win,
-        NestingMap nesting_map, 
+        const NestingMap& nesting_map, 
         size_t max_depth, 
         size_t max_listing_n
     ) const override;

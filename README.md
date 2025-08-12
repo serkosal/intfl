@@ -27,16 +27,17 @@ ncurses      - for colors and mouse support on many of the UNIX systems.
  - [x] colorization
  - [x] basic keyboard support
  - [x] basic commands support
- - [ ] unicode support
+
+ - [x] unicode support (GCC version above 12.3, I've problems on 12.2.0)
  - [x] better input handling
- - [ ] support command line arguments
+ - [ ] support command line arguments [IN DEVELOPMENT]
  - [ ] add color support of executables files & different file extensions
- - [ ] get rid of recursion
  - [ ] usage of colors from LS_COLORS
  - [ ] ignore to parse/show/auto update specified files/patterns/directories' content
- - [ ] mouse support
+ - [ ] mouse support [IN DEVELOPMENT]
+
  - [ ] better commands, ability to launch shell commands
- - [ ] expand/collapse, recursive expand/collapse
+ - [ ] expand/collapse, recursive expand/collapse [IN DEVELOPMENT]
  - [ ] config files
  - [ ] command line
  - [ ] fuzzy search 
@@ -46,6 +47,7 @@ ncurses      - for colors and mouse support on many of the UNIX systems.
  - [ ] doxygen documentation
  - [ ] full tests code coverage
 
+ - [ ] get rid of recursion
  - [ ] symblinks supports 
  - [ ] support for c++ modules
  - [ ] panels, preview for file content

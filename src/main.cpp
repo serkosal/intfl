@@ -7,10 +7,14 @@
     #include <iostream>
 #endif
 
+#include <iostream>
+
 #include "Colors.hpp"
 #include "Directory.hpp"
 #include "MainLoop.hpp"
 #include "Window.hpp"
+#include "FileReprPrinter.hpp"
+#include "HandleInput.hpp"
 
 int main(int argc, char *argv[])
 {

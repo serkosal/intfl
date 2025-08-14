@@ -4,6 +4,7 @@
 
 #include "HandleInput.hpp"
 #include "Commands.hpp"
+#include "FileReprPrinter.hpp"
 
 void mainLoop(
     const Directory &dir,
@@ -12,6 +13,8 @@ void mainLoop(
     int argc, char *argv[]
 )
 {
+    std::vector<FilePrintRepr> reprs;
+
     if (argc > 1 && strcmp(argv[1], "--help") == 0)
         command_help(mainWin);
     else
@@ -19,11 +22,14 @@ void mainLoop(
         if (!dir.exists())
             mainWin.printr(L"Directory not found!\n", NcursesColors::ERROR);
         else
-            dir.print(mainWin);
+        {
+            reprs = dir.to_repr();
+            redraw(mainWin, reprs);
+        }
     }
 
     std::wstring cmd = L"";
-    auto cmd_read_status = get_command(cmdsWin, mainWin, cmd);
+    auto cmd_read_status = get_command(cmdsWin, mainWin, dir, reprs, cmd);
     while (cmd != L"quit")
     {
         if (cmd_read_status)
@@ -36,11 +42,21 @@ void mainLoop(
         if (cmd == L"redraw")
         {
             mainWin.clear();
-
+            redraw(mainWin, reprs);
+        }
+        else if (cmd == L"update")
+        {
             if (!dir.exists())
                 mainWin.printr(L"Directory not found!\n", NcursesColors::ERROR);
             else
-                dir.print(mainWin);
+            {
+                reprs.clear();
+                mainWin.clear();
+                reprs = dir.to_repr();
+                for (const auto& repr : reprs)
+                    printFileRepr(repr, mainWin);
+                mainWin.refresh();
+            }
         }
         else if (cmd == L"help")
         {
@@ -54,6 +70,6 @@ void mainLoop(
             );
         }
 
-        cmd_read_status = get_command(cmdsWin, mainWin, cmd);
+        cmd_read_status = get_command(cmdsWin, mainWin, dir, reprs, cmd);
     }
 }

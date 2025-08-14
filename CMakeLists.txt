@@ -10,8 +10,10 @@ target_sources(intfl
     PRIVATE
     src/Directory.cpp
     src/File.cpp
+    src/Commands.cpp
     src/HandleInput.cpp
     src/MainLoop.cpp
+    src/printFileRepr.cpp
 )
 
 target_include_directories(

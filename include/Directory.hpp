@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <map>
 #include <memory>
+#include <vector>
 
 #include "File.hpp"
 #include "Window.hpp"
@@ -12,31 +13,49 @@ class Directory : public File
 private:
     std::map<fs::path, FilePtr> children;
 
-    void print(
-        const Window& win,
+    std::vector<FilePrintRepr> to_repr(
         const NestingMap& nesting_map, 
         size_t max_depth, 
         size_t max_listing_n
     ) const override;
 
+    mutable bool isCollapsed = false;
 public:
-    bool isCollapsed = false;
+
+    bool is_collapsed() const override 
+    { return isCollapsed; }
+
+    const File& collapse() const override
+    { 
+        isCollapsed = true;
+
+        return *this;
+    }
+    const File& expand() const override
+    { 
+        isCollapsed = true;
+
+        return *this;
+    }
+    const File& collapseExpand() const override
+    {
+        isCollapsed = !isCollapsed; 
+        return *this; 
+    }
+
 
     Directory(const fs::path& path);
 
     bool exists() const 
     { return _m_type == fs::file_type::directory; }
 
-    
-    void print(
-        const Window& win,
+    std::vector<FilePrintRepr> to_repr(
         size_t max_depth = 5, 
         size_t max_listing_n = 15
     ) const
-    { 
-        Directory::print(
-            win,
-            {}, max_depth, max_listing_n
-        ); 
+    {
+        return Directory::to_repr(
+            {NestingMap()}, max_depth, max_listing_n
+        );
     }
 };

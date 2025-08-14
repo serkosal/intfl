@@ -4,18 +4,31 @@
 #include <cwchar>
 #include <cwctype>
 
+// to tell idiot IntelleSense stop ignoring ncurses block codes
+// #define USE_N_CURSES
+
 #ifdef USE_N_CURSES
     #include <ncursesw/ncurses.h>
 #endif
 
 #include "Colors.hpp"
+#include "File.hpp"
+#include "Commands.hpp"
 
-bool get_command(const Window &cmdsWin, Window &mainWin, std::wstring &command)
+bool get_command(
+    const Window &cmdsWin, 
+    Window &mainWin,
+    const Directory& dir,
+    std::vector<FilePrintRepr>& reprs, 
+    std::wstring &command
+)
 {
     command = L"";
     #ifdef USE_N_CURSES
         wint_t wch;
         auto res = wget_wch(cmdsWin.get_ptr(), &wch);
+        MEVENT event;
+
 
         while (wch != WEOF && wch != L'\n' && wch != L'\r')
         {
@@ -40,6 +53,15 @@ bool get_command(const Window &cmdsWin, Window &mainWin, std::wstring &command)
                 {
                     mainWin.scrollY(1);
                     mainWin.refresh();
+                }
+                else if (wch == KEY_MOUSE && getmouse(&event) == OK && event.bstate & BUTTON1_CLICKED)
+                {
+                    auto file = reprs.at(event.y).file();
+
+                    file->collapseExpand();
+
+                    reprs = dir.to_repr();
+                    redraw(mainWin, reprs);
                 }
             }
             else if (res == ERR)

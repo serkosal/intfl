@@ -22,42 +22,50 @@ Directory::Directory(const fs::path& path)
     }
 }
 
-void Directory::print(
-    const Window& win,
+std::vector<FilePrintRepr> Directory::to_repr(
     const NestingMap& nesting_map, 
     size_t max_depth, 
     size_t max_listing_n
 ) const
 {
-    if (nesting_map.size() > max_depth) return;
+    std::vector<FilePrintRepr> res;
 
-    if (!isCollapsed)
-        File::print(
-            win,
-            nesting_map, 0, 0
-        );
+    if (nesting_map.size() > max_depth) 
+        return res;
+
+    for (const auto& el : File::to_repr(nesting_map, 0, 0))
+        res.push_back(el);
+
+    if (isCollapsed)
+        return res;
 
     size_t counter = 0;
+
     for (auto it = children.begin(); it != children.end(); ++it)
     {
         auto new_nesting_map = nesting_map;
 
         if (++counter > max_listing_n)
         {
-            std::wstring files_skipped = L"files skipped: "; 
-            files_skipped += std::to_wstring(children.size() - max_listing_n) + L'\n';
+            new_nesting_map.arr().push_back(false);
 
-            new_nesting_map.push_back(false);
-
-            win.print(nesting_repr(new_nesting_map));
-            win.printr(files_skipped, NcursesColors::NOTICE);
+            res.push_back(FilePrintRepr(
+                new_nesting_map, it->second.get(), children.size() - max_listing_n 
+            ));
             
-            return;
+            return res;
         }
 
-        new_nesting_map.push_back(std::next(it) != children.end());
-        it->second->print(
-        win,
-        new_nesting_map, max_depth, max_listing_n);
+        new_nesting_map.arr().push_back(std::next(it) != children.end());
+        auto new_entries = it->second->to_repr(
+            new_nesting_map, 
+            max_depth,
+            max_listing_n
+        );
+
+        for (const auto& el : new_entries)
+            res.push_back(el);
     }
+
+    return res;
 }

@@ -1,6 +1,8 @@
 # intfs
 Interactive file listing.
 
+![Animation](https://github.com/serkosal/intfl/blob/main/demo.webm?raw=true)
+
 
 # Dependencies
 ncurses**W** - for unicode support.
@@ -30,21 +32,24 @@ ncurses      - for colors and mouse support on many of the UNIX systems.
 
  - [x] unicode support (GCC version above 12.3, I've problems on 12.2.0)
  - [x] better input handling
+ - [x] expand/collapse
+ - [x] mouse support
+ - [ ] doxygen documentation [IN DEVELOPMENT]
+ - [ ] recursive expand/collapse [IN DEVELOPMENT]
  - [ ] support command line arguments [IN DEVELOPMENT]
  - [ ] add color support of executables files & different file extensions
  - [ ] usage of colors from LS_COLORS
  - [ ] ignore to parse/show/auto update specified files/patterns/directories' content
- - [ ] mouse support [IN DEVELOPMENT]
+
 
  - [ ] better commands, ability to launch shell commands
- - [ ] expand/collapse, recursive expand/collapse [IN DEVELOPMENT]
+
  - [ ] config files
  - [ ] command line
  - [ ] fuzzy search 
  - [ ] caching parsed directories based on last modification date
  - [ ] memozition of directories layouts
  - [ ] watch for files updates
- - [ ] doxygen documentation
  - [ ] full tests code coverage
 
  - [ ] get rid of recursion

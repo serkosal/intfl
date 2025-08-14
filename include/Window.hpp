@@ -1,5 +1,7 @@
 #pragma once
 
+// to tell idiot IntelleSense stop ignoring ncurses block codes
+// #define USE_N_CURSES
 
 #ifdef USE_N_CURSES
     #include <ncursesw/ncurses.h>

@@ -1,7 +1,11 @@
 # intfs
 Interactive file listing.
 
-![Animation](https://github.com/serkosal/intfl/blob/main/demo.mp4?raw=true)
+<video width="480" autoplay loop muted>
+  <source src="https://github.com/serkosal/intfl/blob/main/demo.mp4?raw=true" type="video/mp4">
+  Ваш браузер не поддерживает видео.
+</video>
+
 
 
 # Dependencies

@@ -1,7 +1,7 @@
 # intfs
 Interactive file listing.
 
-![Animation](https://github.com/serkosal/intfl/blob/main/demo.webm?raw=true)
+![Animation](https://github.com/serkosal/intfl/blob/main/demo.mp4?raw=true)
 
 
 # Dependencies

@@ -13,11 +13,13 @@
 
 #include "Colors.hpp"
 #include "File.hpp"
+#include "Commands.hpp"
 
 bool get_command(
     const Window &cmdsWin, 
-    Window &mainWin, 
-    const std::vector<FilePrintRepr>& reprs, 
+    Window &mainWin,
+    const Directory& dir,
+    std::vector<FilePrintRepr>& reprs, 
     std::wstring &command
 )
 {
@@ -54,9 +56,12 @@ bool get_command(
                 }
                 else if (wch == KEY_MOUSE && getmouse(&event) == OK && event.bstate & BUTTON1_CLICKED)
                 {
-                    cmdsWin.printr(
-                        L"x: " + std::to_wstring(event.x) + L" y: " + std::to_wstring(event.y) + L"\n"
-                    );
+                    auto file = reprs.at(event.y).file();
+
+                    file->collapseExpand();
+
+                    reprs = dir.to_repr();
+                    redraw(mainWin, reprs);
                 }
             }
             else if (res == ERR)

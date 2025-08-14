@@ -18,14 +18,19 @@ void printFileRepr(
         return;
     }
 
-    auto filename_str = file_repr.file()->filename() + L'\n';
+    auto filename_str = file_repr.file()->filename();
 
     if (file_repr.file()->get_type() == fs::file_type::directory)
+    {
+        if (file_repr.file()->is_collapsed())
+            filename_str += L" ...";
+
         win.printr(
-            filename_str,
+            filename_str + L"\n",
             NcursesColors::FS_Directory);
+    }
     else
         win.printr(
-            filename_str,
+            filename_str + + L"\n",
             NcursesColors::FS_Regular);
 }

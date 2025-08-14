@@ -34,7 +34,6 @@ public:
     const File* const file() const
     { return m_file; }
 
-
     size_t get_rest() const
     { return m_rest_elements; }
 
@@ -68,6 +67,12 @@ public:
     {
         return {FilePrintRepr(nesting_map, this)};
     }
+
+    virtual bool is_collapsed()          const { return false; }
+    virtual const File& collapse()       const { return *this; }
+    virtual const File& expand()         const { return *this; }
+
+    virtual const File& collapseExpand() const { return *this; }
 
     std::wstring filename() const
     { return _m_path.filename().wstring(); }

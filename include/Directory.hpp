@@ -18,8 +18,31 @@ private:
         size_t max_depth, 
         size_t max_listing_n
     ) const override;
+
+    mutable bool isCollapsed = false;
 public:
-    bool isCollapsed = false;
+
+    bool is_collapsed() const override 
+    { return isCollapsed; }
+
+    const File& collapse() const override
+    { 
+        isCollapsed = true;
+
+        return *this;
+    }
+    const File& expand() const override
+    { 
+        isCollapsed = true;
+
+        return *this;
+    }
+    const File& collapseExpand() const override
+    {
+        isCollapsed = !isCollapsed; 
+        return *this; 
+    }
+
 
     Directory(const fs::path& path);
 

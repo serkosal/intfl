@@ -13,8 +13,8 @@ void mainLoop(
     int argc, char *argv[]
 )
 {
-
     std::vector<FilePrintRepr> reprs;
+
     if (argc > 1 && strcmp(argv[1], "--help") == 0)
         command_help(mainWin);
     else
@@ -24,15 +24,12 @@ void mainLoop(
         else
         {
             reprs = dir.to_repr();
-            mainWin.clear();
-            for (const auto& repr : reprs)
-                printFileRepr(repr, mainWin);
-            mainWin.refresh();
+            redraw(mainWin, reprs);
         }
     }
 
     std::wstring cmd = L"";
-    auto cmd_read_status = get_command(cmdsWin, mainWin, reprs, cmd);
+    auto cmd_read_status = get_command(cmdsWin, mainWin, dir, reprs, cmd);
     while (cmd != L"quit")
     {
         if (cmd_read_status)
@@ -45,14 +42,7 @@ void mainLoop(
         if (cmd == L"redraw")
         {
             mainWin.clear();
-
-            if (reprs.size())
-            {
-                mainWin.clear();
-                for (const auto& repr : reprs)
-                    printFileRepr(repr, mainWin);
-                mainWin.refresh();
-            }
+            redraw(mainWin, reprs);
         }
         else if (cmd == L"update")
         {
@@ -80,6 +70,6 @@ void mainLoop(
             );
         }
 
-        cmd_read_status = get_command(cmdsWin, mainWin, reprs, cmd);
+        cmd_read_status = get_command(cmdsWin, mainWin, dir, reprs, cmd);
     }
 }

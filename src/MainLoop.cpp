@@ -14,8 +14,6 @@ void mainLoop(
 )
 {
 
-    
-
     std::vector<FilePrintRepr> reprs;
     if (argc > 1 && strcmp(argv[1], "--help") == 0)
         command_help(mainWin);
@@ -34,7 +32,7 @@ void mainLoop(
     }
 
     std::wstring cmd = L"";
-    auto cmd_read_status = get_command(cmdsWin, mainWin, cmd);
+    auto cmd_read_status = get_command(cmdsWin, mainWin, reprs, cmd);
     while (cmd != L"quit")
     {
         if (cmd_read_status)
@@ -82,6 +80,6 @@ void mainLoop(
             );
         }
 
-        cmd_read_status = get_command(cmdsWin, mainWin, cmd);
+        cmd_read_status = get_command(cmdsWin, mainWin, reprs, cmd);
     }
 }

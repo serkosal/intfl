@@ -29,8 +29,8 @@ int main(int argc, char *argv[])
         cbreak(); /* Line buffering disabled. pass on everything */
         noecho();
 
-        // mmask_t old_mmask;
-        // mousemask(BUTTON1_CLICKED | BUTTON_SHIFT | BUTTON_CTRL | BUTTON_ALT, &old_mmask);
+        mmask_t old_mmask;
+        mousemask(BUTTON1_CLICKED | BUTTON_SHIFT | BUTTON_CTRL | BUTTON_ALT, &old_mmask);
 
         getmaxyx(stdscr, y, x);
     #else

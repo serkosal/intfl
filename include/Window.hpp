@@ -68,6 +68,9 @@ public:
         {}
     #endif
 
+    int getYOffset() const noexcept { return M_y_offset; }
+    int getXOffset() const noexcept { return M_y_offset; }
+
     void scrollY(int dy = 1)
     {
         M_y_offset += dy;

@@ -58,12 +58,20 @@ bool getCommand(
                 }
                 else if (wch == KEY_MOUSE && getmouse(&event) == OK && event.bstate & BUTTON1_CLICKED)
                 {
-                    auto file = A_reprs.at(event.y).file();
+                    int y_click = event.y + A_mainWin.getYOffset();
 
-                    file->collapseExpand();
+                    if (y_click >= 0 && y_click < A_reprs.size())
+                    {   
+                        auto file = A_reprs[y_click].file();
+                        
+                        file->collapseExpand();
 
-                    A_reprs = A_dir.toRepr();
-                    redraw(A_mainWin, A_reprs);
+                        A_reprs = A_dir.toRepr();
+                        redraw(A_mainWin, A_reprs);
+                    }
+                        
+
+                    
                 }
             }
             else if (res == ERR)

@@ -1,0 +1,158 @@
+.TH "intfl" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+intfl
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBDirectory\fP"
+.br
+.RI "Contains same data as \fBFile\fP class and additional directory specific one\&. "
+.ti -1c
+.RI "class \fBFile\fP"
+.br
+.RI "Contains an information about file such as filename, path, metadata\&. "
+.ti -1c
+.RI "class \fBFilePrintRepr\fP"
+.br
+.RI "print-ready representation of file "
+.ti -1c
+.RI "class \fBNcursesColors\fP"
+.br
+.RI "class encapsulating ncurses colors specific methods & data "
+.ti -1c
+.RI "class \fBNestingMap\fP"
+.br
+.RI "represents file's nesting hierarchy "
+.ti -1c
+.RI "class \fBWindow\fP"
+.br
+.RI "class encapsulates behaviour related to specific area of the screen\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBFilePtr\fP = std::unique_ptr< \fBFile\fP >"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcommandHelp\fP (const \fBWindow\fP &win)"
+.br
+.RI "prints help info both program started with --help or used command "
+.ti -1c
+.RI "void \fBredraw\fP (const \fBWindow\fP &win, const std::vector< \fBFilePrintRepr\fP > &reprs)"
+.br
+.RI "used to redraw calls "
+.ti -1c
+.RI "void \fBprintFileRepr\fP (const \fBFilePrintRepr\fP &file_repr, const \fBWindow\fP &win)"
+.br
+.RI "function to print the \fBFilePrintRepr\fP to a specified window "
+.ti -1c
+.RI "bool \fBgetCommand\fP (const \fBWindow\fP &cmdsWin, \fBWindow\fP &mainWin, const \fBDirectory\fP &dir, std::vector< \fBFilePrintRepr\fP > &reprs, std::wstring &command)"
+.br
+.RI "Proccess input, yield the command string and handle some other events\&. "
+.ti -1c
+.RI "void \fBmainLoop\fP (const \fBDirectory\fP &dir, \fBWindow\fP &mainWin, \fBWindow\fP &cmdsWin, int argc, char *argv[])"
+.br
+.RI "function for managing app's main loop "
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "using \fBintfl::FilePtr\fP = typedef std::unique_ptr<\fBFile\fP>"
+
+.SH "Function Documentation"
+.PP 
+.SS "void intfl::commandHelp (const \fBWindow\fP & win)"
+
+.PP
+prints help info both program started with --help or used command 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwin\fP 
+.RE
+.PP
+
+.SS "bool intfl::getCommand (const \fBWindow\fP & cmdsWin, \fBWindow\fP & mainWin, const \fBDirectory\fP & dir, std::vector< \fBFilePrintRepr\fP > & reprs, std::wstring & command)"
+
+.PP
+Proccess input, yield the command string and handle some other events\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcmdsWin\fP window to update current command input 
+.br
+\fImainWin\fP main \fBWindow\fP, passed to process mouse events signals 
+.br
+\fIdir\fP directory, used to update mainWin window 
+.br
+\fIreprs\fP array of file representations, used to process mouse events 
+.br
+\fIcommand\fP command to be returned to the main loop and be processed there 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if any error ocured during handling input 
+.PP
+false if no errors ocured during handling input 
+.RE
+.PP
+
+.SS "void intfl::mainLoop (const \fBDirectory\fP & dir, \fBWindow\fP & mainWin, \fBWindow\fP & cmdsWin, int argc, char * argv[])"
+
+.PP
+function for managing app's main loop 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdir\fP directory variable 
+.br
+\fImainWin\fP window to display main information 
+.br
+\fIcmdsWin\fP window to display current input and commands logs 
+.br
+\fIargc\fP argument count passed to the application 
+.br
+\fIargv\fP vector containing flags passed to the application 
+.RE
+.PP
+
+.SS "void intfl::printFileRepr (const \fBFilePrintRepr\fP & file_repr, const \fBWindow\fP & win)"
+
+.PP
+function to print the \fBFilePrintRepr\fP to a specified window 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile_repr\fP 
+.br
+\fIwin\fP 
+.RE
+.PP
+
+.SS "void intfl::redraw (const \fBWindow\fP & win, const std::vector< \fBFilePrintRepr\fP > & reprs)"
+
+.PP
+used to redraw calls 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwin\fP 
+.br
+\fIreprs\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

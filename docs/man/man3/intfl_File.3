@@ -1,0 +1,108 @@
+.TH "intfl::File" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+intfl::File \- Contains an information about file such as filename, path, metadata\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <File\&.hpp>\fP
+.PP
+Inherited by \fBintfl::Directory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "fs::file_type \fBgetType\fP () const"
+.br
+.ti -1c
+.RI "virtual std::vector< \fBFilePrintRepr\fP > \fBtoRepr\fP (const \fBNestingMap\fP &nesting_map, size_t max_depth=0, size_t max_listing_n=0) const"
+.br
+.ti -1c
+.RI "virtual bool \fBisCollapsed\fP () const"
+.br
+.ti -1c
+.RI "virtual const \fBFile\fP & \fBcollapse\fP () const"
+.br
+.ti -1c
+.RI "virtual const \fBFile\fP & \fBexpand\fP () const"
+.br
+.ti -1c
+.RI "virtual const \fBFile\fP & \fBcollapseExpand\fP () const"
+.br
+.ti -1c
+.RI "std::wstring \fBfilename\fP () const"
+.br
+.ti -1c
+.RI "\fBFile\fP (const fs::path &path, fs::file_type type)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "fs::path \fBM_path\fP"
+.br
+.ti -1c
+.RI "fs::file_type \fBM_type\fP"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBFilePrintRepr\fP"
+.br
+.ti -1c
+.RI "class \fBNestingMap\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains an information about file such as filename, path, metadata\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "intfl::File::File (const fs::path & path, fs::file_type type)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual const \fBFile\fP & intfl::File::collapse () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBintfl::Directory\fP\&.
+.SS "virtual const \fBFile\fP & intfl::File::collapseExpand () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBintfl::Directory\fP\&.
+.SS "virtual const \fBFile\fP & intfl::File::expand () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBintfl::Directory\fP\&.
+.SS "std::wstring intfl::File::filename () const\fC [inline]\fP"
+
+.SS "fs::file_type intfl::File::getType () const\fC [inline]\fP"
+
+.SS "virtual bool intfl::File::isCollapsed () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBintfl::Directory\fP\&.
+.SS "virtual std::vector< \fBFilePrintRepr\fP > intfl::File::toRepr (const \fBNestingMap\fP & nesting_map, size_t max_depth = \fC0\fP, size_t max_listing_n = \fC0\fP) const\fC [inline]\fP, \fC [virtual]\fP"
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "friend class \fBFilePrintRepr\fP\fC [friend]\fP"
+
+.SS "friend class \fBNestingMap\fP\fC [friend]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "fs::path intfl::File::M_path\fC [protected]\fP"
+
+.SS "fs::file_type intfl::File::M_type\fC [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

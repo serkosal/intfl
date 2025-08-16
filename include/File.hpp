@@ -18,6 +18,10 @@ namespace fs  = std::filesystem;
 using FilePtr = std::unique_ptr<File>;
 
 // flatened linear print-ready representation of file structure
+/**
+ * @brief print-ready representation of file
+ * 
+ */
 class FilePrintRepr
 {
 private:
@@ -51,7 +55,10 @@ public:
     ~FilePrintRepr() {}
 };
 
-
+/**
+ * @brief Contains an information about file such as filename, path, metadata
+ * 
+ */
 class File
 {
 friend class FilePrintRepr;

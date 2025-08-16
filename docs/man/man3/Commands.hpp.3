@@ -1,0 +1,48 @@
+.TH "include/Commands.hpp" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/Commands.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <vector>\fP
+.br
+\fC#include 'Window\&.hpp'\fP
+.br
+\fC#include 'FileReprPrinter\&.hpp'\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBintfl\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBINTFL_COMMANDS_HPP_\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBintfl::commandHelp\fP (const Window &win)"
+.br
+.RI "prints help info both program started with --help or used command "
+.ti -1c
+.RI "void \fBintfl::redraw\fP (const Window &win, const std::vector< FilePrintRepr > &reprs)"
+.br
+.RI "used to redraw calls "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define INTFL_COMMANDS_HPP_"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

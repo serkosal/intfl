@@ -1,0 +1,76 @@
+.TH "intfl::NestingMap" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+intfl::NestingMap \- represents file's nesting hierarchy  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Types\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNestingMap\fP ()"
+.br
+.RI "Construct a new default Nesting Map object\&. "
+.ti -1c
+.RI "\fBNestingMap\fP (std::vector< bool > nesting_map)"
+.br
+.RI "Construct a new Nesting Map object\&. "
+.ti -1c
+.RI "std::vector< bool > & \fBarr\fP ()"
+.br
+.ti -1c
+.RI "size_t \fBsize\fP () const"
+.br
+.ti -1c
+.RI "std::wstring \fBto_wstr\fP () const"
+.br
+.RI "get wstring representation of nesting map "
+.in -1c
+.SH "Detailed Description"
+.PP 
+represents file's nesting hierarchy 
+
+Each element of the array is a boolean flag, indicating whether it's not a last element at this depth, which equal the current element's index\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "intfl::NestingMap::NestingMap ()\fC [inline]\fP"
+
+.PP
+Construct a new default Nesting Map object\&. 
+.SS "intfl::NestingMap::NestingMap (std::vector< bool > nesting_map)\fC [inline]\fP"
+
+.PP
+Construct a new Nesting Map object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInesting_map\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::vector< bool > & intfl::NestingMap::arr ()\fC [inline]\fP"
+
+.SS "size_t intfl::NestingMap::size () const\fC [inline]\fP"
+
+.SS "std::wstring intfl::NestingMap::to_wstr () const\fC [inline]\fP"
+
+.PP
+get wstring representation of nesting map 
+.PP
+\fBReturns\fP
+.RS 4
+std::wstring 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

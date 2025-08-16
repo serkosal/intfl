@@ -1,0 +1,72 @@
+.TH "intfl::NcursesColors" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+intfl::NcursesColors \- class encapsulating ncurses colors specific methods & data  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Colors\&.hpp>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBColor\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static bool \fBisColors\fP ()"
+.br
+.ti -1c
+.RI "static void \fBinit\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const \fBColor\fP \fBnotice\fP = \fBColor\fP(\fBCOLOR_YELLOW\fP)"
+.br
+.ti -1c
+.RI "static const \fBColor\fP \fBerror\fP = \fBColor\fP(\fBCOLOR_RED\fP)"
+.br
+.ti -1c
+.RI "static const \fBColor\fP \fBfs_regular\fP = \fBColor\fP(\fBCOLOR_WHITE\fP)"
+.br
+.ti -1c
+.RI "static const \fBColor\fP \fBfs_directory\fP = \fBColor\fP{\fBCOLOR_BLUE\fP}"
+.br
+.ti -1c
+.RI "static const \fBColor\fP \fBfs_executable\fP = \fBColor\fP{\fBCOLOR_GREEN\fP}"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+class encapsulating ncurses colors specific methods & data 
+.SH "Member Function Documentation"
+.PP 
+.SS "static void intfl::NcursesColors::init ()\fC [inline]\fP, \fC [static]\fP"
+
+.SS "static bool intfl::NcursesColors::isColors ()\fC [inline]\fP, \fC [static]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "const \fBColor\fP intfl::NcursesColors::error = \fBColor\fP(\fBCOLOR_RED\fP)\fC [static]\fP"
+
+.SS "const \fBColor\fP intfl::NcursesColors::fs_directory = \fBColor\fP{\fBCOLOR_BLUE\fP}\fC [static]\fP"
+
+.SS "const \fBColor\fP intfl::NcursesColors::fs_executable = \fBColor\fP{\fBCOLOR_GREEN\fP}\fC [static]\fP"
+
+.SS "const \fBColor\fP intfl::NcursesColors::fs_regular = \fBColor\fP(\fBCOLOR_WHITE\fP)\fC [static]\fP"
+
+.SS "const \fBColor\fP intfl::NcursesColors::notice = \fBColor\fP(\fBCOLOR_YELLOW\fP)\fC [inline]\fP, \fC [static]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

@@ -1,0 +1,72 @@
+.TH "intfl::Directory" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+intfl::Directory \- Contains same data as \fBFile\fP class and additional directory specific one\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Directory\&.hpp>\fP
+.PP
+Inherits \fBintfl::File\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBisCollapsed\fP () const override"
+.br
+.ti -1c
+.RI "const \fBFile\fP & \fBcollapse\fP () const override"
+.br
+.ti -1c
+.RI "const \fBFile\fP & \fBexpand\fP () const override"
+.br
+.ti -1c
+.RI "const \fBFile\fP & \fBcollapseExpand\fP () const override"
+.br
+.ti -1c
+.RI "\fBDirectory\fP (const fs::path &path)"
+.br
+.ti -1c
+.RI "bool \fBexists\fP () const"
+.br
+.ti -1c
+.RI "std::vector< \fBFilePrintRepr\fP > \fBtoRepr\fP (size_t max_depth=5, size_t max_listing_n=15) const"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Contains same data as \fBFile\fP class and additional directory specific one\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "intfl::Directory::Directory (const fs::path & path)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "const \fBFile\fP & intfl::Directory::collapse () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBintfl::File\fP\&.
+.SS "const \fBFile\fP & intfl::Directory::collapseExpand () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBintfl::File\fP\&.
+.SS "bool intfl::Directory::exists () const\fC [inline]\fP"
+
+.SS "const \fBFile\fP & intfl::Directory::expand () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBintfl::File\fP\&.
+.SS "bool intfl::Directory::isCollapsed () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBintfl::File\fP\&.
+.SS "std::vector< \fBFilePrintRepr\fP > intfl::Directory::toRepr (size_t max_depth = \fC5\fP, size_t max_listing_n = \fC15\fP) const\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

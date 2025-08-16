@@ -13,6 +13,10 @@
 namespace intfl
 {
 
+/**
+ * @brief Contains same data as File class and additional directory specific one
+ * 
+ */
 class Directory : public File
 {
 private:

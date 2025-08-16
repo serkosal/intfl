@@ -25,6 +25,10 @@
 namespace intfl 
 {
 
+/**
+ * @brief class encapsulating ncurses colors specific methods & data 
+ * 
+ */
 class NcursesColors {
 
 public:

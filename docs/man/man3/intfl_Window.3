@@ -1,0 +1,158 @@
+.TH "intfl::Window" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+intfl::Window \- class encapsulates behaviour related to specific area of the screen\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Window\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWindow\fP (int nlines, int ncols, int begin_y=0, int begin_x=0, int virt_nlines=400, int virt_ncols=200)"
+.br
+.RI "Construct a new \fBWindow\fP object\&. "
+.ti -1c
+.RI "int \fBgetYOffset\fP () const noexcept"
+.br
+.ti -1c
+.RI "int \fBgetXOffset\fP () const noexcept"
+.br
+.ti -1c
+.RI "void \fBscrollY\fP (int dy=1)"
+.br
+.RI "adds dy to the y_offset "
+.ti -1c
+.RI "void \fBscrollX\fP (int dx=1)"
+.br
+.RI "adds dx to the x_offset "
+.ti -1c
+.RI "void \fBclear\fP () const"
+.br
+.RI "clears screen, does nothing without ncurses library "
+.ti -1c
+.RI "void \fBprint\fP (std::wstring str, const \fBNcursesColors::Color\fP &color=\fBNcursesColors::fs_regular\fP) const"
+.br
+.RI "print str to the window using color "
+.ti -1c
+.RI "void \fBrefresh\fP () const"
+.br
+.RI "display all data to the screen "
+.ti -1c
+.RI "void \fBprintr\fP (std::wstring str, const \fBNcursesColors::Color\fP &color=\fBNcursesColors::fs_regular\fP) const"
+.br
+.RI "same as print and then refresh "
+.ti -1c
+.RI "void \fBprintcr\fP (std::wstring str, const \fBNcursesColors::Color\fP &color=\fBNcursesColors::fs_regular\fP) const"
+.br
+.RI "same as clear and then printr "
+.in -1c
+.SH "Detailed Description"
+.PP 
+class encapsulates behaviour related to specific area of the screen\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "intfl::Window::Window (int nlines, int ncols, int begin_y = \fC0\fP, int begin_x = \fC0\fP, int virt_nlines = \fC400\fP, int virt_ncols = \fC200\fP)\fC [inline]\fP"
+
+.PP
+Construct a new \fBWindow\fP object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInlines\fP number of lines 
+.br
+\fIncols\fP number of columns 
+.br
+\fIbegin_y\fP y position to start draw the window 
+.br
+\fIbegin_x\fP x position to start draw the window 
+.br
+\fIvirt_nlines\fP how many lines alocated in memory for data 
+.br
+\fIvirt_ncols\fP how many columns alocated in memory for data 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void intfl::Window::clear () const\fC [inline]\fP"
+
+.PP
+clears screen, does nothing without ncurses library 
+.SS "int intfl::Window::getXOffset () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "int intfl::Window::getYOffset () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "void intfl::Window::print (std::wstring str, const \fBNcursesColors::Color\fP & color = \fC\fBNcursesColors::fs_regular\fP\fP) const\fC [inline]\fP"
+
+.PP
+print str to the window using color 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP string to be printed to the screen 
+.br
+\fIcolor\fP color to be used to print, by default fs_regular, which is white 
+.RE
+.PP
+
+.SS "void intfl::Window::printcr (std::wstring str, const \fBNcursesColors::Color\fP & color = \fC\fBNcursesColors::fs_regular\fP\fP) const\fC [inline]\fP"
+
+.PP
+same as clear and then printr 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP 
+.br
+\fIcolor\fP 
+.RE
+.PP
+
+.SS "void intfl::Window::printr (std::wstring str, const \fBNcursesColors::Color\fP & color = \fC\fBNcursesColors::fs_regular\fP\fP) const\fC [inline]\fP"
+
+.PP
+same as print and then refresh 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP 
+.br
+\fIcolor\fP 
+.RE
+.PP
+
+.SS "void intfl::Window::refresh () const\fC [inline]\fP"
+
+.PP
+display all data to the screen 
+.SS "void intfl::Window::scrollX (int dx = \fC1\fP)\fC [inline]\fP"
+
+.PP
+adds dx to the x_offset 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdx\fP 
+.RE
+.PP
+
+.SS "void intfl::Window::scrollY (int dy = \fC1\fP)\fC [inline]\fP"
+
+.PP
+adds dy to the y_offset 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdy\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

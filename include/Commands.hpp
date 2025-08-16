@@ -11,8 +11,19 @@
 namespace intfl 
 {
 
+/**
+ * @brief prints help info both program started with --help or used command
+ * 
+ * @param win 
+ */
 void commandHelp(const Window& win);
 
+/**
+ * @brief used to redraw calls
+ * 
+ * @param win 
+ * @param reprs 
+ */
 void redraw(const Window& win, const std::vector<FilePrintRepr>& reprs);
 
 }

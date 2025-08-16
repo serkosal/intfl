@@ -19,14 +19,28 @@ namespace intfl {
     #define NESTING_BRANCH_LAST         L"|__ "
 #endif
 
+/**
+ * @brief represents file's nesting hierarchy 
+ * 
+ * Each element of the array is a boolean flag, indicating whether it's not a 
+ * last element at this depth, which equal the current element's index. 
+ */
 class NestingMap
 {
     std::vector<bool> M_arr;
 public:
 
+    /**
+     * @brief Construct a new default Nesting Map object
+     * 
+     */
     NestingMap() {}
 
-
+    /**
+     * @brief Construct a new Nesting Map object
+     * 
+     * @param nesting_map 
+     */
     NestingMap(std::vector<bool> nesting_map)
     : M_arr{nesting_map}
     {}
@@ -34,6 +48,11 @@ public:
     std::vector<bool>& arr() { return M_arr; }
     size_t size() const { return M_arr.size(); }
 
+    /**
+     * @brief get wstring representation of nesting map
+     * 
+     * @return std::wstring 
+     */
     std::wstring to_wstr() const
     {
         int sz = M_arr.size();

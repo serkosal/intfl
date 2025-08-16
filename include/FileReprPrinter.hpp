@@ -8,6 +8,12 @@
 
 namespace intfl {
 
+/**
+ * @brief function to print the FilePrintRepr to a specified window
+ * 
+ * @param file_repr 
+ * @param win 
+ */
 void printFileRepr(
     const FilePrintRepr& file_repr,
     const Window& win

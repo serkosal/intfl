@@ -1,0 +1,4 @@
+<map id="intfl::Directory" name="intfl::Directory">
+<area shape="rect" id="node1" title="Contains same data as File class and additional directory specific one." alt="" coords="5,80,120,107"/>
+<area shape="rect" id="node2" href="$classintfl_1_1_file.html" title="Contains an information about file such as filename, path, metadata." alt="" coords="23,5,102,32"/>
+</map>

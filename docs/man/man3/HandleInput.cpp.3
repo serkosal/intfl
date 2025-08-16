@@ -1,0 +1,41 @@
+.TH "src/HandleInput.cpp" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/HandleInput.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'HandleInput\&.hpp'\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <cwchar>\fP
+.br
+\fC#include <cwctype>\fP
+.br
+\fC#include 'Colors\&.hpp'\fP
+.br
+\fC#include 'File\&.hpp'\fP
+.br
+\fC#include 'Commands\&.hpp'\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBintfl\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBintfl::getCommand\fP (const Window &cmdsWin, Window &mainWin, const Directory &dir, std::vector< FilePrintRepr > &reprs, std::wstring &command)"
+.br
+.RI "Proccess input, yield the command string and handle some other events\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

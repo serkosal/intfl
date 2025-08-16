@@ -1,15 +1,19 @@
 #include "File.hpp"
 
+namespace intfl {
+
 std::wstring FilePrintRepr::to_wstr() const
 {
 
-    auto res = m_nesting_map.to_wstr();
+    auto res = M_nesting_map.to_wstr();
     
 
-    if (m_rest_elements)
-        res += L"files skipped: " + std::to_wstring(m_rest_elements);
+    if (M_rest_elements)
+        res += L"files skipped: " + std::to_wstring(M_rest_elements);
     else
-        res += m_file->_m_path.filename().wstring();
+        res += M_file->M_path.filename().wstring();
 
     return res;
+}
+
 }

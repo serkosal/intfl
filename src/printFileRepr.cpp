@@ -1,36 +1,40 @@
 #include <FileReprPrinter.hpp>
 
+namespace intfl {
+
 void printFileRepr(
-    const FilePrintRepr& file_repr,
-    const Window& win
+    const FilePrintRepr& A_file_repr,
+    const Window& A_win
 )
 {
-    auto nesting_str = file_repr.nesting().to_wstr();
-    win.printr(nesting_str);
+    auto nesting_str = A_file_repr.nesting().to_wstr();
+    A_win.printr(nesting_str);
 
-    if (file_repr.file() == nullptr)
+    if (A_file_repr.file() == nullptr)
     {
-        win.printr(
-            L"files skipped: " + std::to_wstring(file_repr.get_rest()),
-            NcursesColors::NOTICE
+        A_win.printr(
+            L"files skipped: " + std::to_wstring(A_file_repr.get_rest()),
+            NcursesColors::notice
         );
 
         return;
     }
 
-    auto filename_str = file_repr.file()->filename();
+    auto filename_str = A_file_repr.file()->filename();
 
-    if (file_repr.file()->get_type() == fs::file_type::directory)
+    if (A_file_repr.file()->getType() == fs::file_type::directory)
     {
-        if (file_repr.file()->is_collapsed())
+        if (A_file_repr.file()->isCollapsed())
             filename_str += L" ...";
 
-        win.printr(
+        A_win.printr(
             filename_str + L"\n",
-            NcursesColors::FS_Directory);
+            NcursesColors::fs_directory);
     }
     else
-        win.printr(
+        A_win.printr(
             filename_str + + L"\n",
-            NcursesColors::FS_Regular);
+            NcursesColors::fs_regular);
+}
+
 }

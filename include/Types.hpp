@@ -1,7 +1,12 @@
 #pragma once
 
+#ifndef INTFL_TYPES_HPP_
+#define INTFL_TYPES_HPP_
+
 #include <vector>
 #include <string>
+
+namespace intfl {
 
 #define     NESTING_EMPTY               L"    "
 #ifdef USE_N_CURSES
@@ -16,29 +21,29 @@
 
 class NestingMap
 {
-    std::vector<bool> m_arr;
+    std::vector<bool> M_arr;
 public:
 
     NestingMap() {}
 
 
     NestingMap(std::vector<bool> nesting_map)
-    : m_arr{nesting_map}
+    : M_arr{nesting_map}
     {}
 
-    std::vector<bool>& arr() { return m_arr; }
-    size_t size() const { return m_arr.size(); }
+    std::vector<bool>& arr() { return M_arr; }
+    size_t size() const { return M_arr.size(); }
 
     std::wstring to_wstr() const
     {
-        int sz = m_arr.size();
+        int sz = M_arr.size();
 
         std::wstring res;
         res.reserve(sz * 3);
 
         for (int lvl = 0; lvl < sz - 1; ++lvl)
         {
-            if (m_arr[lvl])
+            if (M_arr[lvl])
                 res += NESTING_VLINE;
             else
                 res += NESTING_EMPTY;
@@ -46,7 +51,7 @@ public:
 
         if (sz)
         {
-            if (!m_arr[sz - 1])
+            if (!M_arr[sz - 1])
                 res += NESTING_BRANCH_LAST;
             else
                 res += NESTING_BRANCH_CONTINUE;
@@ -55,3 +60,7 @@ public:
         return res;
     }
 };
+
+} // end of namespace 'intfl'
+
+#endif

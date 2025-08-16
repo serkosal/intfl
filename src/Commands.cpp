@@ -2,51 +2,53 @@
 
 #include "Colors.hpp"
 
-void command_help(const Window& win)
+namespace intfl {
+
+void commandHelp(const Window& win)
 {
     win.clear();
 
     win.print(L"usage:\n\n");
 
-    win.print(L"------ Files listing section ------\n", NcursesColors::FS_Directory);
+    win.print(L"------ Files listing section ------\n", NcursesColors::fs_directory);
 
-    win.print(L"-a\t\t\t", NcursesColors::FS_Directory);
+    win.print(L"-a\t\t\t", NcursesColors::fs_directory);
     win.print(L"list ");
-    win.print(L"almost all ", NcursesColors::FS_Directory);
+    win.print(L"almost all ", NcursesColors::fs_directory);
     win.print(L"files, excluding '.' and '..'.\n");
 
-    win.print(L"-A\t\t\t", NcursesColors::FS_Directory);
+    win.print(L"-A\t\t\t", NcursesColors::fs_directory);
     win.print(L"list ");
-    win.print(L"all ", NcursesColors::FS_Directory);
+    win.print(L"all ", NcursesColors::fs_directory);
     win.print(L"files, including '.' and '..'.\n");
 
-    win.print(L"-d\t\t\t", NcursesColors::FS_Directory);
+    win.print(L"-d\t\t\t", NcursesColors::fs_directory);
     win.print(L"list directories only.\n");
 
     // mainWin.print(L"-l follow symbolic links.                                \n");
-    win.print(L"-f\t\t\t", NcursesColors::FS_Directory);
+    win.print(L"-f\t\t\t", NcursesColors::fs_directory);
     win.print(L"print full path for each file entry.\n");
 
     // mainWin.print(L"-x stay on current filesystem only                       \n");
-    win.print(L"-L depth\t\t", NcursesColors::FS_Directory);
+    win.print(L"-L depth\t\t", NcursesColors::fs_directory);
     win.print(L"max descendant depth.\n");
 
     // mainWin.print(L"-R                                                       \n");
-    win.print(L"-P pattern\t\t", NcursesColors::FS_Directory);
+    win.print(L"-P pattern\t\t", NcursesColors::fs_directory);
     win.print(L"list only items that satisfy Pattern.\n");
 
-    win.print(L"-I pattern\t\t", NcursesColors::FS_Directory);
+    win.print(L"-I pattern\t\t", NcursesColors::fs_directory);
     win.print(L"ignore.\n");
 
-    win.print(L"--gitignore\t\t", NcursesColors::FS_Directory);
+    win.print(L"--gitignore\t\t", NcursesColors::fs_directory);
     win.print(L"ignores files specified in .gitignore file.\n");
 
-    win.print(L"--ignorefile file\t", NcursesColors::FS_Directory);
+    win.print(L"--ignorefile file\t", NcursesColors::fs_directory);
     win.print(L"ignores files specified in [file].\n");
 
     // mainWin.print(L"--matchdirs  \t \n                ");
     // mainWin.print(L"--metafirst \t \n                ");
-    win.print(L"--prune \t\t\t", NcursesColors::FS_Directory);
+    win.print(L"--prune \t\t\t", NcursesColors::fs_directory);
     win.print(L"hide empty directories.\n");
 
     // mainWin.print(L"--info \t\t\tPrune empty files\n");
@@ -55,7 +57,7 @@ void command_help(const Window& win)
     // mainWin.print(L"--charset \t                                             \n");
     win.print(L"--filelimit\t\t\n");
     win.print(L"-o\t\t\t\n");
-    win.print(L"------ Files options ------\n", NcursesColors::FS_Directory);
+    win.print(L"------ Files options ------\n", NcursesColors::fs_directory);
     win.print(L"-q print unprintable characters as '?'  \t \n");
     win.print(L"-N print unprintable characters as is   \t \n");
     win.print(L"-Q quote filenames with double quotes   \t \n");
@@ -82,4 +84,6 @@ void redraw(const Window& win, const std::vector<FilePrintRepr>& reprs)
     for (const auto& repr : reprs)
         printFileRepr(repr, win);
     win.refresh();
+}
+
 }

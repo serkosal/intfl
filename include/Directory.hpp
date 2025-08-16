@@ -1,45 +1,51 @@
 #pragma once
 
+#ifndef INTFL_DIRECTORY_HPP_
+#define INTFL_DIRECTORY_HPP_
+
 #include <filesystem>
 #include <map>
-#include <memory>
 #include <vector>
 
 #include "File.hpp"
 #include "Window.hpp"
 
+namespace intfl
+{
+
 class Directory : public File
 {
 private:
-    std::map<fs::path, FilePtr> children;
+    std::map<fs::path, FilePtr> M_children;
 
-    std::vector<FilePrintRepr> to_repr(
+    std::vector<FilePrintRepr> toRepr(
         const NestingMap& nesting_map, 
         size_t max_depth, 
         size_t max_listing_n
     ) const override;
 
-    mutable bool isCollapsed = false;
+    // todo move is_collapsed to Views 
+    mutable bool M_Mut_is_collapsed = false;
 public:
 
-    bool is_collapsed() const override 
-    { return isCollapsed; }
+    bool isCollapsed() const override 
+    { return M_Mut_is_collapsed; }
 
     const File& collapse() const override
     { 
-        isCollapsed = true;
+        M_Mut_is_collapsed = true;
 
         return *this;
     }
     const File& expand() const override
     { 
-        isCollapsed = true;
+        M_Mut_is_collapsed = true;
 
         return *this;
     }
     const File& collapseExpand() const override
     {
-        isCollapsed = !isCollapsed; 
+        M_Mut_is_collapsed = !M_Mut_is_collapsed; 
         return *this; 
     }
 
@@ -47,15 +53,19 @@ public:
     Directory(const fs::path& path);
 
     bool exists() const 
-    { return _m_type == fs::file_type::directory; }
+    {   return M_type == fs::file_type::directory; }
 
-    std::vector<FilePrintRepr> to_repr(
+    std::vector<FilePrintRepr> toRepr(
         size_t max_depth = 5, 
         size_t max_listing_n = 15
     ) const
     {
-        return Directory::to_repr(
-            {NestingMap()}, max_depth, max_listing_n
+        return Directory::toRepr(
+            {NestingMap{}}, max_depth, max_listing_n
         );
     }
 };
+
+} // end of namespace intfl
+
+#endif

@@ -3,69 +3,74 @@
 #include <iterator>
 #include <string>
 
-Directory::Directory(const fs::path& path)
-: File(path, fs::file_type::not_found)
+namespace intfl {
+
+Directory::Directory(const fs::path& A_path)
+: File(A_path, fs::file_type::not_found)
 {
-    if (!fs::exists(path)) return;
+    if (!fs::exists(A_path)) return;
 
-    if (fs::is_directory(path))
+    if (fs::is_directory(A_path))
     {
-        _m_type = fs::file_type::directory;
+        M_type = fs::file_type::directory;
 
-        for (const auto& entry: fs::directory_iterator(path))
+        for (const auto& entry: fs::directory_iterator(A_path))
         {
             if (fs::is_directory(entry))
-                children[entry] = std::make_unique<Directory>(entry);
+                M_children[entry] = std::make_unique<Directory>(entry);
             else
-                children[entry] = std::make_unique<File>(entry, fs::file_type::regular);
+                M_children[entry] = std::make_unique<File>(entry, fs::file_type::regular);
         }
     }
 }
 
-std::vector<FilePrintRepr> Directory::to_repr(
-    const NestingMap& nesting_map, 
-    size_t max_depth, 
-    size_t max_listing_n
+std::vector<FilePrintRepr> Directory::toRepr(
+    const NestingMap& A_nesting_map, 
+    size_t A_max_depth, 
+    size_t A_max_listing_n
 ) const
 {
     std::vector<FilePrintRepr> res;
 
-    if (nesting_map.size() > max_depth) 
-        return res;
+    if (A_nesting_map.size() > A_max_depth) 
+    {   return res; }
 
-    for (const auto& el : File::to_repr(nesting_map, 0, 0))
-        res.push_back(el);
+    for (const auto& el : File::toRepr(A_nesting_map, 0, 0)) 
+    {   res.push_back(el); }
 
-    if (isCollapsed)
-        return res;
+    if (isCollapsed()) 
+    {   return res; }
 
     size_t counter = 0;
 
-    for (auto it = children.begin(); it != children.end(); ++it)
+    for (auto it = M_children.begin(); it != M_children.end(); ++it)
     {
-        auto new_nesting_map = nesting_map;
+        auto new_nesting_map = A_nesting_map;
 
-        if (++counter > max_listing_n)
+        if (++counter > A_max_listing_n)
         {
             new_nesting_map.arr().push_back(false);
 
             res.push_back(FilePrintRepr(
-                new_nesting_map, it->second.get(), children.size() - max_listing_n 
+                new_nesting_map, it->second.get(), 
+                M_children.size() - A_max_listing_n 
             ));
             
             return res;
         }
 
-        new_nesting_map.arr().push_back(std::next(it) != children.end());
-        auto new_entries = it->second->to_repr(
+        new_nesting_map.arr().push_back(std::next(it) != M_children.end());
+        auto new_entries = it->second->toRepr(
             new_nesting_map, 
-            max_depth,
-            max_listing_n
+            A_max_depth,
+            A_max_listing_n
         );
 
         for (const auto& el : new_entries)
-            res.push_back(el);
+        {   res.push_back(el); }
     }
 
     return res;
+}
+
 }

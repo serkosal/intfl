@@ -8,10 +8,11 @@ Interactive file listing
 ncurses**W** - for unicode support.
 ncurses      - for colors and mouse support on many of the UNIX systems. 
 
-- for usage libncurses6 
-- for unicode symbols usage support libncursesw6 
-- for compiling libncurses-dev 
-- for man-pages ncurses-doc
+## development dependencies
+doxygen for generating documentation
+doxygen-awesome-css for night theme support,
+download it using:
+git submodule update --init --recursive
 
 # Planed feautures
 

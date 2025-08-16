@@ -16,6 +16,8 @@
 #include "FileReprPrinter.hpp"
 #include "HandleInput.hpp"
 
+using namespace intfl;
+
 int main(int argc, char *argv[])
 {
     int y = 0, x = 0;
@@ -42,7 +44,7 @@ int main(int argc, char *argv[])
 
     NcursesColors::init();
     if (!NcursesColors::isColors())
-        mainWin.printr(L"Colors are unsupported. Running without them!\n", NcursesColors::ERROR);
+        mainWin.printr(L"Colors are unsupported. Running without them!\n", NcursesColors::error);
 
     Directory dir(path);
 

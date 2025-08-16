@@ -1,24 +1,30 @@
 #pragma once
 
+#ifndef INTFL_FILE_HPP_
+#define INTFL_FILE_HPP_
+
 #include <filesystem>
 #include <vector>
 #include <string>
 
 #include "Types.hpp"
 
+
+namespace intfl {
+
 class File;
 
-namespace fs = std::filesystem;
+namespace fs  = std::filesystem;
 using FilePtr = std::unique_ptr<File>;
 
 // flatened linear print-ready representation of file structure
 class FilePrintRepr
 {
 private:
-    NestingMap m_nesting_map;
-    const File* m_file = nullptr;
+    NestingMap M_nesting_map;
+    const File* M_file = nullptr;
 
-    size_t m_rest_elements; // if files skipped
+    size_t M_rest_elements; // if files skipped
 public:
 
     FilePrintRepr(
@@ -26,19 +32,19 @@ public:
         const File* file = nullptr,
         size_t n_rest_elements = 0
     )
-    : m_file(file), 
-    m_nesting_map(nesting_map),
-    m_rest_elements(n_rest_elements)
+    : M_file(file), 
+      M_nesting_map(nesting_map),
+      M_rest_elements(n_rest_elements)
     {}
 
     const File* const file() const
-    { return m_file; }
+    { return M_file; }
 
     size_t get_rest() const
-    { return m_rest_elements; }
+    { return M_rest_elements; }
 
     const NestingMap& nesting() const
-    { return m_nesting_map; }
+    { return M_nesting_map; }
 
     std::wstring to_wstr() const;
 
@@ -51,12 +57,12 @@ class File
 friend class FilePrintRepr;
 friend class NestingMap;
 protected:
-    fs::path _m_path;
-    fs::file_type _m_type;
+    fs::path M_path;
+    fs::file_type M_type;
 public:
-    fs::file_type get_type() const { return _m_type; }
+    fs::file_type getType() const { return M_type; }
 
-    virtual std::vector<FilePrintRepr> to_repr(
+    virtual std::vector<FilePrintRepr> toRepr(
         const NestingMap& nesting_map,
 
         // these arguments needed for compatibility with
@@ -68,16 +74,20 @@ public:
         return {FilePrintRepr(nesting_map, this)};
     }
 
-    virtual bool is_collapsed()          const { return false; }
+    virtual bool  isCollapsed()          const { return false; }
     virtual const File& collapse()       const { return *this; }
     virtual const File& expand()         const { return *this; }
 
     virtual const File& collapseExpand() const { return *this; }
 
     std::wstring filename() const
-    { return _m_path.filename().wstring(); }
+    { return M_path.filename().wstring(); }
 
     File(const fs::path& path, fs::file_type type)
-    : _m_path{path}, _m_type{type}
+    : M_path{path}, M_type{type}
     {}
 };
+
+} // end of namespace intfl
+
+#endif

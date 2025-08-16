@@ -1,7 +1,15 @@
 #pragma once
 
+#ifndef INTFL_WINDOW_HPP_
+#define INTFL_WINDOW_HPP_
+
 // to tell idiot IntelleSense stop ignoring ncurses block codes
 // #define USE_N_CURSES
+
+#include <string>
+#include <vector>
+
+#include "Colors.hpp"
 
 #ifdef USE_N_CURSES
     #include <ncursesw/ncurses.h>
@@ -10,21 +18,20 @@
     #include <iostream>
 #endif
 
-#include <vector>
-#include "Colors.hpp"
+namespace intfl {
 
 class Window
 {
 private:
     #ifdef USE_N_CURSES
-        WINDOW* m_window;
+        WINDOW* MP_window;
     #endif
 
-    int m_nlines, m_ncols;
-    int m_virt_nlines, m_virt_ncols;
+    int M_nlines, M_ncols;
+    int M_virt_nlines, M_virt_ncols;
 
-    int m_begin_y = 0, m_begin_x = 0;
-    int m_y_offset = 0, m_x_offset = 0;
+    int M_begin_y = 0, M_begin_x = 0;
+    int M_y_offset = 0, M_x_offset = 0;
 public:
 
     #ifdef USE_N_CURSES
@@ -33,20 +40,20 @@ public:
             int begin_y = 0, int begin_x = 0,
             int virt_nlines = 400, int virt_ncols = 200
         )
-        : m_nlines(nlines), m_ncols(ncols), 
-          m_begin_y(begin_y), m_begin_x(begin_x),
-          m_virt_nlines(virt_nlines), m_virt_ncols(virt_ncols)
+        : M_nlines(nlines), M_ncols(ncols), 
+          M_begin_y(begin_y), M_begin_x(begin_x),
+          M_virt_nlines(virt_nlines), M_virt_ncols(virt_ncols)
         {
-            m_window = newpad(virt_nlines, virt_ncols);
+            MP_window = newpad(virt_nlines, virt_ncols);
 
-            keypad(m_window, TRUE);
+            keypad(MP_window, TRUE);
 
             clear();
         }
 
-        WINDOW* get_ptr() const
+        WINDOW* getPtr() const
         { 
-            return m_window;
+            return MP_window;
         }
 
     #else
@@ -55,52 +62,55 @@ public:
             int begin_y = 0, int begin_x = 0,
             int virt_nlines = 400, int virt_ncols = 200
         )
-        : m_nlines(nlines), m_ncols(ncols), 
-          m_begin_y(begin_y), m_begin_x(begin_x),
-          m_virt_nlines(virt_nlines), m_virt_ncols(virt_ncols)
+        : M_nlines(nlines), M_ncols(ncols), 
+          M_begin_y(begin_y), M_begin_x(begin_x),
+          M_virt_nlines(virt_nlines), M_virt_ncols(virt_ncols)
         {}
     #endif
 
+    int getYOffset() const noexcept { return M_y_offset; }
+    int getXOffset() const noexcept { return M_y_offset; }
+
     void scrollY(int dy = 1)
     {
-        m_y_offset += dy;
+        M_y_offset += dy;
 
-        if (m_y_offset < 0)
-            m_y_offset = 0;
+        if (M_y_offset < 0)
+            M_y_offset = 0;
 
-        if (m_y_offset >= m_virt_nlines - m_nlines)
-            m_y_offset = m_virt_nlines - m_nlines - 1;
+        if (M_y_offset >= M_virt_nlines - M_nlines)
+            M_y_offset = M_virt_nlines - M_nlines - 1;
     }
 
     void scrollX(int dx = 1)
     {
-        m_x_offset += dx;
+        M_x_offset += dx;
 
         
-        if (m_x_offset < 0)
-            m_x_offset = 0;
+        if (M_x_offset < 0)
+            M_x_offset = 0;
 
         
-        if (m_x_offset >= m_virt_ncols - m_ncols)
-            m_x_offset = m_virt_ncols - m_ncols - 1;
+        if (M_x_offset >= M_virt_ncols - M_ncols)
+            M_x_offset = M_virt_ncols - M_ncols - 1;
     }
 
     void clear() const
     {
         #ifdef USE_N_CURSES
-            wclear(m_window);
+            wclear(MP_window);
         #endif
     }
 
     void print(
         std::wstring str, 
-        const NcursesColors::COLOR_STRUCT& color = NcursesColors::FS_Regular
+        const NcursesColors::Color& color = NcursesColors::fs_regular
     ) const
     {
         #ifdef USE_N_CURSES
-            color.on(m_window);
-                waddwstr(m_window, str.c_str());
-            color.off(m_window);
+            color.on(MP_window);
+                waddwstr(MP_window, str.c_str());
+            color.off(MP_window);
         #else
             std::wcout << str;
         #endif
@@ -111,18 +121,18 @@ public:
     {
         #ifdef USE_N_CURSES
             prefresh(
-                m_window,
-                m_y_offset, m_x_offset,
-                m_begin_y, m_begin_x,
-                m_begin_y + m_nlines - 1,
-                m_begin_x + m_ncols - 1
+                MP_window,
+                M_y_offset, M_x_offset,
+                M_begin_y, M_begin_x,
+                M_begin_y + M_nlines - 1,
+                M_begin_x + M_ncols - 1
             );
         #endif
     }
 
     void printr(
         std::wstring str, 
-        const NcursesColors::COLOR_STRUCT& color = NcursesColors::FS_Regular
+        const NcursesColors::Color& color = NcursesColors::fs_regular
     ) const
     {
         print(str, color);
@@ -131,7 +141,7 @@ public:
 
     void printcr(
         std::wstring str, 
-        const NcursesColors::COLOR_STRUCT& color = NcursesColors::FS_Regular
+        const NcursesColors::Color& color = NcursesColors::fs_regular
     ) const
     {
         clear();
@@ -139,3 +149,7 @@ public:
     }
 
 };
+
+}
+
+#endif

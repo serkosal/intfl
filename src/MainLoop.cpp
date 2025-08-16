@@ -6,6 +6,8 @@
 #include "Commands.hpp"
 #include "FileReprPrinter.hpp"
 
+namespace intfl {
+
 void mainLoop(
     const Directory &dir,
     Window& mainWin,
@@ -16,25 +18,25 @@ void mainLoop(
     std::vector<FilePrintRepr> reprs;
 
     if (argc > 1 && strcmp(argv[1], "--help") == 0)
-        command_help(mainWin);
+        commandHelp(mainWin);
     else
     {
         if (!dir.exists())
-            mainWin.printr(L"Directory not found!\n", NcursesColors::ERROR);
+            mainWin.printr(L"Directory not found!\n", NcursesColors::error);
         else
         {
-            reprs = dir.to_repr();
+            reprs = dir.toRepr();
             redraw(mainWin, reprs);
         }
     }
 
     std::wstring cmd = L"";
-    auto cmd_read_status = get_command(cmdsWin, mainWin, dir, reprs, cmd);
+    auto cmd_read_status = getCommand(cmdsWin, mainWin, dir, reprs, cmd);
     while (cmd != L"quit")
     {
         if (cmd_read_status)
         {
-            cmdsWin.printcr(L"\nAn error occured while handling command input!\n", NcursesColors::ERROR);
+            cmdsWin.printcr(L"\nAn error occured while handling command input!\n", NcursesColors::error);
             
             continue;
         }
@@ -47,12 +49,12 @@ void mainLoop(
         else if (cmd == L"update")
         {
             if (!dir.exists())
-                mainWin.printr(L"Directory not found!\n", NcursesColors::ERROR);
+                mainWin.printr(L"Directory not found!\n", NcursesColors::error);
             else
             {
                 reprs.clear();
                 mainWin.clear();
-                reprs = dir.to_repr();
+                reprs = dir.toRepr();
                 for (const auto& repr : reprs)
                     printFileRepr(repr, mainWin);
                 mainWin.refresh();
@@ -60,16 +62,18 @@ void mainLoop(
         }
         else if (cmd == L"help")
         {
-            command_help(mainWin);
+            commandHelp(mainWin);
         }
         else
         {
             cmdsWin.printr(
                 L"\nUnrecognized command!\nType help to see commands list\n",
-                NcursesColors::ERROR
+                NcursesColors::error
             );
         }
 
-        cmd_read_status = get_command(cmdsWin, mainWin, dir, reprs, cmd);
+        cmd_read_status = getCommand(cmdsWin, mainWin, dir, reprs, cmd);
     }
+}
+
 }

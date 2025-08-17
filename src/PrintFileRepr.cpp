@@ -7,7 +7,7 @@ void printFileRepr(
     const Window& A_win
 )
 {
-    auto nesting_str = A_file_repr.nesting().to_wstr();
+    auto nesting_str = A_file_repr.nesting().toWstr();
     A_win.printr(nesting_str);
 
     if (A_file_repr.file() == nullptr)
@@ -25,16 +25,18 @@ void printFileRepr(
     if (A_file_repr.file()->getType() == fs::file_type::directory)
     {
         if (A_file_repr.file()->isCollapsed())
-            filename_str += L" ...";
+        {   filename_str += L" ..."; }
 
         A_win.printr(
             filename_str + L"\n",
             NcursesColors::fs_directory);
     }
     else
+    {
         A_win.printr(
             filename_str + + L"\n",
             NcursesColors::fs_regular);
+    }
 }
 
-}
+} // end of the 'intfl' namespace

@@ -8,7 +8,7 @@ namespace intfl {
 Directory::Directory(const fs::path& A_path)
 : File(A_path, fs::file_type::not_found)
 {
-    if (!fs::exists(A_path)) return;
+    if (!fs::exists(A_path)) { return; }
 
     if (fs::is_directory(A_path))
     {
@@ -17,9 +17,11 @@ Directory::Directory(const fs::path& A_path)
         for (const auto& entry: fs::directory_iterator(A_path))
         {
             if (fs::is_directory(entry))
-                M_children[entry] = std::make_unique<Directory>(entry);
+            {   M_children[entry] = std::make_unique<Directory>(entry); }
             else
-                M_children[entry] = std::make_unique<File>(entry, fs::file_type::regular);
+            {   M_children[entry] = std::make_unique<File>(
+                                        entry, fs::file_type::regular);
+            }
         }
     }
 }
@@ -73,4 +75,4 @@ std::vector<FilePrintRepr> Directory::toRepr(
     return res;
 }
 
-}
+} // end of the 'intfl' namespace

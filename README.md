@@ -36,7 +36,7 @@ git submodule update --init --recursive
  - [x] better input handling
  - [x] expand/collapse
  - [x] mouse support
- - [ ] doxygen documentation [IN DEVELOPMENT]
+ - [x] doxygen documentation [IN DEVELOPMENT]
  - [ ] recursive expand/collapse [IN DEVELOPMENT]
  - [ ] support command line arguments [IN DEVELOPMENT]
  - [ ] add color support of executables files & different file extensions

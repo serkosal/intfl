@@ -26,6 +26,6 @@ void commandHelp(const Window& win);
  */
 void redraw(const Window& win, const std::vector<FilePrintRepr>& reprs);
 
-}
+} // end of the 'intfl' namespace
 
 #endif

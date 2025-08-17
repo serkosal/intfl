@@ -89,10 +89,10 @@ public:
         M_y_offset += dy;
 
         if (M_y_offset < 0)
-            M_y_offset = 0;
+        {   M_y_offset = 0; }
 
         if (M_y_offset >= M_virt_nlines - M_nlines)
-            M_y_offset = M_virt_nlines - M_nlines - 1;
+        {   M_y_offset = M_virt_nlines - M_nlines - 1; }
     }
 
     /**
@@ -106,11 +106,11 @@ public:
 
         
         if (M_x_offset < 0)
-            M_x_offset = 0;
+        {   M_x_offset = 0; }
 
         
         if (M_x_offset >= M_virt_ncols - M_ncols)
-            M_x_offset = M_virt_ncols - M_ncols - 1;
+        {   M_x_offset = M_virt_ncols - M_ncols - 1; }
     }
 
     /**
@@ -195,6 +195,6 @@ public:
 
 };
 
-}
+} // end of the 'intfl' namespace
 
 #endif

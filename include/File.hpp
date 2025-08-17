@@ -50,7 +50,7 @@ public:
     const NestingMap& nesting() const
     { return M_nesting_map; }
 
-    std::wstring to_wstr() const;
+    std::wstring toWstr() const;
 
     ~FilePrintRepr() {}
 };
@@ -95,6 +95,6 @@ public:
     {}
 };
 
-} // end of namespace intfl
+} // end of the 'intfl' namespace
 
 #endif

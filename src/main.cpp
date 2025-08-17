@@ -32,7 +32,10 @@ int main(int argc, char *argv[])
         noecho();
 
         mmask_t old_mmask;
-        mousemask(BUTTON1_CLICKED | BUTTON_SHIFT | BUTTON_CTRL | BUTTON_ALT, &old_mmask);
+        mousemask(
+            BUTTON1_CLICKED | BUTTON_SHIFT | BUTTON_CTRL | BUTTON_ALT, 
+            &old_mmask
+        );
 
         getmaxyx(stdscr, y, x);
     #else
@@ -44,7 +47,11 @@ int main(int argc, char *argv[])
 
     NcursesColors::init();
     if (!NcursesColors::isColors())
-        mainWin.printr(L"Colors are unsupported. Running without them!\n", NcursesColors::error);
+    {   mainWin.printr(
+            L"Colors are unsupported. Running without them!\n", 
+            NcursesColors::error
+        );
+    }
 
     Directory dir(path);
 

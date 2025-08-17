@@ -9,71 +9,80 @@
 namespace intfl {
 
 void mainLoop(
-    const Directory &dir,
-    Window& mainWin,
-    Window& cmdsWin,
-    int argc, char *argv[]
+    const Directory& A_dir,
+    Window& A_mainWin,
+    Window& A_cmdsWin,
+    int A_argc, char* A_argv[]
 )
 {
     std::vector<FilePrintRepr> reprs;
 
-    if (argc > 1 && strcmp(argv[1], "--help") == 0)
-        commandHelp(mainWin);
+    if (A_argc > 1 && strcmp(A_argv[1], "--help") == 0)
+    {   commandHelp(A_mainWin); }
     else
     {
-        if (!dir.exists())
-            mainWin.printr(L"Directory not found!\n", NcursesColors::error);
+        if (!A_dir.exists())
+        {   A_mainWin.printr(L"Directory not found!\n", NcursesColors::error); }
         else
         {
-            reprs = dir.toRepr();
-            redraw(mainWin, reprs);
+            reprs = A_dir.toRepr();
+            redraw(A_mainWin, reprs);
         }
     }
 
     std::wstring cmd = L"";
-    auto cmd_read_status = getCommand(cmdsWin, mainWin, dir, reprs, cmd);
+    auto cmd_read_status = getCommand(A_cmdsWin, A_mainWin, A_dir, reprs, cmd);
     while (cmd != L"quit")
     {
         if (cmd_read_status)
         {
-            cmdsWin.printcr(L"\nAn error occured while handling command input!\n", NcursesColors::error);
+            A_cmdsWin.printcr(
+                L"\nAn error occured while handling command input!\n", 
+                NcursesColors::error
+            );
             
             continue;
         }
 
         if (cmd == L"redraw")
         {
-            mainWin.clear();
-            redraw(mainWin, reprs);
+            A_mainWin.clear();
+            redraw(A_mainWin, reprs);
         }
         else if (cmd == L"update")
         {
-            if (!dir.exists())
-                mainWin.printr(L"Directory not found!\n", NcursesColors::error);
+            if (!A_dir.exists())
+            { 
+                A_mainWin.printr(
+                    L"Directory not found!\n", NcursesColors::error
+                );
+            } 
             else
             {
                 reprs.clear();
-                mainWin.clear();
-                reprs = dir.toRepr();
+                A_mainWin.clear();
+
+                reprs = A_dir.toRepr();
                 for (const auto& repr : reprs)
-                    printFileRepr(repr, mainWin);
-                mainWin.refresh();
+                {   printFileRepr(repr, A_mainWin); }
+
+                A_mainWin.refresh();
             }
         }
         else if (cmd == L"help")
         {
-            commandHelp(mainWin);
+            commandHelp(A_mainWin);
         }
         else
         {
-            cmdsWin.printr(
+            A_cmdsWin.printr(
                 L"\nUnrecognized command!\nType help to see commands list\n",
                 NcursesColors::error
             );
         }
 
-        cmd_read_status = getCommand(cmdsWin, mainWin, dir, reprs, cmd);
+        cmd_read_status = getCommand(A_cmdsWin, A_mainWin, A_dir, reprs, cmd);
     }
 }
 
-}
+} // end of the 'intfl' namespace

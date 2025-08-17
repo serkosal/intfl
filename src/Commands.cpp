@@ -10,7 +10,10 @@ void commandHelp(const Window& win)
 
     win.print(L"usage:\n\n");
 
-    win.print(L"------ Files listing section ------\n", NcursesColors::fs_directory);
+    win.print(
+        L"------ Files listing section ------\n", 
+        NcursesColors::fs_directory
+    );
 
     win.print(L"-a\t\t\t", NcursesColors::fs_directory);
     win.print(L"list ");
@@ -25,15 +28,15 @@ void commandHelp(const Window& win)
     win.print(L"-d\t\t\t", NcursesColors::fs_directory);
     win.print(L"list directories only.\n");
 
-    // mainWin.print(L"-l follow symbolic links.                                \n");
+    // mainWin.print(L"-l follow symbolic links.                           \n");
     win.print(L"-f\t\t\t", NcursesColors::fs_directory);
     win.print(L"print full path for each file entry.\n");
 
-    // mainWin.print(L"-x stay on current filesystem only                       \n");
+    // mainWin.print(L"-x stay on current filesystem only                  \n");
     win.print(L"-L depth\t\t", NcursesColors::fs_directory);
     win.print(L"max descendant depth.\n");
 
-    // mainWin.print(L"-R                                                       \n");
+    // mainWin.print(L"-R                                                  \n");
     win.print(L"-P pattern\t\t", NcursesColors::fs_directory);
     win.print(L"list only items that satisfy Pattern.\n");
 
@@ -53,8 +56,8 @@ void commandHelp(const Window& win)
 
     // mainWin.print(L"--info \t\t\tPrune empty files\n");
     // mainWin.print(L"--infofile\t\tPrune empty files   \n");
-    // mainWin.print(L"--noreport \t                                            \n");
-    // mainWin.print(L"--charset \t                                             \n");
+    // mainWin.print(L"--noreport \t                                       \n");
+    // mainWin.print(L"--charset \t                                        \n");
     win.print(L"--filelimit\t\t\n");
     win.print(L"-o\t\t\t\n");
     win.print(L"------ Files options ------\n", NcursesColors::fs_directory);
@@ -66,8 +69,8 @@ void commandHelp(const Window& win)
     // mainWin.print( L"-g Displays file group owner or GID number.  \t \n");
     win.print(L"-s Print the size in bytes of each file.  \t \n");
     win.print(L"-h Print the size in a more human readable way.  \t \n");
-    // mainWin.print(L"--si Like -h, but use in SI units (powers of 1000).  \t \n");
-    // mainWin.print(L"--du Compute size of directories by their contents.  \t \n");
+    // mainWin.print(L"--si Like -h, but use in SI units (powers of 1000).\t\n");
+    // mainWin.print(L"--du Compute size of directories by their contents.\t\n");
     win.print(L"--D print the date since last modification.  \t \n");
     // mainWin.print( L"--timefmt <f> Print and format time according to the format <f> \n");
     // mainWin.print( L"-F            Appends '/', '=', '*', '@', '|' or '>' as per ls -F. \n");
@@ -82,8 +85,8 @@ void redraw(const Window& win, const std::vector<FilePrintRepr>& reprs)
 {
     win.clear();
     for (const auto& repr : reprs)
-        printFileRepr(repr, win);
+    {   printFileRepr(repr, win); }
     win.refresh();
 }
 
-}
+} // end of the 'intfl' namespace

@@ -13,7 +13,7 @@ target_sources(intfl
     src/Commands.cpp
     src/HandleInput.cpp
     src/MainLoop.cpp
-    src/printFileRepr.cpp
+    src/PrintFileRepr.cpp
 )
 
 target_include_directories(

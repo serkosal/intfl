@@ -19,6 +19,6 @@ void printFileRepr(
     const Window& win
 );
 
-}
+} // end of the 'intfl' namespace
 
 #endif

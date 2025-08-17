@@ -56,7 +56,10 @@ bool getCommand(
                     A_mainWin.scrollY(1);
                     A_mainWin.refresh();
                 }
-                else if (wch == KEY_MOUSE && getmouse(&event) == OK && event.bstate & BUTTON1_CLICKED)
+                else if (
+                    wch == KEY_MOUSE && getmouse(&event) == OK 
+                    && event.bstate & BUTTON1_CLICKED
+                )
                 {
                     int y_click = event.y + A_mainWin.getYOffset();
 
@@ -96,13 +99,13 @@ bool getCommand(
     #else
         auto &res = std::getline(std::wcin, A_command);
         if (res.fail())
-            return 1;
+        {   return 1; }
         else
-            return 0;
+        {   return 0; }
 
     #endif
 
     return 1;
 }
 
-}
+} // end of the 'intfl' namespace

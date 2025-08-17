@@ -24,6 +24,6 @@ void mainLoop(
     int argc, char *argv[]
 );
 
-}
+} // end of the 'intfl' namespace
 
 #endif

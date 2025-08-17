@@ -2,18 +2,18 @@
 
 namespace intfl {
 
-std::wstring FilePrintRepr::to_wstr() const
+std::wstring FilePrintRepr::toWstr() const
 {
 
-    auto res = M_nesting_map.to_wstr();
+    auto res = M_nesting_map.toWstr();
     
 
     if (M_rest_elements)
-        res += L"files skipped: " + std::to_wstring(M_rest_elements);
+    {   res += L"files skipped: " + std::to_wstring(M_rest_elements); }
     else
-        res += M_file->M_path.filename().wstring();
+    {   res += M_file->M_path.filename().wstring(); }
 
     return res;
 }
 
-}
+} // end of the 'intfl' namespace

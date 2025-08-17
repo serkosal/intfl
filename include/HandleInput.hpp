@@ -24,13 +24,13 @@ namespace intfl {
  * @return false  if no errors ocured during handling input
  */
 bool getCommand(
-    const Window &cmdsWin,
-    Window &mainWin,
+    const Window& cmdsWin,
+    Window& mainWin,
     const Directory& dir,
     std::vector<FilePrintRepr>& reprs, 
     std::wstring &command
 );
 
-} // end of namespace 'intfl'
+} // end of the 'intfl' namespace
 
 #endif

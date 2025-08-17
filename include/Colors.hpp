@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef INTFL_COLORS_HPP
-#define INTFL_COLOR_HPP
+#ifndef INTFL_COLORS_HPP_
+#define INTFL_COLOR_HPP_
 
 #include <array>
 
@@ -34,6 +34,11 @@ class NcursesColors {
 public:
 
     // TYPES
+
+    /**
+     * @brief represents NcursesColor pair
+     * 
+     */
     class Color {
         friend class NcursesColors;
 
@@ -121,7 +126,7 @@ public:
     }
 };
 
-} // end of intfl namespace
+} // end of the 'intfl' namespace
 
 #endif
 

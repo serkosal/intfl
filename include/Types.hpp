@@ -53,7 +53,7 @@ public:
      * 
      * @return std::wstring 
      */
-    std::wstring to_wstr() const
+    std::wstring toWstr() const
     {
         int sz = M_arr.size();
 
@@ -63,23 +63,23 @@ public:
         for (int lvl = 0; lvl < sz - 1; ++lvl)
         {
             if (M_arr[lvl])
-                res += NESTING_VLINE;
+            {   res += NESTING_VLINE; }
             else
-                res += NESTING_EMPTY;
+            {   res += NESTING_EMPTY; }
         }
 
         if (sz)
         {
             if (!M_arr[sz - 1])
-                res += NESTING_BRANCH_LAST;
+            {   res += NESTING_BRANCH_LAST; }
             else
-                res += NESTING_BRANCH_CONTINUE;
+            {   res += NESTING_BRANCH_CONTINUE; }
         }
 
         return res;
     }
 };
 
-} // end of namespace 'intfl'
+} // end of the 'intfl' namespace
 
 #endif

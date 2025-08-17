@@ -29,27 +29,27 @@ private:
     ) const override;
 
     // todo move is_collapsed to Views 
-    mutable bool M_Mut_is_collapsed = false;
+    mutable bool M_is_collapsed = false;
 public:
 
     bool isCollapsed() const override 
-    { return M_Mut_is_collapsed; }
+    { return M_is_collapsed; }
 
     const File& collapse() const override
     { 
-        M_Mut_is_collapsed = true;
+        M_is_collapsed = true;
 
         return *this;
     }
     const File& expand() const override
     { 
-        M_Mut_is_collapsed = true;
+        M_is_collapsed = true;
 
         return *this;
     }
     const File& collapseExpand() const override
     {
-        M_Mut_is_collapsed = !M_Mut_is_collapsed; 
+        M_is_collapsed = !M_is_collapsed; 
         return *this; 
     }
 
@@ -70,6 +70,6 @@ public:
     }
 };
 
-} // end of namespace intfl
+} // end of the 'intfl' namespace
 
 #endif

@@ -56,6 +56,8 @@ public:
 
     Directory(const fs::path& path);
 
+    ~Directory() override {}
+
     bool exists() const 
     {   return M_type == fs::file_type::directory; }
 

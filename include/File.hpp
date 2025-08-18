@@ -93,6 +93,8 @@ public:
     File(const fs::path& path, fs::file_type type)
     : M_path{path}, M_type{type}
     {}
+
+    virtual ~File() {};
 };
 
 } // end of the 'intfl' namespace

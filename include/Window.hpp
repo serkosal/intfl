@@ -28,52 +28,65 @@ class Window
 {
 private:
     #ifdef USE_N_CURSES
-        WINDOW* MP_window;
+        WINDOW* MP_window = nullptr;
     #endif
 
-    int M_nlines, M_ncols;
-    int M_virt_nlines, M_virt_ncols;
+    int M_nlines = 0, M_ncols = 0;
+    int M_virt_nlines = 400, M_virt_ncols = 200;
 
     int M_begin_y = 0, M_begin_x = 0;
     int M_y_offset = 0, M_x_offset = 0;
 public:
 
-    
+    void init(
+        int nlines, int ncols,
+        int begin_y = 0, int begin_x = 0,
+        int virt_nlines = 400, int virt_ncols = 200
+    )
+    {
+        M_nlines = nlines; M_ncols = ncols; 
+        M_begin_y = begin_y; M_begin_x = begin_x;
+        M_virt_nlines = virt_nlines; M_virt_ncols = virt_ncols;
 
-        /**
-         * @brief Construct a new Window object
-         * 
-         * @param nlines        number of lines
-         * @param ncols         number of columns
-         * @param begin_y       y position to start draw the window
-         * @param begin_x       x position to start draw the window
-         * @param virt_nlines   how many lines alocated in memory for data
-         * @param virt_ncols    how many columns alocated in memory for data
-         */
-        Window(
-            int nlines, int ncols,
-            int begin_y = 0, int begin_x = 0,
-            int virt_nlines = 400, int virt_ncols = 200
-        )
-        : M_nlines(nlines), M_ncols(ncols), 
-          M_begin_y(begin_y), M_begin_x(begin_x),
-          M_virt_nlines(virt_nlines), M_virt_ncols(virt_ncols)
-        {
-            #ifdef USE_N_CURSES
-            MP_window = newpad(virt_nlines, virt_ncols);
+        #ifdef USE_N_CURSES
+            MP_window = newpad(M_virt_nlines, M_virt_ncols);
 
             keypad(MP_window, TRUE);
 
             clear();
-            #endif
-        }
+        #endif
+    }
 
-        #ifdef USE_N_CURSES
+    Window() {}
+
+    /**
+     * @brief Construct a new Window object
+     * 
+     * @param nlines        number of lines
+     * @param ncols         number of columns
+     * @param begin_y       y position to start draw the window
+     * @param begin_x       x position to start draw the window
+     * @param virt_nlines   how many lines alocated in memory for data
+     * @param virt_ncols    how many columns alocated in memory for data
+     */
+    Window(
+        int nlines, int ncols,
+        int begin_y = 0, int begin_x = 0,
+        int virt_nlines = 400, int virt_ncols = 200
+    )
+    : M_nlines(nlines), M_ncols(ncols), 
+      M_begin_y(begin_y), M_begin_x(begin_x),
+      M_virt_nlines(virt_nlines), M_virt_ncols(virt_ncols)
+    {
+        init(nlines, ncols, begin_y, begin_x, virt_nlines, virt_ncols);
+    }
+
+    #ifdef USE_N_CURSES
         WINDOW* getPtr() const
         { 
             return MP_window;
         }
-        #endif
+    #endif
 
     
     int getYOffset() const noexcept { return M_y_offset; }

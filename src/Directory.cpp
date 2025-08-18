@@ -5,10 +5,13 @@
 
 namespace intfl {
 
-Directory::Directory(const fs::path& A_path)
-: File(A_path, fs::file_type::not_found)
+void Directory::init(const fs::path& A_path)
 {
-    if (!fs::exists(A_path)) { return; }
+    if (!fs::exists(A_path)) 
+    { 
+        M_type = fs::file_type::not_found;
+        return; 
+    }
 
     if (fs::is_directory(A_path))
     {
@@ -47,6 +50,13 @@ std::vector<FilePrintRepr> Directory::toRepr(
 
     for (auto it = M_children.begin(); it != M_children.end(); ++it)
     {
+        const auto& K_path    = it->first;
+        const auto& K_file  = it->second; 
+
+        // skip files started from .
+        if (K_path.filename().wstring().starts_with(L'.')) 
+        {   continue; }
+
         auto new_nesting_map = A_nesting_map;
 
         if (++counter > A_max_listing_n)
@@ -54,15 +64,17 @@ std::vector<FilePrintRepr> Directory::toRepr(
             new_nesting_map.arr().push_back(false);
 
             res.push_back(FilePrintRepr(
-                new_nesting_map, it->second.get(), 
+                new_nesting_map, K_file.get(), 
                 M_children.size() - A_max_listing_n 
             ));
             
             return res;
         }
 
-        new_nesting_map.arr().push_back(std::next(it) != M_children.end());
-        auto new_entries = it->second->toRepr(
+        const bool is_last = std::next(it) != M_children.end();
+        new_nesting_map.arr().push_back(is_last);
+
+        auto new_entries = K_file->toRepr(
             new_nesting_map, 
             A_max_depth,
             A_max_listing_n

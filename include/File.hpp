@@ -90,7 +90,17 @@ public:
     std::wstring filename() const
     { return M_path.filename().wstring(); }
 
-    File(const fs::path& path, fs::file_type type)
+    File()
+    : M_type(fs::file_type::unknown)
+    {}
+
+    void init(const fs::path& path, fs::file_type type)
+    {
+        M_path = path;
+        M_type = type;
+    }
+
+    File(const fs::path& path, fs::file_type type = fs::file_type::unknown)
     : M_path{path}, M_type{type}
     {}
 

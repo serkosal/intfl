@@ -54,7 +54,16 @@ public:
     }
 
 
-    Directory(const fs::path& path);
+    Directory()
+    : File() {}
+
+    virtual void init(const fs::path& path);
+
+    Directory(const fs::path& path)
+    : File(path)
+    {
+        init(path);
+    }
 
     ~Directory() override {}
 

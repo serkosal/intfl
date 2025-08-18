@@ -1,4 +1,4 @@
-.TH "intfl::Window" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.TH "intfl::Window" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,6 +12,12 @@ intfl::Window \- class encapsulates behaviour related to specific area of the sc
 .SS "Public Member Functions"
 
 .in +1c
+.ti -1c
+.RI "void \fBinit\fP (int nlines, int ncols, int begin_y=0, int begin_x=0, int virt_nlines=400, int virt_ncols=200)"
+.br
+.ti -1c
+.RI "\fBWindow\fP ()"
+.br
 .ti -1c
 .RI "\fBWindow\fP (int nlines, int ncols, int begin_y=0, int begin_x=0, int virt_nlines=400, int virt_ncols=200)"
 .br
@@ -56,6 +62,8 @@ intfl::Window \- class encapsulates behaviour related to specific area of the sc
 class encapsulates behaviour related to specific area of the screen\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
+.SS "intfl::Window::Window ()\fC [inline]\fP"
+
 .SS "intfl::Window::Window (int nlines, int ncols, int begin_y = \fC0\fP, int begin_x = \fC0\fP, int virt_nlines = \fC400\fP, int virt_ncols = \fC200\fP)\fC [inline]\fP"
 
 .PP
@@ -86,6 +94,8 @@ clears screen, does nothing without ncurses library
 .SS "int intfl::Window::getXOffset () const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .SS "int intfl::Window::getYOffset () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "void intfl::Window::init (int nlines, int ncols, int begin_y = \fC0\fP, int begin_x = \fC0\fP, int virt_nlines = \fC400\fP, int virt_ncols = \fC200\fP)\fC [inline]\fP"
 
 .SS "void intfl::Window::print (std::wstring str, const \fBNcursesColors::Color\fP & color = \fC\fBNcursesColors::fs_regular\fP\fP) const\fC [inline]\fP"
 

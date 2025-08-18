@@ -89,8 +89,8 @@ $(document).ready(function(){initNavTree('_colors_8hpp_source.html',''); initRes
 <div class="contents">
 <a href="_colors_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef INTFL_COLORS_HPP</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="_colors_8hpp.html#ace714b2bcc619924eed27157636d04c7">    4</a></span><span class="preprocessor">#define INTFL_COLOR_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef INTFL_COLORS_HPP_</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="_colors_8hpp.html#a9a9ff235dedc761bcf4fcf2350351be5">    4</a></span><span class="preprocessor">#define INTFL_COLOR_HPP_</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('_colors_8hpp_source.html',''); initRes
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespaceintfl.html">   25</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceintfl.html">intfl</a> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceintfl.html">intfl</a> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classintfl_1_1_ncurses_colors.html">NcursesColors</a> {</div>
@@ -119,115 +119,116 @@ $(document).ready(function(){initNavTree('_colors_8hpp_source.html',''); initRes
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// TYPES</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors_1_1_color.html">   37</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a> {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors_1_1_color.html#ae87ebda815437476f575ff7b9ecca56f">   38</a></span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classintfl_1_1_ncurses_colors.html">NcursesColors</a>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">short</span> MS_last_id {0};</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">short</span> M_id;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">short</span> M_fg;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">short</span> M_bg;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>(<span class="keywordtype">short</span> fg, <span class="keywordtype">short</span> bg)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        : M_fg{fg}, M_bg{bg}</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        { </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            M_id = ++MS_last_id;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        Color(<span class="keywordtype">short</span> fg)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        : Color(fg, <a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba2a9daf215a30f1c539ead18c66380fc1">COLOR_BLACK</a>) </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        {}</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors_1_1_color.html">   42</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a> {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors_1_1_color.html#ae87ebda815437476f575ff7b9ecca56f">   43</a></span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classintfl_1_1_ncurses_colors.html">NcursesColors</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">short</span> MS_last_id {0};</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">short</span> M_id;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">short</span> M_fg;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">short</span> M_bg;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>(<span class="keywordtype">short</span> fg, <span class="keywordtype">short</span> bg)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        : M_fg{fg}, M_bg{bg}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        { </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            M_id = ++MS_last_id;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        }</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">        #ifdef USE_N_CURSES</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors_1_1_color.html#a9f14a95e63da54437c569b3f8b1fca92">on</a>(WINDOW* <span class="keyword">const</span> P_win)<span class="keyword"> const </span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">NcursesColors::isColors</a>()) </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            {   wattron(P_win, COLOR_PAIR(M_id)); }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors_1_1_color.html#a1af896758a113e411dec479ca4189316">off</a>(WINDOW* <span class="keyword">const</span> P_win)<span class="keyword"> const </span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">        </span>{ </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">NcursesColors::isColors</a>()) </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            {   wattroff(P_win, COLOR_PAIR(M_id)); }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">        #else</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors_1_1_color.html#a9f14a95e63da54437c569b3f8b1fca92">   72</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors_1_1_color.html#a9f14a95e63da54437c569b3f8b1fca92">on</a>()<span class="keyword"> const </span>{}</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors_1_1_color.html#a1af896758a113e411dec479ca4189316">   73</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors_1_1_color.html#a1af896758a113e411dec479ca4189316">off</a>()<span class="keyword"> const </span>{}</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">        #endif</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    };</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="comment">// breaking style guide for using &#39;k&#39;, &#39;s&#39; identificators prefixes</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// in purpose of more convenient usage</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> Color</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#a388dc54cc88a20dc279e6531e3665fb1">   82</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a388dc54cc88a20dc279e6531e3665fb1">notice</a>        = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>(<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bab03862907066c68204ee9df1ee04aa29">COLOR_YELLOW</a>),</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#aa3e1e96775a18f6d8067498b65ea2e68">   83</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#aa3e1e96775a18f6d8067498b65ea2e68">error</a>         = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>(<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba592503b9434c1e751a92f3fc536d7950">COLOR_RED</a>),</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">   84</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">fs_regular</a>    = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>(<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bad47b4c240a0109970bb2a7fe3a07d3ec">COLOR_WHITE</a>),</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#aab8b53b086f3e78793d7b485caedba04">   85</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#aab8b53b086f3e78793d7b485caedba04">fs_directory</a>  = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>{<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba1340428efccb140dcbdb71aa6176f696">COLOR_BLUE</a>},</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#a840297cb96cd15d2d468655939c4abba">   86</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a840297cb96cd15d2d468655939c4abba">fs_executable</a> = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>{<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a>};</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> MS_hasColors = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// array to register colors</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">auto</span> MS_colors = std::to_array&lt;Color&gt;({</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a388dc54cc88a20dc279e6531e3665fb1">notice</a>,</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#aa3e1e96775a18f6d8067498b65ea2e68">error</a>,</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">fs_regular</a>,</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#aab8b53b086f3e78793d7b485caedba04">fs_directory</a>,</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a840297cb96cd15d2d468655939c4abba">fs_executable</a></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    });</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">// METHODS</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">  103</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">isColors</a>() { <span class="keywordflow">return</span> MS_hasColors; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        Color(<span class="keywordtype">short</span> fg)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        : Color(fg, <a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba2a9daf215a30f1c539ead18c66380fc1">COLOR_BLACK</a>) </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        {}</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">        #ifdef USE_N_CURSES</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors_1_1_color.html#a9f14a95e63da54437c569b3f8b1fca92">on</a>(WINDOW* <span class="keyword">const</span> P_win)<span class="keyword"> const </span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">NcursesColors::isColors</a>()) </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            {   wattron(P_win, COLOR_PAIR(M_id)); }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors_1_1_color.html#a1af896758a113e411dec479ca4189316">off</a>(WINDOW* <span class="keyword">const</span> P_win)<span class="keyword"> const </span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">        </span>{ </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">NcursesColors::isColors</a>()) </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            {   wattroff(P_win, COLOR_PAIR(M_id)); }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">        #else</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors_1_1_color.html#a9f14a95e63da54437c569b3f8b1fca92">   77</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors_1_1_color.html#a9f14a95e63da54437c569b3f8b1fca92">on</a>()<span class="keyword"> const </span>{}</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors_1_1_color.html#a1af896758a113e411dec479ca4189316">   78</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors_1_1_color.html#a1af896758a113e411dec479ca4189316">off</a>()<span class="keyword"> const </span>{}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">        #endif</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    };</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// breaking style guide for using &#39;k&#39;, &#39;s&#39; identificators prefixes</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// in purpose of more convenient usage</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> Color</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#a388dc54cc88a20dc279e6531e3665fb1">   87</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a388dc54cc88a20dc279e6531e3665fb1">notice</a>        = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>(<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bab03862907066c68204ee9df1ee04aa29">COLOR_YELLOW</a>),</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#aa3e1e96775a18f6d8067498b65ea2e68">   88</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#aa3e1e96775a18f6d8067498b65ea2e68">error</a>         = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>(<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba592503b9434c1e751a92f3fc536d7950">COLOR_RED</a>),</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">   89</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">fs_regular</a>    = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>(<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bad47b4c240a0109970bb2a7fe3a07d3ec">COLOR_WHITE</a>),</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#aab8b53b086f3e78793d7b485caedba04">   90</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#aab8b53b086f3e78793d7b485caedba04">fs_directory</a>  = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>{<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba1340428efccb140dcbdb71aa6176f696">COLOR_BLUE</a>},</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#a840297cb96cd15d2d468655939c4abba">   91</a></span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a840297cb96cd15d2d468655939c4abba">fs_executable</a> = <a class="code hl_class" href="classintfl_1_1_ncurses_colors_1_1_color.html">Color</a>{<a class="code hl_enumvalue" href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a>};</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> MS_hasColors = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">// array to register colors</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">auto</span> MS_colors = std::to_array&lt;Color&gt;({</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a388dc54cc88a20dc279e6531e3665fb1">notice</a>,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#aa3e1e96775a18f6d8067498b65ea2e68">error</a>,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">fs_regular</a>,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#aab8b53b086f3e78793d7b485caedba04">fs_directory</a>,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <a class="code hl_variable" href="classintfl_1_1_ncurses_colors.html#a840297cb96cd15d2d468655939c4abba">fs_executable</a></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    });</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#aed7d25005cdbbb42ef20338133f6f7a5">  105</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors.html#aed7d25005cdbbb42ef20338133f6f7a5">init</a>()</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">        #ifdef USE_N_CURSES</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            MS_hasColors = has_colors();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">// METHODS</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">  108</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">isColors</a>() { <span class="keywordflow">return</span> MS_hasColors; }</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordflow">if</span>(MS_hasColors)</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            {   </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                start_color();</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                <span class="keywordflow">for</span> (<span class="keywordtype">short</span> i = 0; i &lt; MS_colors.size(); ++i) </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                    init_pair(</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                        MS_colors[i].M_id, MS_colors[i].M_fg, MS_colors[i].M_bg</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                    ); </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                }</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            }</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">        #endif</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>};</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>} <span class="comment">// end of intfl namespace</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classintfl_1_1_ncurses_colors.html#aed7d25005cdbbb42ef20338133f6f7a5">  110</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classintfl_1_1_ncurses_colors.html#aed7d25005cdbbb42ef20338133f6f7a5">init</a>()</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">        #ifdef USE_N_CURSES</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            MS_hasColors = has_colors();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordflow">if</span>(MS_hasColors)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            {   </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                start_color();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                <span class="keywordflow">for</span> (<span class="keywordtype">short</span> i = 0; i &lt; MS_colors.size(); ++i) </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                    init_pair(</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                        MS_colors[i].M_id, MS_colors[i].M_fg, MS_colors[i].M_bg</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                    ); </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">        #endif</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>};</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>} <span class="comment">// end of the &#39;intfl&#39; namespace</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
 <div class="ttc" id="a_colors_8hpp_html_a06fc87d81c62e9abb8790b6e5713c55ba1340428efccb140dcbdb71aa6176f696"><div class="ttname"><a href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba1340428efccb140dcbdb71aa6176f696">COLOR_BLUE</a></div><div class="ttdeci">@ COLOR_BLUE</div><div class="ttdef"><b>Definition:</b> Colors.hpp:19</div></div>
 <div class="ttc" id="a_colors_8hpp_html_a06fc87d81c62e9abb8790b6e5713c55ba2a9daf215a30f1c539ead18c66380fc1"><div class="ttname"><a href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba2a9daf215a30f1c539ead18c66380fc1">COLOR_BLACK</a></div><div class="ttdeci">@ COLOR_BLACK</div><div class="ttdef"><b>Definition:</b> Colors.hpp:15</div></div>
 <div class="ttc" id="a_colors_8hpp_html_a06fc87d81c62e9abb8790b6e5713c55ba592503b9434c1e751a92f3fc536d7950"><div class="ttname"><a href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55ba592503b9434c1e751a92f3fc536d7950">COLOR_RED</a></div><div class="ttdeci">@ COLOR_RED</div><div class="ttdef"><b>Definition:</b> Colors.hpp:17</div></div>
 <div class="ttc" id="a_colors_8hpp_html_a06fc87d81c62e9abb8790b6e5713c55bab03862907066c68204ee9df1ee04aa29"><div class="ttname"><a href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bab03862907066c68204ee9df1ee04aa29">COLOR_YELLOW</a></div><div class="ttdeci">@ COLOR_YELLOW</div><div class="ttdef"><b>Definition:</b> Colors.hpp:16</div></div>
 <div class="ttc" id="a_colors_8hpp_html_a06fc87d81c62e9abb8790b6e5713c55bacfa9d8bbffc418447ed826f286abca02"><div class="ttname"><a href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a></div><div class="ttdeci">@ COLOR_GREEN</div><div class="ttdef"><b>Definition:</b> Colors.hpp:20</div></div>
 <div class="ttc" id="a_colors_8hpp_html_a06fc87d81c62e9abb8790b6e5713c55bad47b4c240a0109970bb2a7fe3a07d3ec"><div class="ttname"><a href="_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bad47b4c240a0109970bb2a7fe3a07d3ec">COLOR_WHITE</a></div><div class="ttdeci">@ COLOR_WHITE</div><div class="ttdef"><b>Definition:</b> Colors.hpp:18</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_1_1_color_html"><div class="ttname"><a href="classintfl_1_1_ncurses_colors_1_1_color.html">intfl::NcursesColors::Color</a></div><div class="ttdef"><b>Definition:</b> Colors.hpp:37</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_1_1_color_html_a1af896758a113e411dec479ca4189316"><div class="ttname"><a href="classintfl_1_1_ncurses_colors_1_1_color.html#a1af896758a113e411dec479ca4189316">intfl::NcursesColors::Color::off</a></div><div class="ttdeci">void off() const</div><div class="ttdef"><b>Definition:</b> Colors.hpp:73</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_1_1_color_html_a9f14a95e63da54437c569b3f8b1fca92"><div class="ttname"><a href="classintfl_1_1_ncurses_colors_1_1_color.html#a9f14a95e63da54437c569b3f8b1fca92">intfl::NcursesColors::Color::on</a></div><div class="ttdeci">void on() const</div><div class="ttdef"><b>Definition:</b> Colors.hpp:72</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_1_1_color_html"><div class="ttname"><a href="classintfl_1_1_ncurses_colors_1_1_color.html">intfl::NcursesColors::Color</a></div><div class="ttdoc">represents NcursesColor pair</div><div class="ttdef"><b>Definition:</b> Colors.hpp:42</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_1_1_color_html_a1af896758a113e411dec479ca4189316"><div class="ttname"><a href="classintfl_1_1_ncurses_colors_1_1_color.html#a1af896758a113e411dec479ca4189316">intfl::NcursesColors::Color::off</a></div><div class="ttdeci">void off() const</div><div class="ttdef"><b>Definition:</b> Colors.hpp:78</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_1_1_color_html_a9f14a95e63da54437c569b3f8b1fca92"><div class="ttname"><a href="classintfl_1_1_ncurses_colors_1_1_color.html#a9f14a95e63da54437c569b3f8b1fca92">intfl::NcursesColors::Color::on</a></div><div class="ttdeci">void on() const</div><div class="ttdef"><b>Definition:</b> Colors.hpp:77</div></div>
 <div class="ttc" id="aclassintfl_1_1_ncurses_colors_html"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html">intfl::NcursesColors</a></div><div class="ttdoc">class encapsulating ncurses colors specific methods &amp; data</div><div class="ttdef"><b>Definition:</b> Colors.hpp:32</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_a388dc54cc88a20dc279e6531e3665fb1"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#a388dc54cc88a20dc279e6531e3665fb1">intfl::NcursesColors::notice</a></div><div class="ttdeci">static const Color notice</div><div class="ttdef"><b>Definition:</b> Colors.hpp:82</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_a5327050d96daa25193191a522d63f474"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">intfl::NcursesColors::fs_regular</a></div><div class="ttdeci">static const Color fs_regular</div><div class="ttdef"><b>Definition:</b> Colors.hpp:84</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_a840297cb96cd15d2d468655939c4abba"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#a840297cb96cd15d2d468655939c4abba">intfl::NcursesColors::fs_executable</a></div><div class="ttdeci">static const Color fs_executable</div><div class="ttdef"><b>Definition:</b> Colors.hpp:86</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_aa3e1e96775a18f6d8067498b65ea2e68"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#aa3e1e96775a18f6d8067498b65ea2e68">intfl::NcursesColors::error</a></div><div class="ttdeci">static const Color error</div><div class="ttdef"><b>Definition:</b> Colors.hpp:83</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_aab8b53b086f3e78793d7b485caedba04"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#aab8b53b086f3e78793d7b485caedba04">intfl::NcursesColors::fs_directory</a></div><div class="ttdeci">static const Color fs_directory</div><div class="ttdef"><b>Definition:</b> Colors.hpp:85</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_ac35ab01d318307b507b2ec99c1461ff9"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">intfl::NcursesColors::isColors</a></div><div class="ttdeci">static bool isColors()</div><div class="ttdef"><b>Definition:</b> Colors.hpp:103</div></div>
-<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_aed7d25005cdbbb42ef20338133f6f7a5"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#aed7d25005cdbbb42ef20338133f6f7a5">intfl::NcursesColors::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> Colors.hpp:105</div></div>
-<div class="ttc" id="anamespaceintfl_html"><div class="ttname"><a href="namespaceintfl.html">intfl</a></div><div class="ttdef"><b>Definition:</b> Colors.hpp:26</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_a388dc54cc88a20dc279e6531e3665fb1"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#a388dc54cc88a20dc279e6531e3665fb1">intfl::NcursesColors::notice</a></div><div class="ttdeci">static const Color notice</div><div class="ttdef"><b>Definition:</b> Colors.hpp:87</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_a5327050d96daa25193191a522d63f474"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">intfl::NcursesColors::fs_regular</a></div><div class="ttdeci">static const Color fs_regular</div><div class="ttdef"><b>Definition:</b> Colors.hpp:89</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_a840297cb96cd15d2d468655939c4abba"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#a840297cb96cd15d2d468655939c4abba">intfl::NcursesColors::fs_executable</a></div><div class="ttdeci">static const Color fs_executable</div><div class="ttdef"><b>Definition:</b> Colors.hpp:91</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_aa3e1e96775a18f6d8067498b65ea2e68"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#aa3e1e96775a18f6d8067498b65ea2e68">intfl::NcursesColors::error</a></div><div class="ttdeci">static const Color error</div><div class="ttdef"><b>Definition:</b> Colors.hpp:88</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_aab8b53b086f3e78793d7b485caedba04"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#aab8b53b086f3e78793d7b485caedba04">intfl::NcursesColors::fs_directory</a></div><div class="ttdeci">static const Color fs_directory</div><div class="ttdef"><b>Definition:</b> Colors.hpp:90</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_ac35ab01d318307b507b2ec99c1461ff9"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#ac35ab01d318307b507b2ec99c1461ff9">intfl::NcursesColors::isColors</a></div><div class="ttdeci">static bool isColors()</div><div class="ttdef"><b>Definition:</b> Colors.hpp:108</div></div>
+<div class="ttc" id="aclassintfl_1_1_ncurses_colors_html_aed7d25005cdbbb42ef20338133f6f7a5"><div class="ttname"><a href="classintfl_1_1_ncurses_colors.html#aed7d25005cdbbb42ef20338133f6f7a5">intfl::NcursesColors::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> Colors.hpp:110</div></div>
+<div class="ttc" id="anamespaceintfl_html"><div class="ttname"><a href="namespaceintfl.html">intfl</a></div><div class="ttdef"><b>Definition:</b> App.hpp:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

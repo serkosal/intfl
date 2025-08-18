@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('_types_8hpp_source.html',''); initResi
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classintfl_1_1_nesting_map.html#a5ea0cd5866b35b3241130f5181f53c07">   48</a></span>    std::vector&lt;bool&gt;&amp; <a class="code hl_function" href="classintfl_1_1_nesting_map.html#a5ea0cd5866b35b3241130f5181f53c07">arr</a>() { <span class="keywordflow">return</span> M_arr; }</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classintfl_1_1_nesting_map.html#af32b85d847de69932de43c62c06c88d3">   49</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classintfl_1_1_nesting_map.html#af32b85d847de69932de43c62c06c88d3">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> M_arr.size(); }</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classintfl_1_1_nesting_map.html#a597eabddaf355e317b6fb00eb9f7cd4f">   56</a></span>    std::wstring <a class="code hl_function" href="classintfl_1_1_nesting_map.html#a597eabddaf355e317b6fb00eb9f7cd4f">to_wstr</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classintfl_1_1_nesting_map.html#a225cf81cf65a4044ee6e7ec70becb3cb">   56</a></span>    std::wstring <a class="code hl_function" href="classintfl_1_1_nesting_map.html#a225cf81cf65a4044ee6e7ec70becb3cb">toWstr</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">int</span> sz = M_arr.size();</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
@@ -132,24 +132,24 @@ $(document).ready(function(){initNavTree('_types_8hpp_source.html',''); initResi
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> lvl = 0; lvl &lt; sz - 1; ++lvl)</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        {</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordflow">if</span> (M_arr[lvl])</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                res += <a class="code hl_define" href="_types_8hpp.html#afd7d6509b1250bf2875d364e04c11e7a">NESTING_VLINE</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            {   res += <a class="code hl_define" href="_types_8hpp.html#afd7d6509b1250bf2875d364e04c11e7a">NESTING_VLINE</a>; }</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                res += <a class="code hl_define" href="_types_8hpp.html#adf5d4e56420bcc81717757b4a3d433f4">NESTING_EMPTY</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            {   res += <a class="code hl_define" href="_types_8hpp.html#adf5d4e56420bcc81717757b4a3d433f4">NESTING_EMPTY</a>; }</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">if</span> (sz)</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        {</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">if</span> (!M_arr[sz - 1])</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                res += <a class="code hl_define" href="_types_8hpp.html#aacf6077c5d4a23e30a07af9a33eabb7c">NESTING_BRANCH_LAST</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            {   res += <a class="code hl_define" href="_types_8hpp.html#aacf6077c5d4a23e30a07af9a33eabb7c">NESTING_BRANCH_LAST</a>; }</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                res += <a class="code hl_define" href="_types_8hpp.html#a983417e904cd8babfe17341e8f69adbb">NESTING_BRANCH_CONTINUE</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            {   res += <a class="code hl_define" href="_types_8hpp.html#a983417e904cd8babfe17341e8f69adbb">NESTING_BRANCH_CONTINUE</a>; }</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> res;</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>} <span class="comment">// end of namespace &#39;intfl&#39;</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>} <span class="comment">// end of the &#39;intfl&#39; namespace</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_types_8hpp_html_a983417e904cd8babfe17341e8f69adbb"><div class="ttname"><a href="_types_8hpp.html#a983417e904cd8babfe17341e8f69adbb">NESTING_BRANCH_CONTINUE</a></div><div class="ttdeci">#define NESTING_BRANCH_CONTINUE</div><div class="ttdef"><b>Definition:</b> Types.hpp:18</div></div>
@@ -157,12 +157,12 @@ $(document).ready(function(){initNavTree('_types_8hpp_source.html',''); initResi
 <div class="ttc" id="a_types_8hpp_html_adf5d4e56420bcc81717757b4a3d433f4"><div class="ttname"><a href="_types_8hpp.html#adf5d4e56420bcc81717757b4a3d433f4">NESTING_EMPTY</a></div><div class="ttdeci">#define NESTING_EMPTY</div><div class="ttdef"><b>Definition:</b> Types.hpp:11</div></div>
 <div class="ttc" id="a_types_8hpp_html_afd7d6509b1250bf2875d364e04c11e7a"><div class="ttname"><a href="_types_8hpp.html#afd7d6509b1250bf2875d364e04c11e7a">NESTING_VLINE</a></div><div class="ttdeci">#define NESTING_VLINE</div><div class="ttdef"><b>Definition:</b> Types.hpp:17</div></div>
 <div class="ttc" id="aclassintfl_1_1_nesting_map_html"><div class="ttname"><a href="classintfl_1_1_nesting_map.html">intfl::NestingMap</a></div><div class="ttdoc">represents file's nesting hierarchy</div><div class="ttdef"><b>Definition:</b> Types.hpp:29</div></div>
-<div class="ttc" id="aclassintfl_1_1_nesting_map_html_a597eabddaf355e317b6fb00eb9f7cd4f"><div class="ttname"><a href="classintfl_1_1_nesting_map.html#a597eabddaf355e317b6fb00eb9f7cd4f">intfl::NestingMap::to_wstr</a></div><div class="ttdeci">std::wstring to_wstr() const</div><div class="ttdoc">get wstring representation of nesting map</div><div class="ttdef"><b>Definition:</b> Types.hpp:56</div></div>
+<div class="ttc" id="aclassintfl_1_1_nesting_map_html_a225cf81cf65a4044ee6e7ec70becb3cb"><div class="ttname"><a href="classintfl_1_1_nesting_map.html#a225cf81cf65a4044ee6e7ec70becb3cb">intfl::NestingMap::toWstr</a></div><div class="ttdeci">std::wstring toWstr() const</div><div class="ttdoc">get wstring representation of nesting map</div><div class="ttdef"><b>Definition:</b> Types.hpp:56</div></div>
 <div class="ttc" id="aclassintfl_1_1_nesting_map_html_a5ea0cd5866b35b3241130f5181f53c07"><div class="ttname"><a href="classintfl_1_1_nesting_map.html#a5ea0cd5866b35b3241130f5181f53c07">intfl::NestingMap::arr</a></div><div class="ttdeci">std::vector&lt; bool &gt; &amp; arr()</div><div class="ttdef"><b>Definition:</b> Types.hpp:48</div></div>
 <div class="ttc" id="aclassintfl_1_1_nesting_map_html_a82118da35f0e0b4830e54de5053b7f35"><div class="ttname"><a href="classintfl_1_1_nesting_map.html#a82118da35f0e0b4830e54de5053b7f35">intfl::NestingMap::NestingMap</a></div><div class="ttdeci">NestingMap()</div><div class="ttdoc">Construct a new default Nesting Map object.</div><div class="ttdef"><b>Definition:</b> Types.hpp:37</div></div>
 <div class="ttc" id="aclassintfl_1_1_nesting_map_html_ac2560a7c67ef90e17db67f1e8ebb7295"><div class="ttname"><a href="classintfl_1_1_nesting_map.html#ac2560a7c67ef90e17db67f1e8ebb7295">intfl::NestingMap::NestingMap</a></div><div class="ttdeci">NestingMap(std::vector&lt; bool &gt; nesting_map)</div><div class="ttdoc">Construct a new Nesting Map object.</div><div class="ttdef"><b>Definition:</b> Types.hpp:44</div></div>
 <div class="ttc" id="aclassintfl_1_1_nesting_map_html_af32b85d847de69932de43c62c06c88d3"><div class="ttname"><a href="classintfl_1_1_nesting_map.html#af32b85d847de69932de43c62c06c88d3">intfl::NestingMap::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdef"><b>Definition:</b> Types.hpp:49</div></div>
-<div class="ttc" id="anamespaceintfl_html"><div class="ttname"><a href="namespaceintfl.html">intfl</a></div><div class="ttdef"><b>Definition:</b> Colors.hpp:26</div></div>
+<div class="ttc" id="anamespaceintfl_html"><div class="ttname"><a href="namespaceintfl.html">intfl</a></div><div class="ttdef"><b>Definition:</b> App.hpp:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

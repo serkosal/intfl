@@ -1,4 +1,4 @@
-.TH "intfl" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.TH "intfl" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,6 +9,10 @@ intfl
 .SS "Classes"
 
 .in +1c
+.ti -1c
+.RI "class \fBApp\fP"
+.br
+.RI "Singleton class represents console Application\&. "
 .ti -1c
 .RI "class \fBDirectory\fP"
 .br
@@ -22,6 +26,12 @@ intfl
 .br
 .RI "print-ready representation of file "
 .ti -1c
+.RI "struct \fBFilters\fP"
+.br
+.ti -1c
+.RI "struct \fBFSDirectoryParser\fP"
+.br
+.ti -1c
 .RI "class \fBNcursesColors\fP"
 .br
 .RI "class encapsulating ncurses colors specific methods & data "
@@ -29,6 +39,9 @@ intfl
 .RI "class \fBNestingMap\fP"
 .br
 .RI "represents file's nesting hierarchy "
+.ti -1c
+.RI "struct \fBSortPriories\fP"
+.br
 .ti -1c
 .RI "class \fBWindow\fP"
 .br
@@ -60,10 +73,6 @@ intfl
 .RI "bool \fBgetCommand\fP (const \fBWindow\fP &cmdsWin, \fBWindow\fP &mainWin, const \fBDirectory\fP &dir, std::vector< \fBFilePrintRepr\fP > &reprs, std::wstring &command)"
 .br
 .RI "Proccess input, yield the command string and handle some other events\&. "
-.ti -1c
-.RI "void \fBmainLoop\fP (const \fBDirectory\fP &dir, \fBWindow\fP &mainWin, \fBWindow\fP &cmdsWin, int argc, char *argv[])"
-.br
-.RI "function for managing app's main loop "
 .in -1c
 .SH "Typedef Documentation"
 .PP 
@@ -105,25 +114,6 @@ Proccess input, yield the command string and handle some other events\&.
 true if any error ocured during handling input 
 .PP
 false if no errors ocured during handling input 
-.RE
-.PP
-
-.SS "void intfl::mainLoop (const \fBDirectory\fP & dir, \fBWindow\fP & mainWin, \fBWindow\fP & cmdsWin, int argc, char * argv[])"
-
-.PP
-function for managing app's main loop 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdir\fP directory variable 
-.br
-\fImainWin\fP window to display main information 
-.br
-\fIcmdsWin\fP window to display current input and commands logs 
-.br
-\fIargc\fP argument count passed to the application 
-.br
-\fIargv\fP vector containing flags passed to the application 
 .RE
 .PP
 

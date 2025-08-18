@@ -123,8 +123,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a210be3b10b1a64c41408155c61956cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42a99df2517db8aa9a486004ea0389f9"><td class="memItemLeft" align="right" valign="top">std::wstring&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_file.html#a42a99df2517db8aa9a486004ea0389f9">filename</a> () const</td></tr>
 <tr class="separator:a42a99df2517db8aa9a486004ea0389f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9db19d7ac081eb832a69798f37bd67dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_file.html#a9db19d7ac081eb832a69798f37bd67dc">File</a> (const fs::path &amp;path, fs::file_type type)</td></tr>
-<tr class="separator:a9db19d7ac081eb832a69798f37bd67dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55a0ccb925f4c0d3860bc93eed512e5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_file.html#a55a0ccb925f4c0d3860bc93eed512e5a">File</a> ()</td></tr>
+<tr class="separator:a55a0ccb925f4c0d3860bc93eed512e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7efaff04b0d51ce3d950e0efb9ccd0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_file.html#ab7efaff04b0d51ce3d950e0efb9ccd0e">init</a> (const fs::path &amp;path, fs::file_type type)</td></tr>
+<tr class="separator:ab7efaff04b0d51ce3d950e0efb9ccd0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3763b807170927546329d6935d59f6db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_file.html#a3763b807170927546329d6935d59f6db">File</a> (const fs::path &amp;path, fs::file_type type=fs::file_type::unknown)</td></tr>
+<tr class="separator:a3763b807170927546329d6935d59f6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe8a1db57f496fd5b99b269e8d716df"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_file.html#a4fe8a1db57f496fd5b99b269e8d716df">~File</a> ()</td></tr>
+<tr class="separator:a4fe8a1db57f496fd5b99b269e8d716df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -143,8 +149,33 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Contains an information about file such as filename, path, metadata. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9db19d7ac081eb832a69798f37bd67dc" name="a9db19d7ac081eb832a69798f37bd67dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9db19d7ac081eb832a69798f37bd67dc">&#9670;&nbsp;</a></span>File()</h2>
+<a id="a55a0ccb925f4c0d3860bc93eed512e5a" name="a55a0ccb925f4c0d3860bc93eed512e5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55a0ccb925f4c0d3860bc93eed512e5a">&#9670;&nbsp;</a></span>File() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">intfl::File::File </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3763b807170927546329d6935d59f6db" name="a3763b807170927546329d6935d59f6db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3763b807170927546329d6935d59f6db">&#9670;&nbsp;</a></span>File() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +193,7 @@ Friends</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">fs::file_type&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
+          <td class="paramname"><em>type</em> = <code>fs::file_type::unknown</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -173,6 +204,31 @@ Friends</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fe8a1db57f496fd5b99b269e8d716df" name="a4fe8a1db57f496fd5b99b269e8d716df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fe8a1db57f496fd5b99b269e8d716df">&#9670;&nbsp;</a></span>~File()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual intfl::File::~File </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -300,6 +356,42 @@ Friends</h2></td></tr>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7efaff04b0d51ce3d950e0efb9ccd0e" name="ab7efaff04b0d51ce3d950e0efb9ccd0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7efaff04b0d51ce3d950e0efb9ccd0e">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void intfl::File::init </td>
+          <td>(</td>
+          <td class="paramtype">const fs::path &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">fs::file_type&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>

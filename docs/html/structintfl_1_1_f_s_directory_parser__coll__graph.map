@@ -1,0 +1,7 @@
+<map id="intfl::FSDirectoryParser" name="intfl::FSDirectoryParser">
+<area shape="rect" id="node1" title=" " alt="" coords="107,171,277,197"/>
+<area shape="rect" id="node2" href="$classintfl_1_1_directory.html" title="Contains same data as File class and additional directory specific one." alt="" coords="5,81,120,108"/>
+<area shape="rect" id="node3" href="$classintfl_1_1_file.html" title="Contains an information about file such as filename, path, metadata." alt="" coords="23,5,102,32"/>
+<area shape="rect" id="node4" href="$structintfl_1_1_filters.html" title=" " alt="" coords="145,81,239,108"/>
+<area shape="rect" id="node5" href="$structintfl_1_1_sort_priories.html" title=" " alt="" coords="264,81,395,108"/>
+</map>

@@ -1,0 +1,98 @@
+.TH "intfl::App" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+intfl::App \- Singleton class represents console Application\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <App\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBinit\fP (int argc, char *argv[])"
+.br
+.RI "init app's underline systems such as mouse input, colors, etc "
+.ti -1c
+.RI "int \fBmainLoop\fP ()"
+.br
+.RI "contains application main cycle "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBApp\fP & \fBapp\fP ()"
+.br
+.RI "get an app singleton instance "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBWindow\fP \fBM_mainWin\fP"
+.br
+.ti -1c
+.RI "\fBWindow\fP \fBM_cmdsWin\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Singleton class represents console Application\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBApp\fP & intfl::App::app ()\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+get an app singleton instance 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargc\fP 
+.br
+\fIargv\fP 
+.RE
+.PP
+
+.SS "int intfl::App::init (int argc, char * argv[])\fC [inline]\fP"
+
+.PP
+init app's underline systems such as mouse input, colors, etc 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargc\fP arguments count, from \fBmain(int argc, char* argv[])\fP 
+.br
+\fIargv\fP arguments string, array from \fBmain(int argc, char* argv[])\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+non-zero integer value if any error occured\&. 
+.RE
+.PP
+
+.SS "int intfl::App::mainLoop ()"
+
+.PP
+contains application main cycle 
+.PP
+\fBReturns\fP
+.RS 4
+non-zero integer value if any error occured\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBWindow\fP intfl::App::M_cmdsWin"
+
+.SS "\fBWindow\fP intfl::App::M_mainWin"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

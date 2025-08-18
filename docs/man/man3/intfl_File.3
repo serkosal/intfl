@@ -1,4 +1,4 @@
-.TH "intfl::File" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.TH "intfl::File" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -36,7 +36,16 @@ Inherited by \fBintfl::Directory\fP\&.
 .RI "std::wstring \fBfilename\fP () const"
 .br
 .ti -1c
-.RI "\fBFile\fP (const fs::path &path, fs::file_type type)"
+.RI "\fBFile\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP (const fs::path &path, fs::file_type type)"
+.br
+.ti -1c
+.RI "\fBFile\fP (const fs::path &path, fs::file_type type=fs::file_type::unknown)"
+.br
+.ti -1c
+.RI "virtual \fB~File\fP ()"
 .br
 .in -1c
 .SS "Protected Attributes"
@@ -64,7 +73,11 @@ Inherited by \fBintfl::Directory\fP\&.
 Contains an information about file such as filename, path, metadata\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "intfl::File::File (const fs::path & path, fs::file_type type)\fC [inline]\fP"
+.SS "intfl::File::File ()\fC [inline]\fP"
+
+.SS "intfl::File::File (const fs::path & path, fs::file_type type = \fCfs::file_type::unknown\fP)\fC [inline]\fP"
+
+.SS "virtual intfl::File::~File ()\fC [inline]\fP, \fC [virtual]\fP"
 
 .SH "Member Function Documentation"
 .PP 
@@ -83,6 +96,8 @@ Reimplemented in \fBintfl::Directory\fP\&.
 .SS "std::wstring intfl::File::filename () const\fC [inline]\fP"
 
 .SS "fs::file_type intfl::File::getType () const\fC [inline]\fP"
+
+.SS "void intfl::File::init (const fs::path & path, fs::file_type type)\fC [inline]\fP"
 
 .SS "virtual bool intfl::File::isCollapsed () const\fC [inline]\fP, \fC [virtual]\fP"
 

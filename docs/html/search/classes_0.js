@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['color_0',['Color',['../classintfl_1_1_ncurses_colors_1_1_color.html',1,'intfl::NcursesColors']]]
+  ['app_0',['App',['../classintfl_1_1_app.html',1,'intfl']]]
 ];

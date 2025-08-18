@@ -12,7 +12,7 @@ target_sources(intfl
     src/File.cpp
     src/Commands.cpp
     src/HandleInput.cpp
-    src/MainLoop.cpp
+    src/App.cpp
     src/PrintFileRepr.cpp
 )
 

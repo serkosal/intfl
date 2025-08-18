@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classintfl_1_1_file_print_repr.html" title="print&#45;ready representation of file" alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node1" href="$classintfl_1_1_file.html" title="Contains an information about file such as filename, path, metadata." alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node2" href="$classintfl_1_1_directory.html" title="Contains same data as File class and additional directory specific one." alt="" coords="132,5,247,32"/>
 </map>

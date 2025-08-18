@@ -36,28 +36,41 @@ git submodule update --init --recursive
  - [x] better input handling
  - [x] expand/collapse
  - [x] mouse support
- - [x] doxygen documentation [IN DEVELOPMENT]
- - [ ] recursive expand/collapse [IN DEVELOPMENT]
- - [ ] support command line arguments [IN DEVELOPMENT]
- - [ ] add color support of executables files & different file extensions
- - [ ] usage of colors from LS_COLORS
- - [ ] ignore to parse/show/auto update specified files/patterns/directories' content
+ - [x] doxygen documentation
 
-
- - [ ] better commands, ability to launch shell commands
-
+## misc
+ - [ ] more flags, commands support
+ - [ ] whales spotting 
+ - [ ] recursive expand/collapse
+ - [ ] symblinks supports
+ - [ ] panels, preview for file content
  - [ ] config files
- - [ ] command line
- - [ ] fuzzy search 
- - [ ] caching parsed directories based on last modification date
  - [ ] memozition of directories layouts
  - [ ] watch for files updates
- - [ ] full tests code coverage
-
- - [ ] get rid of recursion
- - [ ] symblinks supports 
- - [ ] support for c++ modules
- - [ ] panels, preview for file content
-
+ - [ ] output as html, json, yaml, xml, toml 
  - [ ] visualize not only filesystems, but any type of tree-like structures;
        e.g. html, json, yaml, xml, toml 
+
+
+## Search, patterns, ingores, .gitignore
+ - [ ] wildcards, regex support
+ - [ ] ignore to parse/print/watch-update specified files/patterns/types
+ - [ ] support command line arguments
+ - [ ] better commands, ability to launch shell commands
+ - [ ] search, fuzzy search, regex search
+
+## Colors
+ - [ ] add color support of executables files & different file extensions
+ - [ ] usage of colors from LS_COLORS
+ - [ ] support of more colors
+
+
+
+## development, refactoring, optimisations
+ - [ ] full tests code coverage
+ - [ ] get rid of recursion
+ - [ ] caching parsed directories based on last modification date
+ - [ ] support for c++ modules
+
+
+

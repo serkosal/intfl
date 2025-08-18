@@ -1,4 +1,4 @@
-.TH "intfl::Directory" 3 "Sat Aug 16 2025" "intfl" \" -*- nroff -*-
+.TH "intfl::Directory" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,7 +27,16 @@ Inherits \fBintfl::File\fP\&.
 .RI "const \fBFile\fP & \fBcollapseExpand\fP () const override"
 .br
 .ti -1c
+.RI "\fBDirectory\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBinit\fP (const fs::path &path)"
+.br
+.ti -1c
 .RI "\fBDirectory\fP (const fs::path &path)"
+.br
+.ti -1c
+.RI "\fB~Directory\fP () override"
 .br
 .ti -1c
 .RI "bool \fBexists\fP () const"
@@ -42,7 +51,11 @@ Inherits \fBintfl::File\fP\&.
 Contains same data as \fBFile\fP class and additional directory specific one\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "intfl::Directory::Directory (const fs::path & path)"
+.SS "intfl::Directory::Directory ()\fC [inline]\fP"
+
+.SS "intfl::Directory::Directory (const fs::path & path)\fC [inline]\fP"
+
+.SS "intfl::Directory::~Directory ()\fC [inline]\fP, \fC [override]\fP"
 
 .SH "Member Function Documentation"
 .PP 
@@ -60,6 +73,8 @@ Reimplemented from \fBintfl::File\fP\&.
 
 .PP
 Reimplemented from \fBintfl::File\fP\&.
+.SS "void intfl::Directory::init (const fs::path & path)\fC [virtual]\fP"
+
 .SS "bool intfl::Directory::isCollapsed () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP

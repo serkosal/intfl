@@ -47,44 +47,76 @@ std::vector<FilePrintRepr> Directory::toRepr(
     if (isCollapsed()) 
     {   return res; }
 
-    size_t counter = 0;
-
+    size_t visual_counter = 0, counter = 0;
+    bool isLimited = false;
+    std::vector<File*> filtered;
+    // filter childs
     for (auto it = M_children.begin(); it != M_children.end(); ++it)
     {
         const auto& K_path    = it->first;
-        const auto& K_file  = it->second; 
+        auto P_file = it->second.get();
 
-        // skip files started from .
+        ++counter;
+
+        // filter according --all flag
         if (!A_flags.all && K_path.filename().wstring().starts_with(L'.')) 
         {   continue; }
 
-        if (A_flags.dirs_only && K_file->getType() != fs::file_type::directory)
+        // filter according --dirs-only flag
+        if (A_flags.dirs_only && P_file->getType() != fs::file_type::directory)
         {   continue; }
 
-        auto new_nesting_map = A_nesting_map;
-
-        if (++counter > A_flags.files_limit)
+        ++visual_counter;
+        // skip
+        if (visual_counter == A_flags.files_limit)
         {
-            new_nesting_map.arr().push_back(false);
-
-            res.push_back(FilePrintRepr(
-                new_nesting_map, K_file.get(), 
-                M_children.size() -  A_flags.files_limit 
-            ));
-            
-            return res;
+            filtered.push_back(P_file);
+            isLimited = true;
+            break; 
         }
 
-        const bool is_last = std::next(it) != M_children.end();
-        new_nesting_map.arr().push_back(is_last);
+        filtered.push_back(P_file);
+    }
 
-        auto new_entries = K_file->toRepr(
-            new_nesting_map, 
+    if (!filtered.size())
+    {   return res; }
+
+    auto new_nesting_map = A_nesting_map;
+    new_nesting_map.arr().push_back(true);
+    // push all filtered, except last
+    for (int i = 0; i < int(filtered.size()) - 1; ++i)
+    {
+        auto new_entries = filtered[i]->toRepr(
+            new_nesting_map,
             A_flags
         );
 
         for (const auto& el : new_entries)
         {   res.push_back(el); }
+    }
+
+    if (!isLimited)
+    {   new_nesting_map.arr().back() = false; }
+
+    auto new_entries = filtered.back()->toRepr(
+        new_nesting_map,
+        A_flags
+    );
+
+    for (const auto& el : new_entries)
+    {   res.push_back(el); }
+
+
+    if (isLimited) 
+    {
+        new_nesting_map.arr().back() = false;
+        res.push_back(
+            FilePrintRepr(
+                new_nesting_map, 
+                filtered.back(), 
+                M_children.size() - counter
+            )
+        );
     }
 
     return res;

@@ -44,7 +44,7 @@ public:
     const File* const file() const
     { return M_file; }
 
-    size_t get_rest() const
+    size_t getRest() const
     { return M_rest_elements; }
 
     const NestingMap& nesting() const

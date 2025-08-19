@@ -102,7 +102,7 @@ namespace intfl {
          * @brief used for wait user's input before exit program.
          * 
          */
-        void waitInput()
+        int waitInput()
         {
             std::wstring cmd = L"";
             #ifdef USE_N_CURSES
@@ -127,7 +127,7 @@ namespace intfl {
                     else if (res == ERR)
                     {
                         cmd = L"";
-                        return;
+                        return 1;
                     }
                     else if (res == OK && !std::iswcntrl(wch))
                     {
@@ -144,9 +144,9 @@ namespace intfl {
                 auto &res = std::getline(std::wcin, cmd);
                 if (res.fail())
                 {   return 1; }
-                else
-                {   return 0; }
             #endif
+
+            return 0;
         }
 
 

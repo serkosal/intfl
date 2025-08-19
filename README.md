@@ -1,4 +1,4 @@
-# intfs
+# intfl
 Interactive file listing.
 
 ![Animation](https://github.com/serkosal/intfl/blob/main/demo.gif?raw=true)

@@ -1,13 +1,9 @@
 <map id="include/Directory.hpp" name="include/Directory.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="76,5,235,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="28,155,118,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="268,80,318,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="158,229,220,256"/>
-<area shape="rect" id="node5" href="$_file_8hpp.html" title=" " alt="" coords="119,80,192,107"/>
-<area shape="rect" id="node8" href="$_window_8hpp.html" title=" " alt="" coords="356,155,457,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="278,229,337,256"/>
-<area shape="rect" id="node7" href="$_types_8hpp.html" title=" " alt="" coords="194,155,280,181"/>
-<area shape="rect" id="node9" href="$_colors_8hpp.html" title=" " alt="" coords="361,229,452,256"/>
-<area shape="rect" id="node11" title=" " alt="" coords="449,304,529,331"/>
-<area shape="rect" id="node10" title=" " alt="" coords="369,304,425,331"/>
+<area shape="rect" id="node1" title=" " alt="" coords="65,5,223,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,56,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="113,229,175,256"/>
+<area shape="rect" id="node4" href="$_file_8hpp.html" title=" " alt="" coords="158,80,231,107"/>
+<area shape="rect" id="node7" href="$_types_8hpp.html" title=" " alt="" coords="233,155,319,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="304,229,395,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="215,229,273,256"/>
 </map>

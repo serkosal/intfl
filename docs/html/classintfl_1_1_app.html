@@ -102,13 +102,23 @@ Collaboration diagram for intfl::App:</div>
 <div class="dyncontent">
 <div class="center"><img src="classintfl_1_1_app__coll__graph.png" border="0" usemap="#aintfl_1_1_app_coll__map" alt="Collaboration graph"/></div>
 <map name="aintfl_1_1_app_coll__map" id="aintfl_1_1_app_coll__map">
-<area shape="rect" title="Singleton class represents console Application." alt="" coords="19,109,99,136"/>
+<area shape="rect" title="Singleton class represents console Application." alt="" coords="80,109,160,136"/>
 <area shape="rect" href="classintfl_1_1_window.html" title="class encapsulates behaviour related to specific area of the screen." alt="" coords="5,5,112,32"/>
+<area shape="rect" href="structintfl_1_1_flags.html" title=" " alt="" coords="136,5,227,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:afd7874591812da623117b5556aab4085"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classintfl_1_1_directory.html">Directory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_app.html#afd7874591812da623117b5556aab4085">getDir</a> () const</td></tr>
+<tr class="separator:afd7874591812da623117b5556aab4085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76aaa5687e4a3c19780211bb5224e8e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_app.html#a76aaa5687e4a3c19780211bb5224e8e6">printHelp</a> () const</td></tr>
+<tr class="separator:a76aaa5687e4a3c19780211bb5224e8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7eb993f53c4f610956a530603e60302"><td class="memItemLeft" align="right" valign="top">std::wstring&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_app.html#aa7eb993f53c4f610956a530603e60302">getError</a> () const</td></tr>
+<tr class="separator:aa7eb993f53c4f610956a530603e60302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b0ab85d605ce44cbc3cb5e2fda0184"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_app.html#a08b0ab85d605ce44cbc3cb5e2fda0184">waitInput</a> ()</td></tr>
+<tr class="memdesc:a08b0ab85d605ce44cbc3cb5e2fda0184"><td class="mdescLeft">&#160;</td><td class="mdescRight">used for wait user's input before exit program.  <a href="classintfl_1_1_app.html#a08b0ab85d605ce44cbc3cb5e2fda0184">More...</a><br /></td></tr>
+<tr class="separator:a08b0ab85d605ce44cbc3cb5e2fda0184"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adff3a2a16b71d7eeeffe63d36e6b7aea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_app.html#adff3a2a16b71d7eeeffe63d36e6b7aea">init</a> (int argc, char *argv[])</td></tr>
 <tr class="memdesc:adff3a2a16b71d7eeeffe63d36e6b7aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">init app's underline systems such as mouse input, colors, etc  <a href="classintfl_1_1_app.html#adff3a2a16b71d7eeeffe63d36e6b7aea">More...</a><br /></td></tr>
 <tr class="separator:adff3a2a16b71d7eeeffe63d36e6b7aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,6 +138,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a00896975f41193e72421f9263b473a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ce6cf3ad7e974db900681e21f89d545"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classintfl_1_1_window.html">Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_app.html#a3ce6cf3ad7e974db900681e21f89d545">M_cmdsWin</a></td></tr>
 <tr class="separator:a3ce6cf3ad7e974db900681e21f89d545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d518fff80f0d69b39348fdbc3dbcabd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structintfl_1_1_flags.html">Flags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_app.html#a6d518fff80f0d69b39348fdbc3dbcabd">M_flags</a></td></tr>
+<tr class="separator:a6d518fff80f0d69b39348fdbc3dbcabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Singleton class represents console Application. </p>
@@ -156,13 +168,56 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>get an app singleton instance </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">argc</td><td></td></tr>
-    <tr><td class="paramname">argv</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+
+</div>
+</div>
+<a id="afd7874591812da623117b5556aab4085" name="afd7874591812da623117b5556aab4085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd7874591812da623117b5556aab4085">&#9670;&nbsp;</a></span>getDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classintfl_1_1_directory.html">Directory</a> &amp; intfl::App::getDir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7eb993f53c4f610956a530603e60302" name="aa7eb993f53c4f610956a530603e60302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7eb993f53c4f610956a530603e60302">&#9670;&nbsp;</a></span>getError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::wstring intfl::App::getError </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -232,6 +287,58 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a76aaa5687e4a3c19780211bb5224e8e6" name="a76aaa5687e4a3c19780211bb5224e8e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76aaa5687e4a3c19780211bb5224e8e6">&#9670;&nbsp;</a></span>printHelp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void intfl::App::printHelp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08b0ab85d605ce44cbc3cb5e2fda0184" name="a08b0ab85d605ce44cbc3cb5e2fda0184"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08b0ab85d605ce44cbc3cb5e2fda0184">&#9670;&nbsp;</a></span>waitInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int intfl::App::waitInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>used for wait user's input before exit program. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a3ce6cf3ad7e974db900681e21f89d545" name="a3ce6cf3ad7e974db900681e21f89d545"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3ce6cf3ad7e974db900681e21f89d545">&#9670;&nbsp;</a></span>M_cmdsWin</h2>
@@ -241,6 +348,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classintfl_1_1_window.html">Window</a> intfl::App::M_cmdsWin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d518fff80f0d69b39348fdbc3dbcabd" name="a6d518fff80f0d69b39348fdbc3dbcabd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d518fff80f0d69b39348fdbc3dbcabd">&#9670;&nbsp;</a></span>M_flags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structintfl_1_1_flags.html">Flags</a> intfl::App::M_flags</td>
         </tr>
       </table>
 </div><div class="memdoc">

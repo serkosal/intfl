@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sortpriories_0',['SortPriories',['../structintfl_1_1_sort_priories.html',1,'intfl']]]
+  ['window_0',['Window',['../classintfl_1_1_window.html',1,'intfl']]]
 ];

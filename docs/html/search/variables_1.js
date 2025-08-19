@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['fs_5fdirectory_0',['fs_directory',['../classintfl_1_1_ncurses_colors.html#aab8b53b086f3e78793d7b485caedba04',1,'intfl::NcursesColors']]],
-  ['fs_5fexecutable_1',['fs_executable',['../classintfl_1_1_ncurses_colors.html#a840297cb96cd15d2d468655939c4abba',1,'intfl::NcursesColors']]],
-  ['fs_5fregular_2',['fs_regular',['../classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474',1,'intfl::NcursesColors']]]
+  ['dirs_5fonly_0',['dirs_only',['../structintfl_1_1_flags.html#aac136d664100a5baa7a018a3916dfbd1',1,'intfl::Flags']]],
+  ['disk_5fusage_1',['disk_usage',['../structintfl_1_1_flags.html#a9f6c39e4265c4e1a52ed18edf82b03f4',1,'intfl::Flags']]]
 ];

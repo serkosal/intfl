@@ -1,13 +1,13 @@
 <map id="include/Commands.hpp" name="include/Commands.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="154,5,329,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="157,304,219,331"/>
-<area shape="rect" id="node3" href="$_window_8hpp.html" title=" " alt="" coords="337,155,439,181"/>
-<area shape="rect" id="node8" href="$_file_repr_printer_8hpp.html" title=" " alt="" coords="169,80,314,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="283,304,341,331"/>
-<area shape="rect" id="node5" href="$_colors_8hpp.html" title=" " alt="" coords="451,229,541,256"/>
-<area shape="rect" id="node7" title=" " alt="" coords="539,304,619,331"/>
-<area shape="rect" id="node6" title=" " alt="" coords="459,304,515,331"/>
-<area shape="rect" id="node9" href="$_file_8hpp.html" title=" " alt="" coords="194,155,267,181"/>
-<area shape="rect" id="node10" title=" " alt="" coords="21,229,112,256"/>
-<area shape="rect" id="node11" href="$_types_8hpp.html" title=" " alt="" coords="187,229,274,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="323,5,498,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="406,304,469,331"/>
+<area shape="rect" id="node3" href="$_window_8hpp.html" title=" " alt="" coords="204,155,305,181"/>
+<area shape="rect" id="node8" href="$_file_repr_printer_8hpp.html" title=" " alt="" coords="338,80,483,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="309,304,368,331"/>
+<area shape="rect" id="node5" href="$_colors_8hpp.html" title=" " alt="" coords="109,229,200,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="5,229,85,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="127,304,183,331"/>
+<area shape="rect" id="node9" href="$_file_8hpp.html" title=" " alt="" coords="383,155,457,181"/>
+<area shape="rect" id="node10" title=" " alt="" coords="500,304,591,331"/>
+<area shape="rect" id="node11" href="$_types_8hpp.html" title=" " alt="" coords="377,229,463,256"/>
 </map>

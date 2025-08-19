@@ -11,7 +11,6 @@ var searchData=
   ['color_5fwhite_8',['COLOR_WHITE',['../_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bad47b4c240a0109970bb2a7fe3a07d3ec',1,'Colors.hpp']]],
   ['color_5fyellow_9',['COLOR_YELLOW',['../_colors_8hpp.html#a06fc87d81c62e9abb8790b6e5713c55bab03862907066c68204ee9df1ee04aa29',1,'Colors.hpp']]],
   ['colors_2ehpp_10',['Colors.hpp',['../_colors_8hpp.html',1,'']]],
-  ['commandhelp_11',['commandHelp',['../namespaceintfl.html#a5ed9add3ab0137650637e5e0210c6ab8',1,'intfl']]],
-  ['commands_2ecpp_12',['Commands.cpp',['../_commands_8cpp.html',1,'']]],
-  ['commands_2ehpp_13',['Commands.hpp',['../_commands_8hpp.html',1,'']]]
+  ['commands_2ecpp_11',['Commands.cpp',['../_commands_8cpp.html',1,'']]],
+  ['commands_2ehpp_12',['Commands.hpp',['../_commands_8hpp.html',1,'']]]
 ];

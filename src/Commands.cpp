@@ -1,7 +1,5 @@
 #include "Commands.hpp"
 
-#include "Colors.hpp"
-
 namespace intfl {
 
 void redraw(const Window& win, const std::vector<FilePrintRepr>& reprs)

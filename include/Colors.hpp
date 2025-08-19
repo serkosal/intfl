@@ -7,10 +7,7 @@
 
 #ifdef USE_N_CURSES
     #include <ncursesw/ncurses.h>
-    #include <cstring>
-#else
-    #include <iostream>
-    
+#else    
     enum {
         COLOR_BLACK,
         COLOR_YELLOW,

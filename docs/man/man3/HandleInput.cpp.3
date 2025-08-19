@@ -1,4 +1,4 @@
-.TH "src/HandleInput.cpp" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
+.TH "src/HandleInput.cpp" 3 "Tue Aug 19 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -20,6 +20,10 @@ src/HandleInput.cpp
 .br
 \fC#include 'Commands\&.hpp'\fP
 .br
+\fC#include 'Types\&.hpp'\fP
+.br
+\fC#include 'App\&.hpp'\fP
+.br
 
 .SS "Namespaces"
 
@@ -32,7 +36,7 @@ src/HandleInput.cpp
 
 .in +1c
 .ti -1c
-.RI "bool \fBintfl::getCommand\fP (const Window &cmdsWin, Window &mainWin, const Directory &dir, std::vector< FilePrintRepr > &reprs, std::wstring &command)"
+.RI "bool \fBintfl::getCommand\fP (App &app, std::vector< FilePrintRepr > &A_reprs, std::wstring &A_command)"
 .br
 .RI "Proccess input, yield the command string and handle some other events\&. "
 .in -1c

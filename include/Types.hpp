@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <string>
+#include <filesystem>
 
 namespace intfl {
 
@@ -18,6 +19,8 @@ namespace intfl {
     #define NESTING_BRANCH_CONTINUE     L"|-- "
     #define NESTING_BRANCH_LAST         L"|__ "
 #endif
+
+namespace fs  = std::filesystem;
 
 /**
  * @brief represents file's nesting hierarchy 

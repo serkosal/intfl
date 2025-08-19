@@ -1,4 +1,4 @@
-.TH "intfl::Directory" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
+.TH "intfl::Directory" 3 "Tue Aug 19 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -42,7 +42,7 @@ Inherits \fBintfl::File\fP\&.
 .RI "bool \fBexists\fP () const"
 .br
 .ti -1c
-.RI "std::vector< \fBFilePrintRepr\fP > \fBtoRepr\fP (size_t max_depth=5, size_t max_listing_n=15) const"
+.RI "std::vector< \fBFilePrintRepr\fP > \fBtoRepr\fP (const \fBFlags\fP &A_flags) const"
 .br
 .in -1c
 .SS "Additional Inherited Members"
@@ -79,7 +79,7 @@ Reimplemented from \fBintfl::File\fP\&.
 
 .PP
 Reimplemented from \fBintfl::File\fP\&.
-.SS "std::vector< \fBFilePrintRepr\fP > intfl::Directory::toRepr (size_t max_depth = \fC5\fP, size_t max_listing_n = \fC15\fP) const\fC [inline]\fP"
+.SS "std::vector< \fBFilePrintRepr\fP > intfl::Directory::toRepr (const \fBFlags\fP & A_flags) const\fC [inline]\fP"
 
 
 .SH "Author"

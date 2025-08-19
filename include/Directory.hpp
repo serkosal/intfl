@@ -3,12 +3,10 @@
 #ifndef INTFL_DIRECTORY_HPP_
 #define INTFL_DIRECTORY_HPP_
 
-#include <filesystem>
 #include <map>
 #include <vector>
 
 #include "File.hpp"
-#include "Window.hpp"
 #include "Types.hpp"
 
 namespace intfl

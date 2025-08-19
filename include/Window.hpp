@@ -13,7 +13,6 @@
 
 #ifdef USE_N_CURSES
     #include <ncursesw/ncurses.h>
-    #include <string>
 #else
     #include <iostream>
 #endif

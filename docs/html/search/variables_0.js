@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['error_0',['error',['../classintfl_1_1_ncurses_colors.html#aa3e1e96775a18f6d8067498b65ea2e68',1,'intfl::NcursesColors']]]
+  ['all_0',['all',['../structintfl_1_1_flags.html#a08f15cf17bba2ae96361b69783289ba8',1,'intfl::Flags']]],
+  ['ascii_1',['ascii',['../structintfl_1_1_flags.html#a726e376fb9a43834f264e201f83b5371',1,'intfl::Flags']]]
 ];

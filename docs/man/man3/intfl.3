@@ -1,4 +1,4 @@
-.TH "intfl" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
+.TH "intfl" 3 "Tue Aug 19 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -26,10 +26,7 @@ intfl
 .br
 .RI "print-ready representation of file "
 .ti -1c
-.RI "struct \fBFilters\fP"
-.br
-.ti -1c
-.RI "struct \fBFSDirectoryParser\fP"
+.RI "struct \fBFlags\fP"
 .br
 .ti -1c
 .RI "class \fBNcursesColors\fP"
@@ -39,9 +36,6 @@ intfl
 .RI "class \fBNestingMap\fP"
 .br
 .RI "represents file's nesting hierarchy "
-.ti -1c
-.RI "struct \fBSortPriories\fP"
-.br
 .ti -1c
 .RI "class \fBWindow\fP"
 .br
@@ -58,10 +52,6 @@ intfl
 
 .in +1c
 .ti -1c
-.RI "void \fBcommandHelp\fP (const \fBWindow\fP &win)"
-.br
-.RI "prints help info both program started with --help or used command "
-.ti -1c
 .RI "void \fBredraw\fP (const \fBWindow\fP &win, const std::vector< \fBFilePrintRepr\fP > &reprs)"
 .br
 .RI "used to redraw calls "
@@ -70,7 +60,7 @@ intfl
 .br
 .RI "function to print the \fBFilePrintRepr\fP to a specified window "
 .ti -1c
-.RI "bool \fBgetCommand\fP (const \fBWindow\fP &cmdsWin, \fBWindow\fP &mainWin, const \fBDirectory\fP &dir, std::vector< \fBFilePrintRepr\fP > &reprs, std::wstring &command)"
+.RI "bool \fBgetCommand\fP (\fBApp\fP &app, std::vector< \fBFilePrintRepr\fP > &A_reprs, std::wstring &A_command)"
 .br
 .RI "Proccess input, yield the command string and handle some other events\&. "
 .in -1c
@@ -80,29 +70,14 @@ intfl
 
 .SH "Function Documentation"
 .PP 
-.SS "void intfl::commandHelp (const \fBWindow\fP & win)"
-
-.PP
-prints help info both program started with --help or used command 
-.PP
-\fBParameters\fP
-.RS 4
-\fIwin\fP 
-.RE
-.PP
-
-.SS "bool intfl::getCommand (const \fBWindow\fP & cmdsWin, \fBWindow\fP & mainWin, const \fBDirectory\fP & dir, std::vector< \fBFilePrintRepr\fP > & reprs, std::wstring & command)"
+.SS "bool intfl::getCommand (\fBApp\fP & app, std::vector< \fBFilePrintRepr\fP > & A_reprs, std::wstring & A_command)"
 
 .PP
 Proccess input, yield the command string and handle some other events\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fIcmdsWin\fP window to update current command input 
-.br
-\fImainWin\fP main \fBWindow\fP, passed to process mouse events signals 
-.br
-\fIdir\fP directory, used to update mainWin window 
+\fIapp\fP application instance returned by function \fBApp::app()\fP 
 .br
 \fIreprs\fP array of file representations, used to process mouse events 
 .br

@@ -1,6 +1,7 @@
 var _types_8hpp =
 [
     [ "intfl::NestingMap", "classintfl_1_1_nesting_map.html", "classintfl_1_1_nesting_map" ],
+    [ "intfl::Flags", "structintfl_1_1_flags.html", "structintfl_1_1_flags" ],
     [ "INTFL_TYPES_HPP_", "_types_8hpp.html#af2e27093d560392b9539855986e03af6", null ],
     [ "NESTING_BRANCH_CONTINUE", "_types_8hpp.html#a983417e904cd8babfe17341e8f69adbb", null ],
     [ "NESTING_BRANCH_LAST", "_types_8hpp.html#aacf6077c5d4a23e30a07af9a33eabb7c", null ],

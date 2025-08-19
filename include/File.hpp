@@ -14,7 +14,6 @@ namespace intfl {
 
 class File;
 
-namespace fs  = std::filesystem;
 using FilePtr = std::unique_ptr<File>;
 
 // flatened linear print-ready representation of file structure

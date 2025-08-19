@@ -1,4 +1,4 @@
-.TH "intfl::File" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
+.TH "intfl::File" 3 "Tue Aug 19 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -18,7 +18,7 @@ Inherited by \fBintfl::Directory\fP\&.
 .RI "fs::file_type \fBgetType\fP () const"
 .br
 .ti -1c
-.RI "virtual std::vector< \fBFilePrintRepr\fP > \fBtoRepr\fP (const \fBNestingMap\fP &nesting_map, size_t max_depth=0, size_t max_listing_n=0) const"
+.RI "virtual std::vector< \fBFilePrintRepr\fP > \fBtoRepr\fP (const \fBNestingMap\fP &nesting_map, const \fBFlags\fP &A_flags) const"
 .br
 .ti -1c
 .RI "virtual bool \fBisCollapsed\fP () const"
@@ -103,7 +103,7 @@ Reimplemented in \fBintfl::Directory\fP\&.
 
 .PP
 Reimplemented in \fBintfl::Directory\fP\&.
-.SS "virtual std::vector< \fBFilePrintRepr\fP > intfl::File::toRepr (const \fBNestingMap\fP & nesting_map, size_t max_depth = \fC0\fP, size_t max_listing_n = \fC0\fP) const\fC [inline]\fP, \fC [virtual]\fP"
+.SS "virtual std::vector< \fBFilePrintRepr\fP > intfl::File::toRepr (const \fBNestingMap\fP & nesting_map, const \fBFlags\fP & A_flags) const\fC [inline]\fP, \fC [virtual]\fP"
 
 .SH "Friends And Related Function Documentation"
 .PP 

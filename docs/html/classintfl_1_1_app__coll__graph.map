@@ -1,4 +1,5 @@
 <map id="intfl::App" name="intfl::App">
-<area shape="rect" id="node1" title="Singleton class represents console Application." alt="" coords="19,109,99,136"/>
+<area shape="rect" id="node1" title="Singleton class represents console Application." alt="" coords="80,109,160,136"/>
 <area shape="rect" id="node2" href="$classintfl_1_1_window.html" title="class encapsulates behaviour related to specific area of the screen." alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node3" href="$structintfl_1_1_flags.html" title=" " alt="" coords="136,5,227,32"/>
 </map>

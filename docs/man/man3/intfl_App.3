@@ -1,4 +1,4 @@
-.TH "intfl::App" 3 "Mon Aug 18 2025" "intfl" \" -*- nroff -*-
+.TH "intfl::App" 3 "Tue Aug 19 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,6 +12,19 @@ intfl::App \- Singleton class represents console Application\&.
 .SS "Public Member Functions"
 
 .in +1c
+.ti -1c
+.RI "const \fBDirectory\fP & \fBgetDir\fP () const"
+.br
+.ti -1c
+.RI "void \fBprintHelp\fP () const"
+.br
+.ti -1c
+.RI "std::wstring \fBgetError\fP () const"
+.br
+.ti -1c
+.RI "int \fBwaitInput\fP ()"
+.br
+.RI "used for wait user's input before exit program\&. "
 .ti -1c
 .RI "int \fBinit\fP (int argc, char *argv[])"
 .br
@@ -38,6 +51,9 @@ intfl::App \- Singleton class represents console Application\&.
 .ti -1c
 .RI "\fBWindow\fP \fBM_cmdsWin\fP"
 .br
+.ti -1c
+.RI "\fBFlags\fP \fBM_flags\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -48,14 +64,9 @@ Singleton class represents console Application\&.
 
 .PP
 get an app singleton instance 
-.PP
-\fBParameters\fP
-.RS 4
-\fIargc\fP 
-.br
-\fIargv\fP 
-.RE
-.PP
+.SS "const \fBDirectory\fP & intfl::App::getDir () const\fC [inline]\fP"
+
+.SS "std::wstring intfl::App::getError () const\fC [inline]\fP"
 
 .SS "int intfl::App::init (int argc, char * argv[])\fC [inline]\fP"
 
@@ -86,9 +97,17 @@ non-zero integer value if any error occured\&.
 .RE
 .PP
 
+.SS "void intfl::App::printHelp () const\fC [inline]\fP"
+
+.SS "int intfl::App::waitInput ()\fC [inline]\fP"
+
+.PP
+used for wait user's input before exit program\&. 
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBWindow\fP intfl::App::M_cmdsWin"
+
+.SS "\fBFlags\fP intfl::App::M_flags"
 
 .SS "\fBWindow\fP intfl::App::M_mainWin"
 

@@ -12,13 +12,6 @@ namespace intfl
 {
 
 /**
- * @brief prints help info both program started with --help or used command
- * 
- * @param win 
- */
-void commandHelp(const Window& win);
-
-/**
  * @brief used to redraw calls
  * 
  * @param win 

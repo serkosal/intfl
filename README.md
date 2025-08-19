@@ -15,6 +15,42 @@ doxygen-awesome-css for night theme support,
 download it using:
 git submodule update --init --recursive
 
+
+# usage
+```console
+intfl [-adfgsu] [-L level] [--ascii] [--du] [--files-limit #] [--help]  [--no-colors] [--prune] [--version] 
+```
+
+# options
+
+## file printing
+
+-   `-a`, `--all` all files, shows files which filenames started 
+    from '.',  excluding for `.` and `..`. 
+
+-   `-d`, or `--dirs-only` print directories only.
+
+-   `-L level`, `--print-max-depth level` max level to descend into 
+    subdirectories, by default level is 5
+
+-   `--files-limit #` max number of files to print, by default it's 15
+
+-   `--prune` do not print empty directories
+
+-   `-f`, `--print-filepathes`
+
+-   `-u`, `--user` print file owner
+-   `-g`, `--group` print group
+-   `-s`, `--size` print the file size
+-   `--du`, `--disk-usage` calculate directories size by their content
+
+-   `--no-colors` do not use colors
+-   `--ascii`   ascii-only graphics
+
+## other
+-   `--help` 
+-   `--version`
+
 # Planed feautures
 
 - 1. limit displayed files, to avoid visual cluttering.

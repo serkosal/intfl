@@ -17,6 +17,7 @@
 
 namespace intfl {
 
+
 bool getCommand(
     const Window& A_cmdsWin, 
     Window& A_mainWin,

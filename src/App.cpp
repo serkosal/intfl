@@ -1,13 +1,11 @@
-#include <cstring>
-#include <memory>
-#include <forward_list>
-
-#include "HandleInput.hpp"
-#include "Commands.hpp"
-#include "FileReprPrinter.hpp"
-
 #include "App.hpp"
 
+#include <vector>
+#include <string>
+
+#include "Commands.hpp"
+#include "FileReprPrinter.hpp"
+#include "HandleInput.hpp"
 
 namespace intfl {
 
@@ -15,25 +13,38 @@ int App::mainLoop()
 {
     std::vector<FilePrintRepr> reprs;
 
-    if (M_argc > 1 && strcmp(M_argv[1], "--help") == 0)
-    {   commandHelp(App::M_mainWin); }
+    if (M_flags.help) 
+    {   
+        printHelp();
+        waitInput();
+
+        return 0;
+    }
+
+    if (!M_dir.exists())
+    {   App::M_mainWin.printr(L"Directory not found!\n", NcursesColors::error); }
     else
     {
-        if (!M_dir.exists())
-        {   App::M_mainWin.printr(L"Directory not found!\n", NcursesColors::error); }
-        else
-        {
-            reprs = M_dir.toRepr();
-            redraw(App::M_mainWin, reprs);
-        }
+        reprs = M_dir.toRepr();
+        redraw(App::M_mainWin, reprs);
     }
+
+    
+
 
     std::wstring cmd = L"";
     auto cmd_read_status = getCommand(
         App::M_cmdsWin, App::M_mainWin, M_dir, reprs, cmd
     );
+
     while (cmd != L"quit")
     {
+        if (M_flags.help) 
+        {   
+            printHelp();
+            M_flags.help = false;
+        }
+
         if (cmd_read_status)
         {
             App::M_cmdsWin.printcr(
@@ -71,7 +82,7 @@ int App::mainLoop()
         }
         else if (cmd == L"help")
         {
-            commandHelp(App::M_mainWin);
+            M_flags.help = true;
         }
         else
         {

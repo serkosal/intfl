@@ -80,6 +80,24 @@ public:
     }
 };
 
+struct Flags
+{
+    bool all{false},
+         dirs_only{false},
+         prune{false},
+         full_filenames{false},
+         user{false},
+         group{false},
+         size{false},
+         disk_usage{false},
+         no_colors{false},
+         ascii{false},
+         help{false};
+        
+    size_t print_max_depth = 5;
+    size_t files_limit = 15;
+};
+
 } // end of the 'intfl' namespace
 
 #endif

@@ -3,6 +3,8 @@
 #include <iterator>
 #include <string>
 
+#include "Types.hpp"
+
 namespace intfl {
 
 void Directory::init(const fs::path& A_path)
@@ -30,17 +32,16 @@ void Directory::init(const fs::path& A_path)
 }
 
 std::vector<FilePrintRepr> Directory::toRepr(
-    const NestingMap& A_nesting_map, 
-    size_t A_max_depth, 
-    size_t A_max_listing_n
+    const NestingMap& A_nesting_map,
+    const Flags& A_flags
 ) const
 {
     std::vector<FilePrintRepr> res;
 
-    if (A_nesting_map.size() > A_max_depth) 
+    if (A_nesting_map.size() > A_flags.print_max_depth) 
     {   return res; }
 
-    for (const auto& el : File::toRepr(A_nesting_map, 0, 0)) 
+    for (const auto& el : File::toRepr(A_nesting_map, A_flags)) 
     {   res.push_back(el); }
 
     if (isCollapsed()) 
@@ -54,18 +55,21 @@ std::vector<FilePrintRepr> Directory::toRepr(
         const auto& K_file  = it->second; 
 
         // skip files started from .
-        if (K_path.filename().wstring().starts_with(L'.')) 
+        if (!A_flags.all && K_path.filename().wstring().starts_with(L'.')) 
+        {   continue; }
+
+        if (A_flags.dirs_only && K_file->getType() != fs::file_type::directory)
         {   continue; }
 
         auto new_nesting_map = A_nesting_map;
 
-        if (++counter > A_max_listing_n)
+        if (++counter > A_flags.files_limit)
         {
             new_nesting_map.arr().push_back(false);
 
             res.push_back(FilePrintRepr(
                 new_nesting_map, K_file.get(), 
-                M_children.size() - A_max_listing_n 
+                M_children.size() -  A_flags.files_limit 
             ));
             
             return res;
@@ -76,8 +80,7 @@ std::vector<FilePrintRepr> Directory::toRepr(
 
         auto new_entries = K_file->toRepr(
             new_nesting_map, 
-            A_max_depth,
-            A_max_listing_n
+            A_flags
         );
 
         for (const auto& el : new_entries)

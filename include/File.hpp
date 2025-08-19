@@ -72,10 +72,9 @@ public:
     virtual std::vector<FilePrintRepr> toRepr(
         const NestingMap& nesting_map,
 
-        // these arguments needed for compatibility with
+        // these argument needed for compatibility with
         // Directory::print
-        size_t max_depth = 0, 
-        size_t max_listing_n = 0
+        const Flags& A_flags
     ) const
     {
         return {FilePrintRepr(nesting_map, this)};

@@ -9,6 +9,7 @@
 #include "Window.hpp"
 #include "File.hpp"
 #include "Directory.hpp"
+#include "App.hpp"
 
 namespace intfl {
 
@@ -24,11 +25,9 @@ namespace intfl {
  * @return false  if no errors ocured during handling input
  */
 bool getCommand(
-    const Window& cmdsWin,
-    Window& mainWin,
-    const Directory& dir,
-    std::vector<FilePrintRepr>& reprs, 
-    std::wstring &command
+    App& app,
+    std::vector<FilePrintRepr>& A_reprs, 
+    std::wstring& A_command
 );
 
 } // end of the 'intfl' namespace

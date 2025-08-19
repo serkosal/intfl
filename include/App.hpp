@@ -19,27 +19,9 @@
 #include "Colors.hpp"
 #include "Window.hpp"
 #include "Directory.hpp"
+#include "Types.hpp"
 
 namespace intfl {
-
-    struct Flags
-    {
-        bool all{false},
-             dirs_only{false},
-             prune{false},
-             full_filenames{false},
-             user{false},
-             group{false},
-             size{false},
-             disk_usage{false},
-             no_colors{false},
-             ascii{false},
-             help{false};
-        
-        size_t print_max_depth = 5;
-        size_t files_limit = 15;
-    };
-
 
     /**
      * @brief Singleton class represents console Application
@@ -75,6 +57,9 @@ namespace intfl {
         Window M_mainWin;
         Window M_cmdsWin;
         Flags M_flags;
+
+        const Directory& getDir() const
+        {   return M_dir; }
 
         /**
          * @brief get an app singleton instance
@@ -248,8 +233,6 @@ namespace intfl {
 
             auto path = std::filesystem::path(argv[0]).parent_path();
 
-            M_dir.init(path);
-
             // CLI11_PARSE
             try 
             {   M_cli_app.parse(argc, argv); }
@@ -272,6 +255,8 @@ namespace intfl {
 
                 return e.get_exit_code();
             }
+
+            M_dir.init(path);
 
             return 0;
         }

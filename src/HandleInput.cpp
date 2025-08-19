@@ -14,14 +14,14 @@
 #include "Colors.hpp"
 #include "File.hpp"
 #include "Commands.hpp"
+#include "Types.hpp"
+#include "App.hpp"
 
 namespace intfl {
 
 
 bool getCommand(
-    const Window& A_cmdsWin, 
-    Window& A_mainWin,
-    const Directory& A_dir,
+    App& app,
     std::vector<FilePrintRepr>& A_reprs, 
     std::wstring& A_command
 )
@@ -29,7 +29,7 @@ bool getCommand(
     A_command = L"";
     #ifdef USE_N_CURSES
         wint_t wch;
-        auto res = wget_wch(A_cmdsWin.getPtr(), &wch);
+        auto res = wget_wch(app.M_cmdsWin.getPtr(), &wch);
         MEVENT event;
 
 
@@ -45,24 +45,24 @@ bool getCommand(
                 else if (wch == KEY_BACKSPACE && A_command.size())
                 {
                     A_command.resize(A_command.size() - 1);
-                    A_cmdsWin.printcr(A_command);
+                    app.M_cmdsWin.printcr(A_command);
                 }
                 else if (wch == KEY_UP)
                 {
-                    A_mainWin.scrollY(-1);
-                    A_mainWin.refresh();
+                    app.M_mainWin.scrollY(-1);
+                    app.M_mainWin.refresh();
                 }
                 else if (wch == KEY_DOWN)
                 {
-                    A_mainWin.scrollY(1);
-                    A_mainWin.refresh();
+                    app.M_mainWin.scrollY(1);
+                    app.M_mainWin.refresh();
                 }
                 else if (
                     wch == KEY_MOUSE && getmouse(&event) == OK 
                     && event.bstate & BUTTON1_CLICKED
                 )
                 {
-                    int y_click = event.y + A_mainWin.getYOffset();
+                    int y_click = event.y + app.M_mainWin.getYOffset();
 
                     if (y_click >= 0 && y_click < A_reprs.size())
                     {   
@@ -70,8 +70,8 @@ bool getCommand(
                         
                         file->collapseExpand();
 
-                        A_reprs = A_dir.toRepr();
-                        redraw(A_mainWin, A_reprs);
+                        A_reprs = app.getDir().toRepr(app.M_flags);
+                        redraw(app.M_mainWin, A_reprs);
                     }
                         
 
@@ -87,14 +87,14 @@ bool getCommand(
             {
                 A_command += static_cast<wchar_t>(wch);
                 wchar_t buf[2] = {static_cast<wchar_t>(wch), L'\0'};
-                A_cmdsWin.printr(std::wstring(buf));
+                app.M_cmdsWin.printr(std::wstring(buf));
             }
 
-            res = wget_wch(A_cmdsWin.getPtr(), &wch);
+            res = wget_wch(app.M_cmdsWin.getPtr(), &wch);
         }
 
-        A_cmdsWin.clear();
-        A_cmdsWin.refresh();
+        app.M_cmdsWin.clear();
+        app.M_cmdsWin.refresh();
 
         return 0;
     #else

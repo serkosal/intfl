@@ -25,7 +25,7 @@ int App::mainLoop()
     {   App::M_mainWin.printr(L"Directory not found!\n", NcursesColors::error); }
     else
     {
-        reprs = M_dir.toRepr();
+        reprs = M_dir.toRepr(App::M_flags);
         redraw(App::M_mainWin, reprs);
     }
 
@@ -34,7 +34,7 @@ int App::mainLoop()
 
     std::wstring cmd = L"";
     auto cmd_read_status = getCommand(
-        App::M_cmdsWin, App::M_mainWin, M_dir, reprs, cmd
+        App::app(), reprs, cmd
     );
 
     while (cmd != L"quit")
@@ -73,7 +73,7 @@ int App::mainLoop()
                 reprs.clear();
                 App::M_mainWin.clear();
 
-                reprs = M_dir.toRepr();
+                reprs = M_dir.toRepr(App::M_flags);
                 for (const auto& repr : reprs)
                 {   printFileRepr(repr, App::M_mainWin); }
 
@@ -93,7 +93,7 @@ int App::mainLoop()
         }
 
         cmd_read_status = getCommand(
-            App::M_cmdsWin, App::M_mainWin, M_dir, reprs, cmd
+            App::app(), reprs, cmd
         );
     }
 

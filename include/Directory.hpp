@@ -9,6 +9,7 @@
 
 #include "File.hpp"
 #include "Window.hpp"
+#include "Types.hpp"
 
 namespace intfl
 {
@@ -24,8 +25,7 @@ private:
 
     std::vector<FilePrintRepr> toRepr(
         const NestingMap& nesting_map, 
-        size_t max_depth, 
-        size_t max_listing_n
+        const Flags& A_flags
     ) const override;
 
     // todo move is_collapsed to Views 
@@ -71,12 +71,11 @@ public:
     {   return M_type == fs::file_type::directory; }
 
     std::vector<FilePrintRepr> toRepr(
-        size_t max_depth = 5, 
-        size_t max_listing_n = 15
+        const Flags& A_flags
     ) const
     {
         return Directory::toRepr(
-            {NestingMap{}}, max_depth, max_listing_n
+            {NestingMap{}}, A_flags
         );
     }
 };

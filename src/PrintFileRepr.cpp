@@ -8,23 +8,20 @@ void printFileRepr(
 )
 {
     auto nesting_str = A_file_repr.nesting().toWstr();
-    A_win.printr(nesting_str);
+    A_win.print(nesting_str, true);
 
     if (A_file_repr.getRest())
     {
-        A_win.printr(
+        A_win.printNotice(
             L"files skipped: " + std::to_wstring(A_file_repr.getRest()),
-            NcursesColors::notice
+            true
         );
 
         return;
     }
     if (!A_file_repr.file())
     {
-        A_win.printr(
-            L"file unavailable",
-            NcursesColors::notice
-        );
+        A_win.printNotice(L"file unavailable", true);
 
         return;
     }
@@ -36,15 +33,17 @@ void printFileRepr(
         if (A_file_repr.file()->isCollapsed())
         {   filename_str += L" ..."; }
 
-        A_win.printr(
-            filename_str + L"\n",
-            NcursesColors::fs_directory);
+        A_win.print(
+            filename_str + L"\n", true, false,
+            Colors::fs_directory
+        );
     }
     else
     {
-        A_win.printr(
+        A_win.print(
             filename_str + + L"\n",
-            NcursesColors::fs_regular);
+            true
+        );
     }
 }
 

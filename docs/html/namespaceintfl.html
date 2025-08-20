@@ -97,6 +97,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_app.html">App</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton class represents console Application.  <a href="classintfl_1_1_app.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_colors.html">Colors</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class encapsulating ncurses colors specific methods &amp; data  <a href="classintfl_1_1_colors.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_directory.html">Directory</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains same data as <a class="el" href="classintfl_1_1_file.html" title="Contains an information about file such as filename, path, metadata.">File</a> class and additional directory specific one.  <a href="classintfl_1_1_directory.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,9 +110,6 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">print-ready representation of file  <a href="classintfl_1_1_file_print_repr.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structintfl_1_1_flags.html">Flags</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_ncurses_colors.html">NcursesColors</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class encapsulating ncurses colors specific methods &amp; data  <a href="classintfl_1_1_ncurses_colors.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_nesting_map.html">NestingMap</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">represents file's nesting hierarchy  <a href="classintfl_1_1_nesting_map.html#details">More...</a><br /></td></tr>
@@ -125,9 +125,6 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a076aa0ce73ec613ed1598b2d6e8d647a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceintfl.html#a076aa0ce73ec613ed1598b2d6e8d647a">redraw</a> (const <a class="el" href="classintfl_1_1_window.html">Window</a> &amp;win, const std::vector&lt; <a class="el" href="classintfl_1_1_file_print_repr.html">FilePrintRepr</a> &gt; &amp;reprs)</td></tr>
-<tr class="memdesc:a076aa0ce73ec613ed1598b2d6e8d647a"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to redraw calls  <a href="namespaceintfl.html#a076aa0ce73ec613ed1598b2d6e8d647a">More...</a><br /></td></tr>
-<tr class="separator:a076aa0ce73ec613ed1598b2d6e8d647a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb2b653e31d13bce0eef48428d960ac8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceintfl.html#aeb2b653e31d13bce0eef48428d960ac8">printFileRepr</a> (const <a class="el" href="classintfl_1_1_file_print_repr.html">FilePrintRepr</a> &amp;file_repr, const <a class="el" href="classintfl_1_1_window.html">Window</a> &amp;win)</td></tr>
 <tr class="memdesc:aeb2b653e31d13bce0eef48428d960ac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to print the <a class="el" href="classintfl_1_1_file_print_repr.html" title="print-ready representation of file">FilePrintRepr</a> to a specified window  <a href="namespaceintfl.html#aeb2b653e31d13bce0eef48428d960ac8">More...</a><br /></td></tr>
 <tr class="separator:aeb2b653e31d13bce0eef48428d960ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -229,43 +226,6 @@ false if no errors ocured during handling input </dd></dl>
   <table class="params">
     <tr><td class="paramname">file_repr</td><td></td></tr>
     <tr><td class="paramname">win</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a076aa0ce73ec613ed1598b2d6e8d647a" name="a076aa0ce73ec613ed1598b2d6e8d647a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a076aa0ce73ec613ed1598b2d6e8d647a">&#9670;&nbsp;</a></span>redraw()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void intfl::redraw </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classintfl_1_1_window.html">Window</a> &amp;&#160;</td>
-          <td class="paramname"><em>win</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="classintfl_1_1_file_print_repr.html">FilePrintRepr</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>reprs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>used to redraw calls </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">win</td><td></td></tr>
-    <tr><td class="paramname">reprs</td><td></td></tr>
   </table>
   </dd>
 </dl>

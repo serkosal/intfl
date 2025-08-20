@@ -1,0 +1,76 @@
+.TH "intfl::Colors" 3 "Wed Aug 20 2025" "intfl" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+intfl::Colors \- class encapsulating ncurses colors specific methods & data  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Colors\&.hpp>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBColor\fP"
+.br
+.RI "represents NcursesColor pair "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static bool \fBisColors\fP ()"
+.br
+.ti -1c
+.RI "static void \fBinit\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const \fBColor\fP \fBnotice\fP = \fBColor\fP(\fBCOLOR_YELLOW\fP)"
+.br
+.RI "Declaration of \fBColors\fP, It's like enum\&. "
+.ti -1c
+.RI "static const \fBColor\fP \fBerror\fP = \fBColor\fP(\fBCOLOR_RED\fP)"
+.br
+.ti -1c
+.RI "static const \fBColor\fP \fBfs_regular\fP = \fBColor\fP(\fBCOLOR_WHITE\fP)"
+.br
+.ti -1c
+.RI "static const \fBColor\fP \fBfs_directory\fP = \fBColor\fP{\fBCOLOR_BLUE\fP}"
+.br
+.ti -1c
+.RI "static const \fBColor\fP \fBfs_executable\fP = \fBColor\fP{\fBCOLOR_GREEN\fP}"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+class encapsulating ncurses colors specific methods & data 
+.SH "Member Function Documentation"
+.PP 
+.SS "void intfl::Colors::init ()\fC [static]\fP"
+register colors for initialization here
+.SS "static bool intfl::Colors::isColors ()\fC [inline]\fP, \fC [static]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "const \fBColors::Color\fP intfl::Colors::error = \fBColor\fP(\fBCOLOR_RED\fP)\fC [static]\fP"
+
+.SS "const \fBColors::Color\fP intfl::Colors::fs_directory = \fBColor\fP{\fBCOLOR_BLUE\fP}\fC [static]\fP"
+
+.SS "const \fBColors::Color\fP intfl::Colors::fs_executable = \fBColor\fP{\fBCOLOR_GREEN\fP}\fC [static]\fP"
+
+.SS "const \fBColors::Color\fP intfl::Colors::fs_regular = \fBColor\fP(\fBCOLOR_WHITE\fP)\fC [static]\fP"
+
+.SS "const \fBColors::Color\fP intfl::Colors::notice = \fBColor\fP(\fBCOLOR_YELLOW\fP)\fC [static]\fP"
+
+.PP
+Declaration of \fBColors\fP, It's like enum\&. static member initialization, define colors here 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intfl from the source code\&.

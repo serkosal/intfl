@@ -100,6 +100,8 @@ $(document).ready(function(){initNavTree('classintfl_1_1_window.html',''); initR
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f911e8fa862d7b667c7c28136d266d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#a6f911e8fa862d7b667c7c28136d266d4">init</a> (int nlines, int ncols, int begin_y=0, int begin_x=0, int virt_nlines=400, int virt_ncols=200)</td></tr>
 <tr class="separator:a6f911e8fa862d7b667c7c28136d266d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7369c856939f7c081e9d57da88078b0f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#a7369c856939f7c081e9d57da88078b0f">getWch</a> (wint_t *wch) const</td></tr>
+<tr class="separator:a7369c856939f7c081e9d57da88078b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a18d96d8d46ccf53adf35f1cd4d1732"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#a1a18d96d8d46ccf53adf35f1cd4d1732">Window</a> ()</td></tr>
 <tr class="separator:a1a18d96d8d46ccf53adf35f1cd4d1732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9b1673e80020fb475fa4a4b6fc9098a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#ad9b1673e80020fb475fa4a4b6fc9098a">Window</a> (int nlines, int ncols, int begin_y=0, int begin_x=0, int virt_nlines=400, int virt_ncols=200)</td></tr>
@@ -118,18 +120,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0ec0dce2b94529eeb4b5d3710f079419"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#a0ec0dce2b94529eeb4b5d3710f079419">clear</a> () const</td></tr>
 <tr class="memdesc:a0ec0dce2b94529eeb4b5d3710f079419"><td class="mdescLeft">&#160;</td><td class="mdescRight">clears screen, does nothing without ncurses library  <a href="classintfl_1_1_window.html#a0ec0dce2b94529eeb4b5d3710f079419">More...</a><br /></td></tr>
 <tr class="separator:a0ec0dce2b94529eeb4b5d3710f079419"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e8f6d4b148763be96c7fc99d901f37e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#a2e8f6d4b148763be96c7fc99d901f37e">print</a> (std::wstring str, const <a class="el" href="classintfl_1_1_ncurses_colors_1_1_color.html">NcursesColors::Color</a> &amp;color=<a class="el" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">NcursesColors::fs_regular</a>) const</td></tr>
-<tr class="memdesc:a2e8f6d4b148763be96c7fc99d901f37e"><td class="mdescLeft">&#160;</td><td class="mdescRight">print str to the window using color  <a href="classintfl_1_1_window.html#a2e8f6d4b148763be96c7fc99d901f37e">More...</a><br /></td></tr>
-<tr class="separator:a2e8f6d4b148763be96c7fc99d901f37e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adef33a12890c0a0d2f0a34d61e4aa752"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#adef33a12890c0a0d2f0a34d61e4aa752">refresh</a> () const</td></tr>
 <tr class="memdesc:adef33a12890c0a0d2f0a34d61e4aa752"><td class="mdescLeft">&#160;</td><td class="mdescRight">display all data to the screen  <a href="classintfl_1_1_window.html#adef33a12890c0a0d2f0a34d61e4aa752">More...</a><br /></td></tr>
 <tr class="separator:adef33a12890c0a0d2f0a34d61e4aa752"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3a0968f1b5a14597b15a308acc54ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#ae3a0968f1b5a14597b15a308acc54ba9">printr</a> (std::wstring str, const <a class="el" href="classintfl_1_1_ncurses_colors_1_1_color.html">NcursesColors::Color</a> &amp;color=<a class="el" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">NcursesColors::fs_regular</a>) const</td></tr>
-<tr class="memdesc:ae3a0968f1b5a14597b15a308acc54ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">same as print and then refresh  <a href="classintfl_1_1_window.html#ae3a0968f1b5a14597b15a308acc54ba9">More...</a><br /></td></tr>
-<tr class="separator:ae3a0968f1b5a14597b15a308acc54ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abec74ec548d0ab56ebaa1a7d772dbc7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#abec74ec548d0ab56ebaa1a7d772dbc7a">printcr</a> (std::wstring str, const <a class="el" href="classintfl_1_1_ncurses_colors_1_1_color.html">NcursesColors::Color</a> &amp;color=<a class="el" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">NcursesColors::fs_regular</a>) const</td></tr>
-<tr class="memdesc:abec74ec548d0ab56ebaa1a7d772dbc7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">same as clear and then printr  <a href="classintfl_1_1_window.html#abec74ec548d0ab56ebaa1a7d772dbc7a">More...</a><br /></td></tr>
-<tr class="separator:abec74ec548d0ab56ebaa1a7d772dbc7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f62c24ff3a68742e037af8b5b860af3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#a1f62c24ff3a68742e037af8b5b860af3">print</a> (const std::wstring &amp;str, bool <a class="el" href="classintfl_1_1_window.html#adef33a12890c0a0d2f0a34d61e4aa752">refresh</a>=false, bool <a class="el" href="classintfl_1_1_window.html#a0ec0dce2b94529eeb4b5d3710f079419">clear</a>=false, const <a class="el" href="classintfl_1_1_colors_1_1_color.html">Colors::Color</a> &amp;color=<a class="el" href="classintfl_1_1_colors.html#a895a9858d86a84fef4b8dbe1a3be858b">Colors::fs_regular</a>) const</td></tr>
+<tr class="memdesc:a1f62c24ff3a68742e037af8b5b860af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">print str to the window using color  <a href="classintfl_1_1_window.html#a1f62c24ff3a68742e037af8b5b860af3">More...</a><br /></td></tr>
+<tr class="separator:a1f62c24ff3a68742e037af8b5b860af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4325a46c6904c9f08d440db23b7f4096"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#a4325a46c6904c9f08d440db23b7f4096">printErr</a> (const std::wstring &amp;str, bool <a class="el" href="classintfl_1_1_window.html#adef33a12890c0a0d2f0a34d61e4aa752">refresh</a>=false, bool <a class="el" href="classintfl_1_1_window.html#a0ec0dce2b94529eeb4b5d3710f079419">clear</a>=false, const <a class="el" href="classintfl_1_1_colors_1_1_color.html">Colors::Color</a> &amp;color=<a class="el" href="classintfl_1_1_colors.html#a7af824fcf54e227cd7b22001a1f844ea">Colors::error</a>) const</td></tr>
+<tr class="separator:a4325a46c6904c9f08d440db23b7f4096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c75c953d4907d7d39aba3b31a774e36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintfl_1_1_window.html#a5c75c953d4907d7d39aba3b31a774e36">printNotice</a> (const std::wstring &amp;str, bool <a class="el" href="classintfl_1_1_window.html#adef33a12890c0a0d2f0a34d61e4aa752">refresh</a>=false, bool <a class="el" href="classintfl_1_1_window.html#a0ec0dce2b94529eeb4b5d3710f079419">clear</a>=false, const <a class="el" href="classintfl_1_1_colors_1_1_color.html">Colors::Color</a> &amp;color=<a class="el" href="classintfl_1_1_colors.html#a319d714c1e93155af381d75a302e1db0">Colors::notice</a>) const</td></tr>
+<tr class="separator:a5c75c953d4907d7d39aba3b31a774e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >class encapsulates behaviour related to specific area of the screen. </p>
@@ -238,9 +238,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void intfl::Window::clear </td>
@@ -249,14 +246,27 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>clears screen, does nothing without ncurses library </p>
+
+</div>
+</div>
+<a id="a7369c856939f7c081e9d57da88078b0f" name="a7369c856939f7c081e9d57da88078b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7369c856939f7c081e9d57da88078b0f">&#9670;&nbsp;</a></span>getWch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int intfl::Window::getWch </td>
+          <td>(</td>
+          <td class="paramtype">wint_t *&#160;</td>
+          <td class="paramname"><em>wch</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -315,9 +325,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void intfl::Window::init </td>
@@ -361,35 +368,39 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a2e8f6d4b148763be96c7fc99d901f37e" name="a2e8f6d4b148763be96c7fc99d901f37e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e8f6d4b148763be96c7fc99d901f37e">&#9670;&nbsp;</a></span>print()</h2>
+<a id="a1f62c24ff3a68742e037af8b5b860af3" name="a1f62c24ff3a68742e037af8b5b860af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f62c24ff3a68742e037af8b5b860af3">&#9670;&nbsp;</a></span>print()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void intfl::Window::print </td>
           <td>(</td>
-          <td class="paramtype">std::wstring&#160;</td>
+          <td class="paramtype">const std::wstring &amp;&#160;</td>
           <td class="paramname"><em>str</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classintfl_1_1_ncurses_colors_1_1_color.html">NcursesColors::Color</a> &amp;&#160;</td>
-          <td class="paramname"><em>color</em> = <code><a class="el" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">NcursesColors::fs_regular</a></code>&#160;</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>refresh</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>clear</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classintfl_1_1_colors_1_1_color.html">Colors::Color</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em> = <code><a class="el" href="classintfl_1_1_colors.html#a895a9858d86a84fef4b8dbe1a3be858b">Colors::fs_regular</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -397,11 +408,6 @@ Public Member Functions</h2></td></tr>
           <td></td><td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>print str to the window using color </p>
@@ -415,8 +421,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abec74ec548d0ab56ebaa1a7d772dbc7a" name="abec74ec548d0ab56ebaa1a7d772dbc7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abec74ec548d0ab56ebaa1a7d772dbc7a">&#9670;&nbsp;</a></span>printcr()</h2>
+<a id="a4325a46c6904c9f08d440db23b7f4096" name="a4325a46c6904c9f08d440db23b7f4096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4325a46c6904c9f08d440db23b7f4096">&#9670;&nbsp;</a></span>printErr()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -425,16 +431,28 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void intfl::Window::printcr </td>
+          <td class="memname">void intfl::Window::printErr </td>
           <td>(</td>
-          <td class="paramtype">std::wstring&#160;</td>
+          <td class="paramtype">const std::wstring &amp;&#160;</td>
           <td class="paramname"><em>str</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classintfl_1_1_ncurses_colors_1_1_color.html">NcursesColors::Color</a> &amp;&#160;</td>
-          <td class="paramname"><em>color</em> = <code><a class="el" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">NcursesColors::fs_regular</a></code>&#160;</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>refresh</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>clear</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classintfl_1_1_colors_1_1_color.html">Colors::Color</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em> = <code><a class="el" href="classintfl_1_1_colors.html#a7af824fcf54e227cd7b22001a1f844ea">Colors::error</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -449,19 +467,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>same as clear and then printr </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td></td></tr>
-    <tr><td class="paramname">color</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
-<a id="ae3a0968f1b5a14597b15a308acc54ba9" name="ae3a0968f1b5a14597b15a308acc54ba9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3a0968f1b5a14597b15a308acc54ba9">&#9670;&nbsp;</a></span>printr()</h2>
+<a id="a5c75c953d4907d7d39aba3b31a774e36" name="a5c75c953d4907d7d39aba3b31a774e36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c75c953d4907d7d39aba3b31a774e36">&#9670;&nbsp;</a></span>printNotice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -470,16 +479,28 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void intfl::Window::printr </td>
+          <td class="memname">void intfl::Window::printNotice </td>
           <td>(</td>
-          <td class="paramtype">std::wstring&#160;</td>
+          <td class="paramtype">const std::wstring &amp;&#160;</td>
           <td class="paramname"><em>str</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classintfl_1_1_ncurses_colors_1_1_color.html">NcursesColors::Color</a> &amp;&#160;</td>
-          <td class="paramname"><em>color</em> = <code><a class="el" href="classintfl_1_1_ncurses_colors.html#a5327050d96daa25193191a522d63f474">NcursesColors::fs_regular</a></code>&#160;</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>refresh</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>clear</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classintfl_1_1_colors_1_1_color.html">Colors::Color</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em> = <code><a class="el" href="classintfl_1_1_colors.html#a319d714c1e93155af381d75a302e1db0">Colors::notice</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -493,15 +514,6 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>same as print and then refresh </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td></td></tr>
-    <tr><td class="paramname">color</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -510,9 +522,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void intfl::Window::refresh </td>
@@ -521,11 +530,6 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>display all data to the screen </p>
@@ -600,8 +604,9 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="_window_8hpp_source.html">Window.hpp</a></li>
+<li>src/<a class="el" href="_window_8cpp.html">Window.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

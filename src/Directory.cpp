@@ -3,8 +3,6 @@
 #include <iterator>
 #include <string>
 
-#include "Types.hpp"
-
 namespace intfl {
 
 void Directory::init(const fs::path& A_path)

@@ -2,7 +2,6 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
 [
     [ "App.hpp", "_app_8hpp.html", "_app_8hpp" ],
     [ "Colors.hpp", "_colors_8hpp.html", "_colors_8hpp" ],
-    [ "Commands.hpp", "_commands_8hpp.html", "_commands_8hpp" ],
     [ "Directory.hpp", "_directory_8hpp.html", "_directory_8hpp" ],
     [ "File.hpp", "_file_8hpp.html", "_file_8hpp" ],
     [ "FileReprPrinter.hpp", "_file_repr_printer_8hpp.html", "_file_repr_printer_8hpp" ],

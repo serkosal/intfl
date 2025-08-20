@@ -4,18 +4,11 @@
 #include <cwchar>
 #include <cwctype>
 
-// to tell idiot IntelleSense stop ignoring ncurses block codes
-// #define USE_N_CURSES
+#include "FileReprPrinter.hpp"
 
 #ifdef USE_N_CURSES
     #include <ncursesw/ncurses.h>
 #endif
-
-#include "Colors.hpp"
-#include "File.hpp"
-#include "Commands.hpp"
-#include "Types.hpp"
-#include "App.hpp"
 
 namespace intfl {
 
@@ -29,7 +22,7 @@ bool getCommand(
     A_command = L"";
     #ifdef USE_N_CURSES
         wint_t wch;
-        auto res = wget_wch(app.M_cmdsWin.getPtr(), &wch);
+        auto res = app.M_cmdsWin.getWch(&wch);
         MEVENT event;
 
 
@@ -45,7 +38,7 @@ bool getCommand(
                 else if (wch == KEY_BACKSPACE && A_command.size())
                 {
                     A_command.resize(A_command.size() - 1);
-                    app.M_cmdsWin.printcr(A_command);
+                    app.M_cmdsWin.print(A_command, true, true);
                 }
                 else if (wch == KEY_UP)
                 {
@@ -71,7 +64,10 @@ bool getCommand(
                         file->collapseExpand();
 
                         A_reprs = app.getDir().toRepr(app.M_flags);
-                        redraw(app.M_mainWin, A_reprs);
+                        app.M_mainWin.clear();
+                        for (const auto& repr : A_reprs)
+                        {   printFileRepr(repr, app.M_mainWin); }
+                        app.M_mainWin.refresh();
                     }
                         
 
@@ -87,10 +83,10 @@ bool getCommand(
             {
                 A_command += static_cast<wchar_t>(wch);
                 wchar_t buf[2] = {static_cast<wchar_t>(wch), L'\0'};
-                app.M_cmdsWin.printr(std::wstring(buf));
+                app.M_cmdsWin.print(std::wstring(buf), true);
             }
 
-            res = wget_wch(app.M_cmdsWin.getPtr(), &wch);
+            res = app.M_cmdsWin.getWch(&wch);
         }
 
         app.M_cmdsWin.clear();

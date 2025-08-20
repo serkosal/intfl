@@ -1,4 +1,4 @@
-.TH "intfl::NcursesColors" 3 "Tue Aug 19 2025" "intfl" \" -*- nroff -*-
+.TH "intfl::NcursesColors" 3 "Wed Aug 20 2025" "intfl" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -33,6 +33,7 @@ intfl::NcursesColors \- class encapsulating ncurses colors specific methods & da
 .ti -1c
 .RI "static const \fBColor\fP \fBnotice\fP = \fBColor\fP(\fBCOLOR_YELLOW\fP)"
 .br
+.RI "Declaration of Colors, It's like enum\&. "
 .ti -1c
 .RI "static const \fBColor\fP \fBerror\fP = \fBColor\fP(\fBCOLOR_RED\fP)"
 .br
@@ -51,22 +52,24 @@ intfl::NcursesColors \- class encapsulating ncurses colors specific methods & da
 class encapsulating ncurses colors specific methods & data 
 .SH "Member Function Documentation"
 .PP 
-.SS "static void intfl::NcursesColors::init ()\fC [inline]\fP, \fC [static]\fP"
-
+.SS "void intfl::NcursesColors::init ()\fC [static]\fP"
+register colors for initialization here
 .SS "static bool intfl::NcursesColors::isColors ()\fC [inline]\fP, \fC [static]\fP"
 
 .SH "Member Data Documentation"
 .PP 
-.SS "const \fBColor\fP intfl::NcursesColors::error = \fBColor\fP(\fBCOLOR_RED\fP)\fC [static]\fP"
+.SS "const \fBNcursesColors::Color\fP intfl::NcursesColors::error = \fBColor\fP(\fBCOLOR_RED\fP)\fC [static]\fP"
 
-.SS "const \fBColor\fP intfl::NcursesColors::fs_directory = \fBColor\fP{\fBCOLOR_BLUE\fP}\fC [static]\fP"
+.SS "const \fBNcursesColors::Color\fP intfl::NcursesColors::fs_directory = \fBColor\fP{\fBCOLOR_BLUE\fP}\fC [static]\fP"
 
-.SS "const \fBColor\fP intfl::NcursesColors::fs_executable = \fBColor\fP{\fBCOLOR_GREEN\fP}\fC [static]\fP"
+.SS "const \fBNcursesColors::Color\fP intfl::NcursesColors::fs_executable = \fBColor\fP{\fBCOLOR_GREEN\fP}\fC [static]\fP"
 
-.SS "const \fBColor\fP intfl::NcursesColors::fs_regular = \fBColor\fP(\fBCOLOR_WHITE\fP)\fC [static]\fP"
+.SS "const \fBNcursesColors::Color\fP intfl::NcursesColors::fs_regular = \fBColor\fP(\fBCOLOR_WHITE\fP)\fC [static]\fP"
 
-.SS "const \fBColor\fP intfl::NcursesColors::notice = \fBColor\fP(\fBCOLOR_YELLOW\fP)\fC [inline]\fP, \fC [static]\fP"
+.SS "const \fBNcursesColors::Color\fP intfl::NcursesColors::notice = \fBColor\fP(\fBCOLOR_YELLOW\fP)\fC [static]\fP"
 
+.PP
+Declaration of Colors, It's like enum\&. static member initialization, define colors here 
 
 .SH "Author"
 .PP 

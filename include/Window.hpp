@@ -3,19 +3,10 @@
 #ifndef INTFL_WINDOW_HPP_
 #define INTFL_WINDOW_HPP_
 
-// to tell idiot IntelleSense stop ignoring ncurses block codes
-// #define USE_N_CURSES
-
 #include <string>
 #include <vector>
 
 #include "Colors.hpp"
-
-#ifdef USE_N_CURSES
-    #include <ncursesw/ncurses.h>
-#else
-    #include <iostream>
-#endif
 
 namespace intfl {
 
@@ -26,9 +17,9 @@ namespace intfl {
 class Window
 {
 private:
-    #ifdef USE_N_CURSES
-        WINDOW* MP_window = nullptr;
-    #endif
+
+    /// @brief void ptr to Ncurses which static casted to WINDOW
+    void* MP_window = nullptr;
 
     int M_nlines = 0, M_ncols = 0;
     int M_virt_nlines = 400, M_virt_ncols = 200;
@@ -41,20 +32,9 @@ public:
         int nlines, int ncols,
         int begin_y = 0, int begin_x = 0,
         int virt_nlines = 400, int virt_ncols = 200
-    )
-    {
-        M_nlines = nlines; M_ncols = ncols; 
-        M_begin_y = begin_y; M_begin_x = begin_x;
-        M_virt_nlines = virt_nlines; M_virt_ncols = virt_ncols;
+    );
 
-        #ifdef USE_N_CURSES
-            MP_window = newpad(M_virt_nlines, M_virt_ncols);
-
-            keypad(MP_window, TRUE);
-
-            clear();
-        #endif
-    }
+    int getWch(wint_t* wch) const;
 
     Window() {}
 
@@ -80,14 +60,6 @@ public:
         init(nlines, ncols, begin_y, begin_x, virt_nlines, virt_ncols);
     }
 
-    #ifdef USE_N_CURSES
-        WINDOW* getPtr() const
-        { 
-            return MP_window;
-        }
-    #endif
-
-    
     int getYOffset() const noexcept { return M_y_offset; }
     int getXOffset() const noexcept { return M_y_offset; }
 
@@ -129,12 +101,14 @@ public:
      * @brief clears screen, does nothing without ncurses library
      * 
      */
-    void clear() const
-    {
-        #ifdef USE_N_CURSES
-            wclear(MP_window);
-        #endif
-    }
+    void clear() const;
+
+    /**
+     * @brief display all data to the screen
+     * 
+     */
+    void refresh() const;
+
 
     /**
      * @brief print str to the window using color
@@ -144,67 +118,29 @@ public:
      *              white
      */
     void print(
-        std::wstring str, 
-        const NcursesColors::Color& color = NcursesColors::fs_regular
+        const std::wstring& str,
+        bool refresh = false,
+        bool clear = false,
+        const Colors::Color& color = Colors::fs_regular
+    ) const;
+
+
+    void printErr(
+        const std::wstring& str,
+        bool refresh = false,
+        bool clear = false,
+        const Colors::Color& color = Colors::error
     ) const
-    {
-        #ifdef USE_N_CURSES
-            color.on(MP_window);
-                waddwstr(MP_window, str.c_str());
-            color.off(MP_window);
-        #else
-            std::wcout << str;
-        #endif
+    {   print(str, refresh, clear, color); }
 
-    }
 
-    /**
-     * @brief display all data to the screen
-     * 
-     */
-    void refresh() const
-    {
-        #ifdef USE_N_CURSES
-            prefresh(
-                MP_window,
-                M_y_offset, M_x_offset,
-                M_begin_y, M_begin_x,
-                M_begin_y + M_nlines - 1,
-                M_begin_x + M_ncols - 1
-            );
-        #endif
-    }
-
-    /**
-     * @brief same as print and then refresh
-     * 
-     * @param str 
-     * @param color 
-     */
-    void printr(
-        std::wstring str, 
-        const NcursesColors::Color& color = NcursesColors::fs_regular
+    void printNotice(
+        const std::wstring& str,
+        bool refresh = false,
+        bool clear = false,
+        const Colors::Color& color = Colors::notice
     ) const
-    {
-        print(str, color);
-        refresh();
-    }
-
-    /**
-     * @brief same as clear and then printr
-     * 
-     * @param str 
-     * @param color 
-     */
-    void printcr(
-        std::wstring str, 
-        const NcursesColors::Color& color = NcursesColors::fs_regular
-    ) const
-    {
-        clear();
-        printr(str, color);
-    }
-
+    {   print(str, refresh, clear, color); }
 };
 
 } // end of the 'intfl' namespace

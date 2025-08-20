@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scrollx_0',['scrollX',['../classintfl_1_1_window.html#a60e90d2dc828d4a5cfa325370e48f59d',1,'intfl::Window']]],
-  ['scrolly_1',['scrollY',['../classintfl_1_1_window.html#a3cc3c07f0cbf0ad0cab7a33bab3a26bc',1,'intfl::Window']]],
-  ['size_2',['size',['../structintfl_1_1_flags.html#acbbbfa9d55295152eb8ed20caeef516e',1,'intfl::Flags::size()'],['../classintfl_1_1_nesting_map.html#af32b85d847de69932de43c62c06c88d3',1,'intfl::NestingMap::size()']]]
+  ['torepr_0',['toRepr',['../classintfl_1_1_directory.html#ac2df17ee6e75f52cf6d7bff0d2ae31a4',1,'intfl::Directory::toRepr()'],['../classintfl_1_1_file.html#adf985c4f56ad69b940b1550bcad1fd89',1,'intfl::File::toRepr()']]],
+  ['towstr_1',['toWstr',['../classintfl_1_1_file_print_repr.html#acaa7a60e92cea83d653477bfed601aa8',1,'intfl::FilePrintRepr::toWstr()'],['../classintfl_1_1_nesting_map.html#a225cf81cf65a4044ee6e7ec70becb3cb',1,'intfl::NestingMap::toWstr()']]],
+  ['types_2ehpp_2',['Types.hpp',['../_types_8hpp.html',1,'']]]
 ];

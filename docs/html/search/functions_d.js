@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['torepr_0',['toRepr',['../classintfl_1_1_directory.html#ac2df17ee6e75f52cf6d7bff0d2ae31a4',1,'intfl::Directory::toRepr()'],['../classintfl_1_1_file.html#adf985c4f56ad69b940b1550bcad1fd89',1,'intfl::File::toRepr()']]],
-  ['towstr_1',['toWstr',['../classintfl_1_1_file_print_repr.html#acaa7a60e92cea83d653477bfed601aa8',1,'intfl::FilePrintRepr::toWstr()'],['../classintfl_1_1_nesting_map.html#a225cf81cf65a4044ee6e7ec70becb3cb',1,'intfl::NestingMap::toWstr()']]]
+  ['waitinput_0',['waitInput',['../classintfl_1_1_app.html#a08b0ab85d605ce44cbc3cb5e2fda0184',1,'intfl::App']]],
+  ['window_1',['Window',['../classintfl_1_1_window.html#a1a18d96d8d46ccf53adf35f1cd4d1732',1,'intfl::Window::Window()'],['../classintfl_1_1_window.html#ad9b1673e80020fb475fa4a4b6fc9098a',1,'intfl::Window::Window(int nlines, int ncols, int begin_y=0, int begin_x=0, int virt_nlines=400, int virt_ncols=200)']]]
 ];

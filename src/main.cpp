@@ -4,15 +4,6 @@
 // #define USE_N_CURSES
 
 #include "App.hpp"
-#include "Directory.hpp"
-
-
-// #include "Colors.hpp"
-
-// #include "MainLoop.hpp"
-// #include "Window.hpp"
-// #include "FileReprPrinter.hpp"
-// #include "HandleInput.hpp"
 
 using namespace intfl;
 
@@ -21,10 +12,10 @@ int main(int argc, char *argv[])
     auto res = App::app().init(argc, argv);
     if (res)
     {
-        App::app().M_mainWin.printr(
+        App::app().M_mainWin.printErr(
             App::app().getError()
             + L"\nReturn code error is: " + std::to_wstring(res) + L"\n",
-            NcursesColors::error
+            true
         );
 
         App::app().waitInput();
@@ -35,9 +26,9 @@ int main(int argc, char *argv[])
     res = App::app().mainLoop();
     if (res)
     {
-        App::app().M_mainWin.printcr(
+        App::app().M_mainWin.printErr(
             L"\nProgram aborted! Error code is: " + std::to_wstring(res) + L"\n",
-            NcursesColors::error
+            true, true
         );
 
         App::app().waitInput();

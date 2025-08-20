@@ -11,9 +11,10 @@ target_sources(intfl
     PRIVATE
     src/Directory.cpp
     src/File.cpp
-    src/Commands.cpp
     src/HandleInput.cpp
     src/App.cpp
+    src/Colors.cpp
+    src/Window.cpp
     src/PrintFileRepr.cpp
 )
 

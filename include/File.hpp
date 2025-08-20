@@ -9,7 +9,6 @@
 
 #include "Types.hpp"
 
-
 namespace intfl {
 
 class File;

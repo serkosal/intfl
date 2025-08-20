@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['waitinput_0',['waitInput',['../classintfl_1_1_app.html#a08b0ab85d605ce44cbc3cb5e2fda0184',1,'intfl::App']]],
-  ['window_1',['Window',['../classintfl_1_1_window.html',1,'intfl::Window'],['../classintfl_1_1_window.html#a1a18d96d8d46ccf53adf35f1cd4d1732',1,'intfl::Window::Window()'],['../classintfl_1_1_window.html#ad9b1673e80020fb475fa4a4b6fc9098a',1,'intfl::Window::Window(int nlines, int ncols, int begin_y=0, int begin_x=0, int virt_nlines=400, int virt_ncols=200)']]],
-  ['window_2ehpp_2',['Window.hpp',['../_window_8hpp.html',1,'']]]
+  ['_7edirectory_0',['~Directory',['../classintfl_1_1_directory.html#a5f1e6d987c5975b05b5615a56c80945b',1,'intfl::Directory']]],
+  ['_7efile_1',['~File',['../classintfl_1_1_file.html#a4fe8a1db57f496fd5b99b269e8d716df',1,'intfl::File']]],
+  ['_7efileprintrepr_2',['~FilePrintRepr',['../classintfl_1_1_file_print_repr.html#a5c8547790cb93cafb9882f3335fb98c2',1,'intfl::FilePrintRepr']]]
 ];

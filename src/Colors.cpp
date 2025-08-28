@@ -27,6 +27,7 @@ namespace intfl {
         Colors::fs_directory  = Color{COLOR_BLUE},
         Colors::fs_executable = Color{COLOR_GREEN};
 
+    
     void Colors::init()
     {
         /// @brief register colors for initialization here

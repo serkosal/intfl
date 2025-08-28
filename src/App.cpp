@@ -41,15 +41,14 @@ int App::init(int argc, char* argv[])
         M_cmdsWin.clear();
 
         Colors::init();
-        if (!Colors::isColors())
-        {   M_mainWin.printErr(
-                L"Colors are unsupported. Running without them!\n", 
-                true
-            );
-        }
-    #else
-        std::wcout << L"Running without NCurses, colors are unsupported!\n";
     #endif
+
+    if (!Colors::isColors())
+    {   M_mainWin.printErr(
+            L"Colors are unsupported. Running without them!\n", 
+            true
+        );
+    }
 
     M_cli_app.add_flag("-a, --all", M_flags.all, 
         "prints files which filenames started from '.', "
@@ -99,7 +98,7 @@ int App::init(int argc, char* argv[])
         [this](size_t n)
         {
             M_cmdsWin.print(
-                L"intfl v0.1.1-alpha\n",
+                L"intfl v0.3.1-alpha\n",
                 true
             );
         },

@@ -64,6 +64,8 @@ friend class NestingMap;
 protected:
     fs::path M_path;
     fs::file_type M_type;
+
+    std::error_code M_err_code;
 public:
     fs::file_type getType() const { return M_type; }
 

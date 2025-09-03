@@ -80,6 +80,8 @@ public:
         return {FilePrintRepr(nesting_map, this)};
     }
 
+    bool isError() const { return bool(M_err_code); }
+
     virtual bool  isCollapsed()          const { return false; }
     virtual const File& collapse()       const { return *this; }
     virtual const File& expand()         const { return *this; }

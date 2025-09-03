@@ -28,9 +28,9 @@ void Directory::init(const fs::path& A_path)
             for (const auto& entry: it)
             {
                 std::error_code err_code;
-                if (entry.is_directory(err_code) && !err_code)
+                if (entry.is_directory(err_code))
                 {   
-                    M_children[entry] = std::make_unique<Directory>(entry); 
+                    M_children[entry] = std::make_unique<Directory>(entry);
                 }
                 else if (!err_code)
                 {   
@@ -42,11 +42,10 @@ void Directory::init(const fs::path& A_path)
                     M_children[entry] = std::make_unique<File>(
                                             entry, fs::file_type::unknown);}
             }
-
-            return;
         }
-    }
 
+        return;
+    }
 
     M_type = fs::file_type::unknown;
 }

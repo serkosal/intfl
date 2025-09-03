@@ -30,13 +30,19 @@ void printFileRepr(
 
     if (A_file_repr.file()->getType() == fs::file_type::directory)
     {
-        if (A_file_repr.file()->isCollapsed())
-        {   filename_str += L" ..."; }
-
         A_win.print(
-            filename_str + L"\n", true, false,
+            filename_str, false, false,
             Colors::fs_directory
         );
+
+        if (A_file_repr.file()->isError())
+        {   A_win.printErr(L" error"); }
+        else if (A_file_repr.file()->isCollapsed())
+        {   
+            A_win.print(L" ...", false, false, Colors::fs_directory); 
+        }
+
+        A_win.print(L"\n", true, false);
     }
     else
     {
